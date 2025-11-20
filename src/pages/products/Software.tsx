@@ -1,41 +1,49 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { BarChart3, Brain, LineChart, Activity } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
-import { Button } from "@/components/ui/button";
+
+// ---- Import Images ----
+import cleanestRoute from "@/assets/software/cleanest_route.jpg";
+import exposureAssessment from "@/assets/software/exposure_assessment.jpg";
+import roadCondition from "@/assets/software/road_condition.jpg";
+import hotspot from "@/assets/software/hotspot_identification.jpg";
+import airQuality from "@/assets/software/air_quality_map.jpg";
 
 const Software = () => {
-  const platforms = [
+  const softwares = [
     {
-      title: "Analytics Dashboard",
-      icon: BarChart3,
-      description: "Real-time data visualization with customizable widgets and reports",
-      features: ["Custom dashboards", "Real-time alerts", "Historical trends", "Multi-device view"],
+      title: "Cleanest Route",
+      description: "Gives you the least polluted route from Point A to Point B",
+      image: cleanestRoute,
     },
     {
-      title: "AI Predictive Engine",
-      icon: Brain,
-      description: "Machine learning powered forecasting and anomaly detection",
-      features: ["Predictive analytics", "Pattern recognition", "Anomaly detection", "Auto-insights"],
+      title: "Exposure Assessment",
+      description: "Provides personal PM2.5 exposure assessment for individuals",
+      image: exposureAssessment,
     },
     {
-      title: "Data Explorer",
-      icon: LineChart,
-      description: "Advanced data analysis tools with export and API access",
-      features: ["Data export", "API integration", "Custom queries", "Batch processing"],
+      title: "Road Condition",
+      description: "Visualization of the road condition on the map",
+      image: roadCondition,
     },
     {
-      title: "Mobile App",
-      icon: Activity,
-      description: "On-the-go monitoring with push notifications and quick insights",
-      features: ["iOS & Android", "Push alerts", "Offline mode", "Quick actions"],
+      title: "Spatio-temporal hotspot identification",
+      description:
+        "Get to know pollution hotspots across the country",
+      image: hotspot,
+    },
+    {
+      title: "Air Quality map",
+      description: "Visualizing air pollution using heat map",
+      image: airQuality,
     },
   ];
 
   return (
     <PageLayout>
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-16">
+
+        {/* Breadcrumb */}
         <Breadcrumb
           items={[
             { label: "Products", path: "/products" },
@@ -43,64 +51,47 @@ const Software = () => {
           ]}
         />
 
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-4xl mx-auto text-center mb-16"
+          className="text-center mb-16"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 glow-text">
-            Software Platforms
-          </h1>
+          <h1 className="text-5xl font-bold mb-4 glow-text">Softwares</h1>
           <p className="text-xl text-muted-foreground">
-            AI-powered analytics and visualization tools for environmental data
+            We strive to provide advanced air & road monitoring software for efficient results.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {platforms.map((platform, index) => (
+        {/* Software Grid */}
+        <div className="grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
+          {softwares.map((soft, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="glass-glow rounded-2xl p-8 hover-scale"
+              transition={{ delay: index * 0.05 }}
+              className="rounded-2xl overflow-hidden group hover-scale"
             >
-              <platform.icon className="w-12 h-12 text-primary mb-4" />
-              <h3 className="text-2xl font-bold mb-3">{platform.title}</h3>
-              <p className="text-muted-foreground mb-6">{platform.description}</p>
-              <ul className="space-y-2">
-                {platform.features.map((feature, i) => (
-                  <li key={i} className="flex items-center text-sm text-muted-foreground">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary mr-3" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              {/* Image */}
+              <div className="h-60 w-full overflow-hidden">
+                <img
+                  src={soft.image}
+                  alt={soft.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+
+              {/* Card Content */}
+              <div className="p-6 bg-card rounded-b-2xl shadow-lg">
+                <h3 className="text-xl font-bold mb-2">{soft.title}</h3>
+                <p className="text-muted-foreground text-sm">{soft.description}</p>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="glass-glow rounded-3xl p-12 text-center"
-        >
-          <h2 className="text-3xl font-bold mb-4 glow-text">
-            Request a Demo
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Experience our software platforms with a personalized walkthrough
-          </p>
-          <Button
-            asChild
-            size="lg"
-            className="bg-gradient-to-r from-primary to-secondary text-background hover:shadow-glow transition-all duration-300"
-          >
-            <Link to="/contact">Schedule Demo</Link>
-          </Button>
-        </motion.div>
       </div>
     </PageLayout>
   );
