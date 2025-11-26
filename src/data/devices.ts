@@ -1,7 +1,6 @@
 import MirrorDevice from "@/assets/kaatru/Mirrordevice.jpg";
 import MobileDevice from "@/assets/kaatru/Mobiledevice.jpg";
 import StationaryDevice from "@/assets/kaatru/stationarydevice.jpg";
-
 export const devices = [
   {
     id: "air-monitor-mobile",
@@ -10,16 +9,12 @@ export const devices = [
     price: "Contact for Pricing",
     description:
       "Advanced vehicle-mounted unit engineered for real-time road condition assessment and environmental monitoring.",
-
-    // ✔ FIXED — specs must be key-value object
     specs: {
       Sensors: "Accelerometer, Gyroscope",
       Monitoring: "Road Condition Monitoring",
       Connectivity: "Wi-Fi, LTE",
       Mounting: "Three-wheelers, Four-wheelers",
     },
-
-    // ✔ FIXED — features must exist
     features: [
       "High precision sensing",
       "Real-time connectivity",
@@ -27,7 +22,6 @@ export const devices = [
       "Rugged automotive-grade build",
     ],
 
-    // ✔ FIXED — DeviceDetail expects an array
     images: [MobileDevice, MobileDevice, MobileDevice],
   },
 

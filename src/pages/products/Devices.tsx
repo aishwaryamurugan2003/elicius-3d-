@@ -39,13 +39,16 @@ const Devices = () => {
             Professional air quality monitoring devices with cutting-edge technology
           </p>
 
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-primary to-secondary text-background hover:shadow-glow transition-all duration-300"
-          >
+          <Button size="lg"
+          onClick={() => {
+            const brochureUrl = "/Kaatru brochure.pdf"; 
+            window.open(brochureUrl, "_blank"); 
+             }}
+             className="bg-gradient-to-r from-primary to-secondary text-background hover:shadow-glow transition-all duration-300">
             <Download className="mr-2 w-5 h-5" />
             Download Complete Brochure
           </Button>
+
         </motion.div>
 
         {/* Features Grid */}

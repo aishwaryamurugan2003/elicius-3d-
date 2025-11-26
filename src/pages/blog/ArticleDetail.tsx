@@ -6,8 +6,6 @@ import Breadcrumb from "@/components/Breadcrumb";
 
 const ArticleDetail = () => {
   const { slug } = useParams();
-
-  // Mock article data
   const article = {
     title: "The Future of Clean Energy in India",
     category: "Clean Energy",

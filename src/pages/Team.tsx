@@ -6,33 +6,71 @@ import Breadcrumb from "@/components/Breadcrumb";
 const Team = () => {
   const team = [
     {
-      name: "Dr. Arun Kumar",
+      name: "Prof. Raghunathan Rengaswamy",
       role: "Founder & CEO",
-      bio: "PhD from IIT Madras, 15+ years in clean-tech R&D",
       linkedin: "#",
       email: "arun@eliciusenergy.com",
     },
     {
-      name: "Priya Sharma",
-      role: "CTO",
-      bio: "Expert in IoT architecture and embedded systems",
+      name: "Sreejith C",
+      role: "-",
       linkedin: "#",
       email: "priya@eliciusenergy.com",
     },
     {
-      name: "Dr. Rajesh Patel",
-      role: "Head of Research",
-      bio: "Leading fuel cell and clean energy research",
+      name: "Shijoy Thomas",
+      role: "-",
       linkedin: "#",
       email: "rajesh@eliciusenergy.com",
     },
-    {
-      name: "Meera Reddy",
-      role: "VP Engineering",
-      bio: "Specialist in ML and data analytics platforms",
-      linkedin: "#",
-      email: "meera@eliciusenergy.com",
-    },
+    // {
+    //   name: "Sumeer S",
+    //   role: "-",
+    //   linkedin: "#",
+    //   email: "sumeer@kaatru.org",
+    // },
+    // {
+    //   name: "Navaneethakrishnan V",
+    //   role: "-",
+    //   linkedin: "#",
+    //   email: "navaneethakrishnan@kaatru.org",
+    // },
+    // {
+    //   name: "Prasanth S",
+    //   role: "-",
+    //   linkedin: "#",
+    //   email: "meera@eliciusenergy.com",
+    // },
+    // {
+    //   name: "Elango M",
+    //   role: "-",
+    //   linkedin: "#",
+    //   email: "meera@eliciusenergy.com",
+    // },
+    // {
+    //   name: "Amrithalakshmi V P",
+    //   role: "-",
+    //   linkedin: "#",
+    //   email: "amrithalakshmi@kaatru.org",
+    // },
+    // {
+    //   name: "Praveenkumar P",
+    //   role: "-",
+    //   linkedin: "#",
+    //   email: "meera@eliciusenergy.com",
+    // },
+    // {
+    //   name: "Hemnath B",
+    //   role: "-",
+    //   linkedin: "#",
+    //   email: "hemnath@kaatru.org",
+    // },
+    // {
+    //   name: "Aishwarya M",
+    //   role: "-",
+    //   linkedin: "#",
+    //   email: "meera@eliciusenergy.com",
+    // },
   ];
 
   return (
@@ -71,7 +109,6 @@ const Team = () => {
                 {member.name}
               </h3>
               <div className="text-sm text-primary mb-3">{member.role}</div>
-              <p className="text-sm text-muted-foreground mb-4">{member.bio}</p>
               
               <div className="flex justify-center space-x-3">
                 <a

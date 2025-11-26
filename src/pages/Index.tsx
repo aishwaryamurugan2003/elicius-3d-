@@ -7,10 +7,10 @@ import heroImage from "@/assets/hero-home.jpg";
 
 const Index = () => {
   const stats = [
-    { label: "Years of R&D", value: "10+", icon: Award },
-    { label: "Devices Deployed", value: "500+", icon: Zap },
-    { label: "Data Points/Day", value: "1M+", icon: TrendingUp },
-    { label: "Client Success", value: "98%", icon: Shield },
+    { label: "Cities Covered", value: "1", icon: Award },
+    { label: "Devices Deployed", value: "79", icon: Zap },
+    { label: "Data Points/Day", value: "13M+", icon: TrendingUp },
+    { label: "Pilot Study", value: "5", icon: Shield },
   ];
 
   const features = [
@@ -65,10 +65,7 @@ const Index = () => {
             <h1 className="text-5xl md:text-7xl font-bold mb-6 glow-text">
               INNOVATIVE ENERGY SOLUTIONS FOR A GREENER TOMORROW
             </h1>
-            
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-At Elicius Energy, we envision a world where industries thrive sustainably through groundbreaking innovations in Chemical Engineering and Data science. Our expert team is dedicated to providing tailor-made consulting solutions that address industrial challenges with a commitment to environmental stewardship and technological excellence            </p>
-            
+                      
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 asChild
@@ -187,6 +184,24 @@ At Elicius Energy, we envision a world where industries thrive sustainably throu
       </section>
 
       {/* CTA Section */}
+       <section className="py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="glass-glow rounded-3xl p-12 text-center max-w-4xl mx-auto"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 glow-text">
+              About Elicius
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8 text-justify">
+             At Elicius Energy, we envision a world where industries thrive sustainably through groundbreaking innovations in Chemical Engineering and Data science.
+             Our expert team is dedicated to providing tailor-made consulting solutions that address industrial challenges with a commitment to environmental stewardship and technological excellence.
+            </p>
+          </motion.div>
+        </div>
+      </section>
       <section className="py-20">
         <div className="container mx-auto px-4">
           <motion.div

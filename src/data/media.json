@@ -1,0 +1,26 @@
+[
+  {
+    "type": "video",
+    "title": "Smart City Deployment - Bangalore",
+    "description": "See how we deployed 200+ sensors across Bangalore",
+    "date": "Dec 2023"
+  },
+  {
+    "type": "press",
+    "title": "IIT Madras Research Breakthrough",
+    "description": "Major advancement in fuel cell efficiency",
+    "date": "Nov 2023"
+  },
+  {
+    "type": "video",
+    "title": "Product Demo - AirMonitor Pro",
+    "description": "Complete walkthrough of our flagship device",
+    "date": "Oct 2023"
+  },
+  {
+    "type": "press",
+    "title": "₹10Cr Funding Round Announcement",
+    "description": "Series A funding to expand operations",
+    "date": "Sep 2023"
+  }
+]
