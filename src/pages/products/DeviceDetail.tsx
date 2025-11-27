@@ -9,10 +9,8 @@ import { devices } from "@/data/devices";
 const DeviceDetail = () => {
   const { deviceId } = useParams();
 
-  // Get device from shared data file
   const device = devices.find((d) => d.id === deviceId);
 
-  // If device not found
   if (!device) {
     return (
       <PageLayout>
