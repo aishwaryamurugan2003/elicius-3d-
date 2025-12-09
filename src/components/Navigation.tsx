@@ -8,52 +8,60 @@ const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
-  const navItems = [
-    { label: "Home", path: "/" },
-    { label: "About", path: "/about" },
-    {
-      label: "Products",
-      path: "/products",
-      dropdown: [
-        { label: "All Products", path: "/products" },
-        { label: "Devices", path: "/products/devices" },
-        { label: "Software", path: "/products/software" },
-        { label: "Data", path: "/products/data" },
-        { label: "Service", path: "/products/service" },
-      ],
-    },
-    {
-      label: "Services",
-      path: "/services",
-      dropdown: [
-        { label: "All Services", path: "/services" },
-        { label: "Volunteering", path: "/services/volunteering" },
-        { label: "Case Studies", path: "/services/case-studies" },
-      ],
-    },
-    { label: "Technology", path: "/technology" },
-    {
-      label: "Research",
-      path: "/research",
-      dropdown: [
-        { label: "Research Overview", path: "/research" },
-        { label: "Fuel Cell", path: "/research/fuel-cell" },
-        { label: "Air Quality Data", path: "/research/air-quality-data" },
-      ],
-    },
-    { label: "Clients", path: "/clients" },
-    { label: "Team", path: "/team" },
-    {
-      label: "Blog",
-      path: "/blog",
-      dropdown: [
-        { label: "All Posts", path: "/blog" },
-        { label: "Media", path: "/blog/media" },
-        { label: "Articles", path: "/blog/articles" },
-      ],
-    },
-    { label: "Contact", path: "/contact" },
-  ];
+const navItems = [
+  { label: "Home", path: "/" },
+  { label: "About", path: "/about" },
+
+  {
+    label: "Products",
+    path: "/products",
+    dropdown: [
+      { label: "All Products", path: "/products" },
+      { label: "Devices", path: "/products/devices" },
+      { label: "Software", path: "/products/software" },
+      { label: "Data", path: "/products/data" },
+      { label: "Service", path: "/products/service" },
+    ],
+  },
+
+  {
+    label: "Services",
+    path: "/services",
+    dropdown: [
+      { label: "All Services", path: "/services" },
+      { label: "Volunteering", path: "/services/volunteering" },
+    ],
+  },
+  { label: "Case Studies", path: "/services/case-studies" },
+
+  { label: "Technology", path: "/technology" },
+
+  {
+    label: "Research",
+    path: "/research",
+    dropdown: [
+      { label: "Research Overview", path: "/research" },
+      { label: "Fuel Cell", path: "/research/fuel-cell" },
+      { label: "Air Quality Data", path: "/research/air-quality-data" },
+    ],
+  },
+
+  { label: "Clients", path: "/clients" },
+  { label: "Team", path: "/team" },
+
+  {
+    label: "Blog",
+    path: "/blog",
+    dropdown: [
+      { label: "All Posts", path: "/blog" },
+      { label: "Media", path: "/blog/media" },
+      { label: "Articles", path: "/blog/articles" },
+    ],
+  },
+
+  { label: "Contact", path: "/contact" },
+];
+
 
   const isActive = (path: string) => location.pathname === path;
 

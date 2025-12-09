@@ -1,73 +1,122 @@
 import MirrorDevice from "@/assets/kaatru/Mirrordevice.jpg";
 import MobileDevice from "@/assets/kaatru/Mobiledevice.jpg";
 import StationaryDevice from "@/assets/kaatru/stationarydevice.jpg";
+
 export const devices = [
+  /* -------------------------------------------------------------------------- */
+  /*                           1. MOBILE DEVICE (Full)                          */
+  /* -------------------------------------------------------------------------- */
   {
     id: "air-monitor-mobile",
     name: "Mobile Device",
     category: "Premium",
     price: "Contact for Pricing",
     description:
-      "Advanced vehicle-mounted unit engineered for real-time road condition assessment and environmental monitoring.",
+      "Vehicle-mounted smart unit engineered for real-time air quality, toxic gas detection, and road condition scoring using IMU and environmental sensors.",
+
     specs: {
-      Sensors: "Accelerometer, Gyroscope",
-      Monitoring: "Road Condition Monitoring",
+      // Environmental Sensors
+      "PM Sensors": "PM2.5, PM10 (0–1000 µg/m³)",
+      VOC: "0–1000 ppm (< 10s response)",
+      "Toxic Gas": "SOx, NO₂, CO₂ (0–10,000 ppm)",
+      Temperature: "10–50°C (20ms)",
+      Humidity: "0–90% RH (20ms)",
+      "Ambient Light": "UV, IR, Visible",
+
+      // Motion / Road Sensors
+      IMU: "Accelerometer, Gyroscope, Magnetometer (±2g/4g/8g/16g)",
+
+      // Connectivity + Power
       Connectivity: "Wi-Fi, LTE",
+      GPS: "Accuracy up to 2 meters",
+      Power: "12V input, 4hr battery backup",
       Mounting: "Three-wheelers, Four-wheelers",
     },
+
     features: [
-      "High precision sensing",
-      "Real-time connectivity",
-      "Cloud-enabled analytics",
-      "Rugged automotive-grade build",
+      "Real-time PM2.5, PM10, CO₂, VOC monitoring",
+      "Advanced IMU for road quality & bumpiness scoring",
+      "Cleanest route and least bumpy route computation",
+      "Exposure assessment for drivers & passengers",
+      "Geo-fencing, anti-theft alarm & push notifications",
+      "LTE + Wi-Fi provisioning",
+      "Cloud-based analytics dashboard",
+      "Automotive-grade rugged enclosure",
     ],
 
     images: [MobileDevice, MobileDevice, MobileDevice],
   },
 
+  /* -------------------------------------------------------------------------- */
+  /*                       2. MIRROR DEVICE (Light Version)                     */
+  /* -------------------------------------------------------------------------- */
   {
     id: "air-monitor-mirror",
     name: "Mirror Device",
     category: "Premium",
     price: "Contact for Pricing",
     description:
-      "Smart mirror-mounted device designed for real-time environmental and road condition monitoring.",
+      "Lightweight mirror-mounted environmental monitoring device optimized for two-wheelers. Tracks pollution exposure and road vibration levels.",
 
     specs: {
-      Sensors: "Accelerometer, Gyroscope",
-      Monitoring: "Road Condition Monitoring",
+      // Environmental Sensors (lighter set)
+      "PM Sensors": "PM2.5, PM10",
+      VOC: "0–1000 ppm",
+      Temperature: "10–50°C",
+      Humidity: "0–90% RH",
+
+      // Motion sensor
+      IMU: "Accelerometer, Gyroscope (±2g/4g/8g)",
+
+      // Connectivity + Mount
       Connectivity: "Wi-Fi, LTE",
       Mounting: "Two-wheelers (mirror mount)",
+      GPS: "Accuracy 2–5 meters",
     },
 
     features: [
-      "Lightweight ergonomic design",
-      "High vibration resistance",
+      "Compact and lightweight design",
+      "Real-time PM and VOC monitoring",
+      "Road vibration detection via IMU",
+      "Exposure monitoring for riders",
       "Cloud connectivity",
+      "High vibration resistance (two-wheeler optimized)",
       "Automotive-grade enclosure",
     ],
 
     images: [MirrorDevice, MirrorDevice, MirrorDevice],
   },
 
+  /* -------------------------------------------------------------------------- */
+  /*                      3. STATIONARY DEVICE (Air Quality)                    */
+  /* -------------------------------------------------------------------------- */
   {
     id: "stationary-device",
     name: "Stationary Device",
     category: "Enterprise",
     price: "Contact for Pricing",
     description:
-      "Stationary environmental device for continuous air quality and atmospheric parameter monitoring.",
+      "Fixed-position ambient air quality station for continuous monitoring of pollutants, gases, and atmospheric conditions in urban or industrial locations.",
 
     specs: {
-      Monitoring: "PM2.5, PM10, Temperature, Humidity, CO₂, SOx, NO₂, UV",
+      Monitoring:
+        "PM2.5, PM10, CO₂, NO₂, SOx, Temperature, Humidity, UV, VOC",
+      Temperature: "10–50°C",
+      Humidity: "0–90% RH",
+      "Toxic Gas": "CO₂ up to 10,000 ppm",
+      UV: "UV index & spectral measurement",
       Connectivity: "Wi-Fi, LTE",
       Mounting: "Rooftops, buildings, industrial premises",
+      Power: "External AC + backup battery",
     },
 
     features: [
-      "24/7 real-time monitoring",
-      "Weather-resistant design",
-      "High sensor accuracy",
+      "24/7 continuous environmental monitoring",
+      "High-accuracy multi-pollutant sensors",
+      "Weather-resistant industrial design",
+      "Real-time AQI & emissions reporting",
+      "Cloud dashboard + fleet management",
+      "Supports policy & mitigation analytics",
     ],
 
     images: [StationaryDevice, StationaryDevice, StationaryDevice],
