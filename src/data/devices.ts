@@ -3,9 +3,6 @@ import MobileDevice from "@/assets/kaatru/Mobiledevice.jpg";
 import StationaryDevice from "@/assets/kaatru/stationarydevice.jpg";
 
 export const devices = [
-  /* -------------------------------------------------------------------------- */
-  /*                           1. MOBILE DEVICE (Full)                          */
-  /* -------------------------------------------------------------------------- */
   {
     id: "air-monitor-mobile",
     name: "Mobile Device",
@@ -15,7 +12,6 @@ export const devices = [
       "Vehicle-mounted smart unit engineered for real-time air quality, toxic gas detection, and road condition scoring using IMU and environmental sensors.",
 
     specs: {
-      // Environmental Sensors
       "PM Sensors": "PM2.5, PM10 (0–1000 µg/m³)",
       VOC: "0–1000 ppm (< 10s response)",
       "Toxic Gas": "SOx, NO₂, CO₂ (0–10,000 ppm)",
@@ -23,10 +19,9 @@ export const devices = [
       Humidity: "0–90% RH (20ms)",
       "Ambient Light": "UV, IR, Visible",
 
-      // Motion / Road Sensors
+      
       IMU: "Accelerometer, Gyroscope, Magnetometer (±2g/4g/8g/16g)",
 
-      // Connectivity + Power
       Connectivity: "Wi-Fi, LTE",
       GPS: "Accuracy up to 2 meters",
       Power: "12V input, 4hr battery backup",
@@ -46,10 +41,6 @@ export const devices = [
 
     images: [MobileDevice, MobileDevice, MobileDevice],
   },
-
-  /* -------------------------------------------------------------------------- */
-  /*                       2. MIRROR DEVICE (Light Version)                     */
-  /* -------------------------------------------------------------------------- */
   {
     id: "air-monitor-mirror",
     name: "Mirror Device",
@@ -59,7 +50,6 @@ export const devices = [
       "Lightweight mirror-mounted environmental monitoring device optimized for two-wheelers. Tracks pollution exposure and road vibration levels.",
 
     specs: {
-      // Environmental Sensors (lighter set)
       "PM Sensors": "PM2.5, PM10",
       VOC: "0–1000 ppm",
       Temperature: "10–50°C",
@@ -86,10 +76,6 @@ export const devices = [
 
     images: [MirrorDevice, MirrorDevice, MirrorDevice],
   },
-
-  /* -------------------------------------------------------------------------- */
-  /*                      3. STATIONARY DEVICE (Air Quality)                    */
-  /* -------------------------------------------------------------------------- */
   {
     id: "stationary-device",
     name: "Stationary Device",
