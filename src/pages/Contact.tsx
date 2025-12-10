@@ -16,12 +16,43 @@ const Contact = () => {
     company: "",
     message: "",
   });
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success("Thank you! We'll get back to you soon.");
-    setFormData({ name: "", email: "", phone: "", company: "", message: "" });
-  };
+  const formDataObj = new FormData();
+  formDataObj.append("name", formData.name);
+  formDataObj.append("email", formData.email);
+  formDataObj.append("phone", formData.phone);
+  formDataObj.append("company", formData.company);
+  formDataObj.append("message", formData.message);
+
+  try {
+    const response = await fetch("http://127.0.0.1:8000/contact/", {
+      method: "POST",
+      body: formDataObj,
+    });
+
+    const data = await response.json();
+    console.log("Backend response:", data); // <-- IMPORTANT
+
+    if (data.status === "success") {
+      toast.success("Message sent successfully!");
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        message: "",
+      });
+    } else {
+      toast.error("Failed: " + data.message);
+    }
+  } catch (err) {
+    console.error("Fetch error:", err);
+    toast.error("Could not connect to backend.");
+  }
+};
 
   const contactInfo = [
     {
