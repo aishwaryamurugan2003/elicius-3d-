@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Heart, FileText, ArrowRight } from "lucide-react";
+import { Heart, FileText, ArrowRight, Database, Wrench } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
@@ -8,24 +8,40 @@ import consultancyImg from "@/assets/services/consultancy.jpg";
 
 const Services = () => {
   const services = [
-    {
-      icon: Heart,
-      title: "Volunteering Programs",
-      description:
-        "Join our community initiatives for environmental monitoring and clean air advocacy",
-      link: "/services/volunteering",
-      features: [
-      ],
-    },
-    {
-      icon: FileText,
-      title: "Case Studies",
-      description:
-        "Explore real-world deployments and success stories from our clients",
-      link: "/services/case-studies",
-      features: [
-      ],
-    },
+    // {
+    //   icon: Heart,
+    //   title: "Volunteering Programs",
+    //   description:
+    //     "Join our community initiatives for environmental monitoring and clean air advocacy",
+    //   link: "/services/volunteering",
+    //   features: [
+    //   ],
+    // },
+    // {
+    //   icon: FileText,
+    //   title: "Case Studies",
+    //   description:
+    //     "Explore real-world deployments and success stories from our clients",
+    //   link: "/services/case-studies",
+    //   features: [
+    //   ],
+    // },
+        {
+          icon: Database,
+          title: "Data",
+          description: "Comprehensive data management and storage solutions for environmental data",
+          features: ["Cloud storage", "Real-time analytics", "Data export"],
+          link: "/products/data",
+          color: "from-primary to-secondary",
+        },
+        {
+          icon: Wrench,
+          title: "Service",
+          description: "End-to-end support including installation, maintenance, and consulting",
+          features: ["24/7 support", "Installation", "Training"],
+          link: "/products/service",
+          color: "from-secondary to-primary",
+        },
   ];
 
   return (

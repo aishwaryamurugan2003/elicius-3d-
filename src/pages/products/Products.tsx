@@ -23,22 +23,22 @@ const Products = () => {
       link: "/products/software",
       color: "from-secondary to-primary",
     },
-    {
-      icon: Database,
-      title: "Data",
-      description: "Comprehensive data management and storage solutions for environmental data",
-      features: ["Cloud storage", "Real-time analytics", "Data export"],
-      link: "/products/data",
-      color: "from-primary to-secondary",
-    },
-    {
-      icon: Wrench,
-      title: "Service",
-      description: "End-to-end support including installation, maintenance, and consulting",
-      features: ["24/7 support", "Installation", "Training"],
-      link: "/products/service",
-      color: "from-secondary to-primary",
-    },
+    // {
+    //   icon: Database,
+    //   title: "Data",
+    //   description: "Comprehensive data management and storage solutions for environmental data",
+    //   features: ["Cloud storage", "Real-time analytics", "Data export"],
+    //   link: "/products/data",
+    //   color: "from-primary to-secondary",
+    // },
+    // {
+    //   icon: Wrench,
+    //   title: "Service",
+    //   description: "End-to-end support including installation, maintenance, and consulting",
+    //   features: ["24/7 support", "Installation", "Training"],
+    //   link: "/products/service",
+    //   color: "from-secondary to-primary",
+    // },
   ];
 
   return (

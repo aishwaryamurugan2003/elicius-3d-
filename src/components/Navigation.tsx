@@ -132,7 +132,7 @@ const navItems = [
               asChild
               className="bg-gradient-to-r from-primary to-secondary text-background hover:shadow-glow transition-all duration-300"
             >
-              <Link to="/contact">Get Started</Link>
+              {/* <Link to="/contact">Get Started</Link> */}
             </Button>
           </div>
 
@@ -192,9 +192,9 @@ const navItems = [
                 asChild
                 className="w-full bg-gradient-to-r from-primary to-secondary text-background"
               >
-                <Link to="/contact" onClick={() => setIsOpen(false)}>
+                {/* <Link to="/contact" onClick={() => setIsOpen(false)}>
                   Get Started
-                </Link>
+                </Link> */}
               </Button>
             </div>
           </div>

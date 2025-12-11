@@ -20,9 +20,9 @@ const Footer = () => {
 
               <span className="text-xl font-bold glow-text">Elicius Energy</span>
             </div>
-            <p className="text-sm text-muted-foreground">
+            {/* <p className="text-sm text-muted-foreground">
               Born from Kaatru's R&D excellence at IIT Madras, evolved into real-world clean-tech innovations.
-            </p>
+            </p> */}
             <div className="flex space-x-3">
               <a href="#" className="w-10 h-10 rounded-lg glass-glow flex items-center justify-center hover-scale">
                 <Facebook className="w-5 h-5 text-primary" />
