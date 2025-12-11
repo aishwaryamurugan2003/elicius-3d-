@@ -23,7 +23,7 @@ const Products = () => {
       link: "/products/software",
       color: "from-secondary to-primary",
     },
-    // {
+    // {                                                                                                                                                                                                                                                     
     //   icon: Database,
     //   title: "Data",
     //   description: "Comprehensive data management and storage solutions for environmental data",

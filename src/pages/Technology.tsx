@@ -104,7 +104,7 @@ const Technology = () => {
             Innovation from IIT Madras
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Our technology stack is built on years of R&D at IIT Madras Research Park, 
+            Our technology stack is built on years of R&D at IIT Madras, 
             combining academic excellence with real-world application to create solutions 
             that push the boundaries of clean-tech innovation.
           </p>
