@@ -67,7 +67,7 @@ const CaseStudies = () => {
                   <Button
                     asChild
                     variant="outline"
-                    className="glass-glow hover:bg-primary/10 group-hover:glow-border transition-all"
+                    className="glass-glow hover:bg-primary group-hover:glow-border transition-all"
                   >
                     <Link
                       to={`/services/case-studies/${study.id}`}

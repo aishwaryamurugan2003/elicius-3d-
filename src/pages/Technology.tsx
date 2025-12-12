@@ -6,49 +6,54 @@ import Breadcrumb from "@/components/Breadcrumb";
 const Technology = () => {
   const technologies = [
     {
-      icon: Network,
-      title: "IoT Architecture",
-      description: "Advanced Internet of Things infrastructure with edge computing capabilities",
-      points: [
-        "Real-time sensor networks",
-        "Edge processing for low latency",
-        "Mesh networking protocols",
-        "OTA firmware updates",
-      ],
-    },
-    {
-      icon: Cpu,
-      title: "Machine Learning",
-      description: "AI-powered analytics for predictive insights and pattern recognition",
-      points: [
-        "Time-series forecasting",
-        "Anomaly detection algorithms",
-        "Pattern recognition",
-        "Automated insights generation",
-      ],
-    },
-    {
-      icon: Zap,
-      title: "Power Electronics",
-      description: "Efficient power management and energy harvesting technologies",
-      points: [
-        "Low-power sensor design",
-        "Solar energy harvesting",
-        "Battery optimization",
-        "Power monitoring systems",
-      ],
-    },
-    {
-      icon: CloudLightning,
-      title: "Cloud Infrastructure",
-      description: "Scalable cloud architecture with distributed data processing",
-      points: [
-        "Multi-region deployment",
-        "Auto-scaling capabilities",
-        "Data redundancy",
-        "API-first design",
-      ],
-    },
+  icon: Network,
+  title: "IoT (Internet of Things)",
+  description:
+    "Intelligent IoT systems with real-time data acquisition and industrial-grade hardware solutions.",
+  points: [
+    "Develop and deploy intelligent sensor networks",
+    "Implement real-time data acquisition systems",
+    "Enable on-device edge processing",
+    "Customized hardware and firmware for industrial applications",
+  ],
+},
+{
+  icon: CloudLightning,
+  title: "Data Science & Cloud Technologies",
+  description:
+    "Data engineering, analytics, and scalable cloud workflows for operational and research applications.",
+  points: [
+    "End-to-end data collection and cleaning",
+    "Advanced data analytics and insight generation",
+    "Calibration models for experimental and field data",
+    "Scalable data pipelines for seamless MLOps",
+  ],
+},
+{
+  icon: Cpu,
+  title: "Artificial Intelligence (AI)",
+  description:
+    "Custom AI/ML models, deep learning integration, and domain-specific intelligent systems.",
+  points: [
+    "Custom AI/ML model development",
+    "LLM fine-tuning for domain-specific applications",
+    "Hybrid deep learning + first-principles models",
+    "Retrofit intelligent modules into existing systems",
+  ],
+},
+{
+  icon: Zap,
+  title: "Software Development",
+  description:
+    "End-to-end software engineering across mobile, web, desktop, and cloud-based platforms.",
+  points: [
+    "Mobile and web application development",
+    "Dashboards and visualization platforms",
+    "Custom desktop applications",
+    "Scalable SaaS platforms",
+  ],
+},
+
   ];
 
   return (

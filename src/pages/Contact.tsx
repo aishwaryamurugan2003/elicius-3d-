@@ -33,7 +33,7 @@ const Contact = () => {
     });
 
     const data = await response.json();
-    console.log("Backend response:", data); // <-- IMPORTANT
+    console.log("Backend response:", data); 
 
     if (data.status === "success") {
       toast.success("Message sent successfully!");
@@ -58,17 +58,17 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Visit Us",
-      details: ["IIT Madras Research Park", "Chennai, Tamil Nadu 600113", "India"],
+      details: ["IIT Madras,Mechanical Sciences Block", "Room no :147"],
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+91 123 456 7890", "+91 098 765 4321", "Mon-Fri, 9AM-6PM IST"],
+      details: ["3247", "9.00 A.M. to 8.00 P.M."],
     },
     {
       icon: Mail,
       title: "Email Us",
-      details: ["info@eliciusenergy.com", "support@eliciusenergy.com", "sales@eliciusenergy.com"],
+      details: ["contact.elicius@gmail.com"],
     },
   ];
 

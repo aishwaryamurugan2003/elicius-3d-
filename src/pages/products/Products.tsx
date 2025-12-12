@@ -93,7 +93,7 @@ const Products = () => {
               <Button
                 asChild
                 variant="outline"
-                className="w-full glass-glow hover:bg-primary/10 group-hover:glow-border transition-all"
+                className="w-full glass-glow hover:bg-primary group-hover:glow-border transition-all"
               >
                 <Link to={product.link} className="flex items-center justify-center">
                   Explore {product.title}

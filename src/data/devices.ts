@@ -20,7 +20,7 @@ export const devices = [
       "Ambient Light": "UV, IR, Visible",
 
       
-      IMU: "Accelerometer, Gyroscope, Magnetometer (±2g/4g/8g/16g)",
+      IMU: "Accelerometer, Gyroscope, Magnetometer",
 
       Connectivity: "Wi-Fi, LTE",
       GPS: "Accuracy up to 2 meters",
@@ -56,7 +56,7 @@ export const devices = [
       Humidity: "0–90% RH",
 
       // Motion sensor
-      IMU: "Accelerometer, Gyroscope (±2g/4g/8g)",
+      IMU: "Accelerometer, Gyroscope",
 
       // Connectivity + Mount
       Connectivity: "Wi-Fi, LTE",

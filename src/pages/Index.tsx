@@ -81,7 +81,7 @@ const Index = () => {
                 asChild
                 size="lg"
                 variant="outline"
-                className="glass-glow hover:bg-primary/10 transition-all duration-300"
+                className="glass-glow hover:bg-primary transition-all "
               >
                 <Link to="/contact">Get in Touch</Link>
               </Button>
@@ -196,7 +196,7 @@ const Index = () => {
               About Elicius
             </h2>
             <p className="text-xl text-muted-foreground mb-8 text-justify">
-             At Elicius Energy, we envision a world where industries thrive sustainably through groundbreaking innovations in Chemical Engineering and IOT Technology.
+             At Elicius Energy, we envision a world where industries thrive sustainably through groundbreaking innovations in Chemical Engineering and IoT Technology.
              Our expert team is dedicated to providing tailor-made consulting solutions that address industrial challenges with a commitment to environmental stewardship and technological excellence.
             </p>
           </motion.div>

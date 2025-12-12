@@ -95,7 +95,7 @@ const Services = () => {
               <Button
                 asChild
                 variant="outline"
-                className="w-full glass-glow hover:bg-primary/10 group-hover:glow-border transition-all"
+                className="w-full glass-glow hover:bg-primary group-hover:glow-border transition-all"
               >
                 <Link
                   to={service.link}

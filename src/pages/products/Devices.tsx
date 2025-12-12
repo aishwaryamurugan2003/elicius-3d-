@@ -131,7 +131,7 @@ const Devices = () => {
                 <Button
                   onClick={() => navigate(`/products/devices/${device.id}`)}
                   variant="outline"
-                  className="w-full glass-glow hover:bg-primary/10 transition-all"
+                  className="w-full glass-glow hover:bg-primary transition-all"
                 >
                   <div className="flex items-center justify-center">
                     View Details

@@ -152,3 +152,27 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+/* button {
+  -webkit-appearance: none !important;
+  background-color: transparent !important;
+}
+
+button:active {
+  filter: none !important;
+  backdrop-filter: none !important;
+} */
+/* .glass,
+.glass-glow,
+button,
+button * {
+  -webkit-appearance: none !important;
+  background-color: inherit !important;
+}
+
+.glass:active,
+.glass-glow:active,
+button:active {
+  filter: none !important;
+  -webkit-filter: none !important;
+  backdrop-filter: blur(20px) !important;
+} */
