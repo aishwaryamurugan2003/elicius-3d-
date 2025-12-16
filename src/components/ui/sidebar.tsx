@@ -50,9 +50,6 @@ const SidebarProvider = React.forwardRef<
 >(({ defaultOpen = true, open: openProp, onOpenChange: setOpenProp, className, style, children, ...props }, ref) => {
   const isMobile = useIsMobile();
   const [openMobile, setOpenMobile] = React.useState(false);
-
-  // This is the internal state of the sidebar.
-  // We use openProp and setOpenProp for control from outside the component.
   const [_open, _setOpen] = React.useState(defaultOpen);
   const open = openProp ?? _open;
   const setOpen = React.useCallback(
@@ -116,7 +113,7 @@ const SidebarProvider = React.forwardRef<
               ...style,
             } as React.CSSProperties
           }
-          className={cn("group/sidebar-wrapper flex min-h-svh w-full has-[[data-variant=inset]]:bg-sidebar", className)}
+          className={cn("group/sidebar-wrapper flex min-h-screen w-full has-[[data-variant=inset]]:bg-sidebar", className)}
           ref={ref}
           {...props}
         >
@@ -192,7 +189,7 @@ const Sidebar = React.forwardRef<
       />
       <div
         className={cn(
-          "fixed inset-y-0 z-10 hidden h-svh w-[--sidebar-width] transition-[left,right,width] duration-200 ease-linear md:flex",
+          className="fixed inset-y-0 z-10 hidden h-screen w-[--sidebar-width] transition-[left,right,width] duration-200 ease-linear md:flex",
           side === "left"
             ? "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]"
             : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
@@ -205,11 +202,17 @@ const Sidebar = React.forwardRef<
         {...props}
       >
         <div
-          data-sidebar="sidebar"
-          className="flex h-full w-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow"
-        >
-          {children}
-        </div>
+  data-sidebar="sidebar"
+  className="flex h-full w-full flex-col bg-sidebar 
+             group-data-[variant=floating]:rounded-lg 
+             group-data-[variant=floating]:border 
+             group-data-[variant=floating]:border-sidebar-border 
+             group-data-[variant=floating]:shadow
+             overflow-y-auto"   
+>
+  {children}
+</div>
+
       </div>
     </div>
   );

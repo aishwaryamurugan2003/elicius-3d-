@@ -17,9 +17,7 @@ const Navigation = () => {
       dropdown: [
         { label: "All Products", path: "/products" },
         { label: "Devices", path: "/products/devices" },
-        { label: "Software", path: "/products/software" },
-        { label: "Data", path: "/products/data" },
-        { label: "Service", path: "/products/service" },
+        { label: "Software", path: "/products/software" }
       ],
     },
 
@@ -27,15 +25,20 @@ const Navigation = () => {
     { label: "Case Studies", path: "/services/case-studies" },
     { label: "Technology", path: "/technology" },
 
+   {
+  label: "Research",
+  path: "/research",
+  dropdown: [
+    { label: "Research Overview", path: "/research" },
+    { label: "Fuel Cell Technology", path: "/research/fuel-cell" },
+    { label: "Air Quality Data Science", path: "/research/air-quality-data" },
     {
-      label: "Research",
-      path: "/research",
-      dropdown: [
-        { label: "Research Overview", path: "/research" },
-        { label: "Fuel Cell", path: "/research/fuel-cell" },
-        { label: "Air Quality Data", path: "/research/air-quality-data" },
-      ],
+      label: "Electrochemical Modelling & Simulation",
+      path: "/research/simulations",
     },
+  ],
+},
+
 
     { label: "Clients", path: "/clients" },
     { label: "Team", path: "/team" },

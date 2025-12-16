@@ -69,12 +69,12 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3 text-sm text-muted-foreground">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span>IIT Madras Research Park, Chennai, India</span>
+                <span>IIT Madras,Mechanical Sciences Block", "Room no :147</span>
               </li>
               <li className="flex items-center space-x-3 text-sm text-muted-foreground">
                 <Mail className="w-5 h-5 text-primary" />
                 <a href="mailto:info@eliciusenergy.com" className="hover:text-primary transition-colors">
-                  info@eliciusenergy.com
+                  admin@eliciusenergy.in
                 </a>
               </li>
               <li className="flex items-center space-x-3 text-sm text-muted-foreground">

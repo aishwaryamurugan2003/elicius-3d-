@@ -15,7 +15,7 @@ const Clients = () => {
     { name: "IIT Madras", logo: logoIITM },
     { name: "THSTI", logo: logoTHSTI },
     { name: "WSAI", logo: logoWSAI },
-    { name: "Cancer Institute of Technology", logo: logoCIT },
+    { name: "WIA", logo: logoCIT },
     { name: "NMRL", logo: logoNMRL },
     { name: "Pfizer", logo: logopfizer },
     { name: "Larsen & Toubro", logo: logoLT },

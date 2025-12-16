@@ -27,6 +27,7 @@ import Articles from "./pages/blog/Articles";
 import ArticleDetail from "./pages/blog/ArticleDetail";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import ElectrochemicalModelling from "./pages/research/Simulations";
 
 const queryClient = new QueryClient();
 
@@ -61,6 +62,7 @@ const App = () => (
           <Route path="/research" element={<Research />} />
           <Route path="/research/fuel-cell" element={<FuelCell />} />
           <Route path="/research/air-quality-data" element={<AirQualityData />} />
+          <Route path="/research/simulations" element={<ElectrochemicalModelling />} />
           
           <Route path="/clients" element={<Clients />} />
           <Route path="/team" element={<Team />} />
