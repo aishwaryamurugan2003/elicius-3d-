@@ -99,6 +99,46 @@ const Technology = () => {
             </motion.div>
           ))}
         </div>
+    {/* <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  className="mt-16 glass-glow rounded-3xl p-12 text-center"
+>
+  <h2 className="text-3xl font-bold mb-6 glow-text">
+    Modelling and Simulation of Electrochemical Energy Systems
+  </h2>
+
+  <div className="space-y-6 text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+    <p>
+      Advanced modelling and simulation of electrochemical energy systems for hydrogen and clean-energy applications is one of Elicius’ key areas of specialisation. In this domain, Elicius has strong capabilities in first principles and system-level modelling of fuel cell plants, including detailed representation of auxiliary and balance-of-plant (BoP) subsystems. These models are used for steady-state and dynamic performance analysis, efficiency optimisation, operational diagnostics, and system integration studies.
+    </p>
+
+    <p>
+      As part of this expertise, Elicius has also expanded into modelling of alkaline water electrolyser (AWE) stacks, with a focused effort on degradation mechanisms under real operating conditions. This includes electrode and catalyst degradation, electrolyte effects, gas crossover, resistance growth, and coupled thermal–electrochemical behaviour, enabling lifetime assessment, reliability analysis, and operational optimisation of working plants.
+    </p>
+
+    <p>
+      Through rigorous application of thermodynamics, electrochemistry, and heat and mass transfer, Elicius delivers technically robust, industry-relevant modelling solutions while continuing to develop and operate across its other technology and engineering verticals.
+    </p>
+  </div>
+</motion.div> */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  className="mt-16 glass-glow rounded-3xl p-12 text-center"
+>
+  <h2 className="text-3xl font-bold mb-4 glow-text">
+    Modelling and Simulation of Electrochemical Energy Systems
+  </h2>
+
+  <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed text-justify">
+    Elicius specialises in advanced modelling and simulation of electrochemical energy systems for hydrogen and clean-energy applications. Our expertise spans first-principles and system-level modelling of fuel cell plants and alkaline water electrolysers, enabling performance analysis, degradation assessment, and operational optimisation through rigorous application of thermodynamics, electrochemistry, and heat and mass transfer.
+  </p>
+</motion.div>
+
+
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
