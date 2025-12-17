@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Battery, Wind } from "lucide-react";
+import { ArrowRight, Battery, Brain, Wind } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
@@ -30,6 +30,21 @@ const Research = () => {
         "Health impact assessment",
       ],
     },
+    {
+  icon: Brain,
+  title: "ELECTROCHEMICAL MODELLING & SIMULATION",
+  description:
+    "Physics-based and system-level simulation of electrochemical energy systems, enabling performance analysis, degradation assessment, and optimisation of fuel cells and electrolyser technologies.",
+  link: "/research/simulations",
+  highlights: [
+    "First-principles & system-level modelling",
+    "Fuel cell & electrolyser stack simulation",
+    "Degradation and lifetime assessment",
+    "Balance-of-plant modelling",
+    "Performance and operational optimisation",
+  ],
+}
+
   ];
 
   return (

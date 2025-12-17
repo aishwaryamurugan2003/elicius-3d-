@@ -20,15 +20,19 @@ const Index = () => {
       link: "/products/devices",
     },
     {
-      title: "AI-Powered Software",
-      description: "Machine learning algorithms for predictive analytics and insights.",
-      link: "/products/software",
-    },
+  title: "Fuel Cell Technology",
+  description:
+    "Research, design, and development of PEM fuel cell architectures, MEA fabrication, and performance optimisation for clean energy applications.",
+  link: "/research/fuel-cell",
+},
+
     {
-      title: "Comprehensive Data Solutions",
-      description: "Cloud-based platforms for data visualization and management.",
-      link: "/products/data",
-    },
+  title: "Electrochemical Modelling & Simulation",
+  description:
+    "Physics-based modelling and simulation of fuel cell and electrolyser systems for performance analysis, degradation studies, and system optimisation.",
+  link: "/research/simulations",
+},
+
   ];
 
   return (
@@ -114,28 +118,43 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 relative">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="glass-glow rounded-2xl p-6 text-center hover-scale"
-              >
-                <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                <div className="text-3xl md:text-4xl font-bold glow-text mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </motion.div>
-            ))}
+     {/* Stats Section */}
+<section className="py-20 relative">
+  <div className="container mx-auto px-4">
+    
+    {/* Heading */}
+    <motion.h2
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="text-4xl md:text-5xl font-bold glow-text text-center mb-12"
+    >
+      Air Quality Monitoring Overview
+    </motion.h2>
+
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {stats.map((stat, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          className="glass-glow rounded-2xl p-6 text-center hover-scale"
+        >
+          <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
+          <div className="text-3xl md:text-4xl font-bold glow-text mb-2">
+            {stat.value}
           </div>
-        </div>
-      </section>
+          <div className="text-sm text-muted-foreground">
+            {stat.label}
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Features Section */}
       <section className="py-20">
@@ -144,8 +163,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+            className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 glow-text">
               Our Solutions
             </h2>
@@ -154,7 +172,7 @@ const Index = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 text-justify">
             {features.map((feature, index) => (
               <motion.div
                 key={index}

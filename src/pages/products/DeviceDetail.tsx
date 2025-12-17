@@ -6,6 +6,8 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { devices } from "@/data/devices";
 
+
+
 const DeviceDetail = () => {
   const { deviceId } = useParams();
 
@@ -109,20 +111,24 @@ const DeviceDetail = () => {
             {/* Buttons */}
             <div className="flex gap-4">
               <Button
-                size="lg"
-                className="flex-1 bg-gradient-to-r from-primary to-secondary text-background hover:shadow-glow transition-all duration-300"
-              >
+              asChild
+              size="lg"
+              className="flex-1 bg-gradient-to-r from-primary to-secondary text-background hover:shadow-glow transition-all duration-300">
+                <Link to="/contact">
                 <ShoppingCart className="mr-2 w-5 h-5" />
                 Request Quote
+                </Link>
               </Button>
-
-              <Button
-                size="lg"
-                variant="outline"
-                className="glass-glow hover:bg-primary/10"
-              >
-                <Download className="w-5 h-5" />
-              </Button>
+                        <Button
+            size="lg"
+            onClick={() => {
+              const brochureUrl = "/Kaatru brochure.pdf";
+              window.open(brochureUrl, "_blank");
+            }}
+            className="bg-gradient-to-r from-primary to-secondary text-background hover:shadow-glow transition-all duration-300"
+          >
+            <Download className="mr-1 w-1 h-4" />
+          </Button>
             </div>
 
             {/* Features */}
@@ -179,7 +185,7 @@ const DeviceDetail = () => {
               asChild
               size="lg"
               variant="outline"
-              className="glass-glow hover:bg-primary/10"
+              className="glass-glow hover:bg-primary"
             >
               <Link to="/services/case-studies">View Case Studies</Link>
             </Button>

@@ -84,7 +84,7 @@ const Devices = () => {
               className="glass-glow rounded-2xl overflow-hidden group hover-scale flex flex-col h-full"
             >
               {/* Image */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative aspect-square w-full overflow-hidden">
                 <img
                   src={device.images[0]}
                   alt={device.name}
