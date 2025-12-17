@@ -84,7 +84,7 @@ const Devices = () => {
               className="glass-glow rounded-2xl overflow-hidden group hover-scale flex flex-col h-full"
             >
               {/* Image */}
-              <div className="relative aspect-square w-full overflow-hidden">
+              {/* <div className="relative aspect-square w-fit overflow-hidden">
                 <img
                   src={device.images[0]}
                   alt={device.name}
@@ -93,7 +93,20 @@ const Devices = () => {
                 <div className="absolute top-4 right-4 px-3 py-1 glass-glow rounded-full text-xs font-medium">
                   {device.category}
                 </div>
-              </div>
+              </div> */}
+              {/* Image */}
+<div className="relative aspect-square w-full bg-muted/20 overflow-hidden flex items-center justify-center">
+  <img
+    src={device.images[0]}
+    alt={device.name}
+    className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+  />
+
+  <div className="absolute top-4 right-4 px-3 py-1 glass-glow rounded-full text-xs font-medium">
+    {device.category}
+  </div>
+</div>
+
 
               {/* Card Content */}
               <div className="p-6 flex flex-col h-full">

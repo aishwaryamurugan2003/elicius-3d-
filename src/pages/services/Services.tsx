@@ -36,7 +36,7 @@ const Services = () => {
         },
         {
           icon: Wrench,
-          title: "Service",
+          title: "Consultancy Services",
           description: "End-to-end support including installation, maintenance, and consulting",
           features: ["24/7 support", "Installation", "Training"],
           link: "/products/service",
@@ -120,20 +120,20 @@ const Services = () => {
           >
             {/* IMAGE SECTION */}
             <div className="h-[360px] w-[320px] overflow-hidden rounded-t-2xl">
-              <img
+              {/* <img
                 src={consultancyImg}
                 alt="Consultancy Services"
                 className="w-full h-full object-cover"
-              />
+              /> */}
             </div>
 
             {/* DARK INFO BOX */}
-            <div className="p-6 bg-card rounded-b-2xl w-[320px]">
+            {/* <div className="p-6 bg-card rounded-b-2xl w-[320px]">
               <h3 className="text-2xl font-bold mb-3">Consultancy Services</h3>
               <p className="text-muted-foreground text-sm">
                 An air quality amendment migrate for use cases.
               </p>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>
