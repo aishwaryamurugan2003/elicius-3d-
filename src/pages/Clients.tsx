@@ -15,10 +15,10 @@ const Clients = () => {
     { name: "IIT Madras", logo: logoIITM },
     { name: "THSTI", logo: logoTHSTI },
     { name: "WSAI", logo: logoWSAI },
-    { name: "WIA", logo: logoCIT },
+    { name: "Cancer Institute(WIA)", logo: logoCIT },
     { name: "NMRL", logo: logoNMRL },
     { name: "Pfizer", logo: logopfizer },
-    { name: "Larsen & Toubro", logo: logoLT },
+    // { name: "Larsen & Toubro", logo: logoLT },
   ];
 
   return (

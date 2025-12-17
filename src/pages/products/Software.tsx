@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
+import { Image as AntImage } from "antd";
+
 
 // ---- Import Images ----
 import cleanestRoute from "@/assets/software/cleanest_route.jpg";
@@ -81,14 +83,20 @@ const Software = () => {
             viewport={{ once: true }}
             className="grid lg:grid-cols-2 gap-12 items-center"
           >
-            {/* Image */}
-            <div className="glass-glow rounded-2xl overflow-hidden">
-              <img
-                src={kaatruMobileApp}
-                alt="Kaatru Air Quality Monitoring Mobile Application"
-                className="w-full h-full object-contain"
-              />
-            </div>
+<AntImage
+  src={kaatruMobileApp}
+  alt="Kaatru Air Quality Monitoring Mobile Application"
+  preview={{ mask: "View App Screens" }}
+  placeholder={
+    <AntImage
+      preview={false}
+      src={kaatruMobileApp}
+      className="w-full h-full object-contain blur-md"
+    />
+  }
+  className="w-full h-full object-contain"
+/>
+
 
             {/* Content */}
             <div className="space-y-6">
@@ -139,32 +147,42 @@ const Software = () => {
   </motion.div>
 
   {/* Dashboard Images Grid */}
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8"
-  >
-    {[
-  dashboardMultiDevice,
-  dashboardRealtimeMap,
-  dashboardSingleDevice,
-  dashboardSingleDeviceV2,
-  dashboardDiagnostics,
-  dashboardScatter,
-].map((img, index) => (
-  <div
-    key={index}
-    className="glass-glow rounded-2xl overflow-hidden hover-scale"
-  >
-    <img
-      src={img}
-      alt={`Kaatru Dashboard View ${index + 1}`}
-      className="w-full h-full object-cover"
-    />
-  </div>
-))}
-  </motion.div>
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10"
+>
+  {[
+    dashboardMultiDevice,
+    dashboardRealtimeMap,
+    dashboardSingleDevice,
+    dashboardSingleDeviceV2,
+    dashboardDiagnostics,
+    dashboardScatter,
+  ].map((img, index) => (
+    <div
+      key={index}
+      className="glass-glow rounded-2xl overflow-hidden hover-scale
+                 h-[300px] md:h-[340px] lg:h-[380px]"
+    >
+      <AntImage
+        src={img}
+        alt={`Kaatru Dashboard View ${index + 1}`}
+        preview={{ mask: "Click to Preview" }}
+        placeholder={
+          <AntImage
+            preview={false}
+            src={img}
+            className="w-full h-full object-cover blur-md scale-105"
+          />
+        }
+        className="w-full h-full object-cover"
+      />
+    </div>
+  ))}
+</motion.div>
+
 
   {/* Dashboard Description */}
   <div className="max-w-4xl mx-auto mt-12 space-y-4 text-muted-foreground text-center">
@@ -180,43 +198,40 @@ const Software = () => {
     </p>
   </div>
 </section>
+{/*
+==================== SOFTWARE GRID (COMMENTED OUT) ====================
 
+<div className="grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
+  {softwares.map((soft, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.05 }}
+      className="rounded-2xl overflow-hidden group hover-scale flex flex-col h-full bg-card shadow-lg"
+    >
+      <div className="relative aspect-[4/3] w-full overflow-hidden">
+        <img
+          src={soft.image}
+          alt={soft.title}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        />
+      </div>
 
-        {/* Software Grid */}
-        <div className="grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
-          {softwares.map((soft, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              className="rounded-2xl overflow-hidden group hover-scale flex flex-col h-full bg-card shadow-lg"
-            >
-              {/* Image */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden">
-                <img
-                  src={soft.image}
-                  alt={soft.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
+      <div className="p-6 flex flex-col flex-1">
+        <h3 className="text-xl font-bold mb-2">{soft.title}</h3>
+        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+          {soft.description}
+        </p>
+        <div className="mt-auto" />
+      </div>
+    </motion.div>
+  ))}
+</div>
 
-              {/* Card Content */}
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-xl font-bold mb-2">
-                  {soft.title}
-                </h3>
-
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                  {soft.description}
-                </p>
-
-                <div className="mt-auto" />
-              </div>
-            </motion.div>
-          ))}
-        </div>
+=======================================================================
+*/}
 
       </div>
     </PageLayout>

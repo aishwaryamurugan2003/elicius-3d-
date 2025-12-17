@@ -182,18 +182,25 @@ const Index = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <Link
-                  to={feature.link}
-                  className="block glass-glow rounded-2xl p-8 h-full hover:glow-border transition-all duration-300 group"
-                >
+  to={feature.link}
+  className="glass-glow rounded-2xl p-8 h-full hover:glow-border 
+             transition-all duration-300 group
+             flex flex-col"
+>
+
                   <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-6">
-                    {feature.description}
-                  </p>
-                  <div className="flex items-center text-primary font-medium group-hover:translate-x-2 transition-transform">
-                    Learn More <ArrowRight className="ml-2 w-4 h-4" />
-                  </div>
+  {feature.title}
+</h3>
+
+<p className="text-muted-foreground mb-6">
+  {feature.description}
+</p>
+
+{/* Spacer pushes Learn More to bottom */}
+<div className="mt-auto flex items-center text-primary font-medium group-hover:translate-x-2 transition-transform">
+  Learn More <ArrowRight className="ml-2 w-4 h-4" />
+</div>
+
                 </Link>
               </motion.div>
             ))}
@@ -221,7 +228,7 @@ const Index = () => {
         </div>
       </section>
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        {/* <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -242,7 +249,7 @@ const Index = () => {
               <Link to="/contact">Start Your Journey</Link>
             </Button>
           </motion.div>
-        </div>
+        </div> */}
       </section>
     </PageLayout>
   );

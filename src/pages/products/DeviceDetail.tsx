@@ -5,7 +5,7 @@ import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { devices } from "@/data/devices";
-
+import { Image as AntImage } from "antd";
 
 
 const DeviceDetail = () => {
@@ -52,35 +52,51 @@ const DeviceDetail = () => {
         {/* Main Layout */}
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           
-          {/* Image Gallery */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="space-y-4"
-          >
-            <div className="glass-glow rounded-2xl overflow-hidden">
-              <img
-                src={device.images[0]}
-                alt={device.name}
-                className="w-full h-96 object-cover"
-              />
-            </div>
+       {/* Image Gallery */}
+<motion.div
+  initial={{ opacity: 0, x: -20 }}
+  animate={{ opacity: 1, x: 0 }}
+  className="space-y-4"
+>
+  {/* MAIN IMAGE */}
+  <div className="glass-glow rounded-2xl overflow-hidden">
+    <AntImage
+      src={device.images[0]}
+      alt={device.name}
+      className="w-full h-96 object-contain"
+      preview={{
+        mask: "Zoom Image",
+      }}
+      placeholder={
+        <AntImage
+          preview={false}
+          src={device.images[0]}
+          className="w-full h-96 object-contain blur-md scale-105"
+        />
+      }
+    />
+  </div>
 
-            <div className="grid grid-cols-3 gap-4">
-              {device.images.slice(1).map((img, i) => (
-                <div
-                  key={i}
-                  className="glass-glow rounded-xl overflow-hidden hover-scale cursor-pointer"
-                >
-                  <img
-                    src={img}
-                    alt={`${device.name} ${i + 2}`}
-                    className="w-full h-24 object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </motion.div>
+  {/* THUMBNAILS (Gallery Preview) */}
+  <AntImage.PreviewGroup>
+    <div className="grid grid-cols-3 gap-4">
+      {device.images.map((img, i) => (
+        <div
+          key={i}
+          className="glass-glow rounded-xl overflow-hidden hover-scale cursor-pointer h-24"
+        >
+          <AntImage
+            src={img}
+            alt={`${device.name} ${i + 1}`}
+            preview={false}
+            className="w-full h-full object-contain"
+          />
+        </div>
+      ))}
+    </div>
+  </AntImage.PreviewGroup>
+</motion.div>
+
 
           {/* Product Info */}
           <motion.div

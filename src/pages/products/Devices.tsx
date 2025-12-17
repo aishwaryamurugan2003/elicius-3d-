@@ -5,6 +5,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { devices } from "@/data/devices";
 import { useNavigate } from "react-router-dom";
+import { Image as AntImage } from "antd";
 
 const Devices = () => {
   const navigate = useNavigate();
@@ -96,16 +97,25 @@ const Devices = () => {
               </div> */}
               {/* Image */}
 <div className="relative aspect-square w-full bg-muted/20 overflow-hidden flex items-center justify-center">
-  <img
+  <AntImage
     src={device.images[0]}
     alt={device.name}
-    className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+    preview={{ mask: "View Device" }}
+    className="max-w-full max-h-full object-contain"
+    placeholder={
+      <AntImage
+        preview={false}
+        src={device.images[0]}
+        className="max-w-full max-h-full object-contain blur-md scale-105"
+      />
+    }
   />
 
-  <div className="absolute top-4 right-4 px-3 py-1 glass-glow rounded-full text-xs font-medium">
+  <div className="absolute top-4 right-4 px-3 py-1 glass-glow rounded-full text-xs font-medium z-10">
     {device.category}
   </div>
 </div>
+
 
 
               {/* Card Content */}
