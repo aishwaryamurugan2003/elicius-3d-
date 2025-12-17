@@ -123,7 +123,7 @@ const Technology = () => {
     </p>
   </div>
 </motion.div> */}
-<motion.div
+{/* <motion.div
   initial={{ opacity: 0, y: 20 }}
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true }}
@@ -136,7 +136,7 @@ const Technology = () => {
   <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed text-justify">
     Elicius specialises in advanced modelling and simulation of electrochemical energy systems for hydrogen and clean-energy applications. Our expertise spans first-principles and system-level modelling of fuel cell plants and alkaline water electrolysers, enabling performance analysis, degradation assessment, and operational optimisation through rigorous application of thermodynamics, electrochemistry, and heat and mass transfer.
   </p>
-</motion.div>
+</motion.div> */}
 
 
 
