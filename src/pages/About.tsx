@@ -61,9 +61,21 @@ const About = () => {
         >
           {/* IMAGE */}
           <div className="flex flex-col items-center text-center">
-             <img src={director}
-             alt="Prof. Raghunathan Rengaswamy"
-             className="rounded-2xl w-full max-w-sm shadow-lg glass-glow mb-4"/>
+            <img
+  src={director}
+  alt="Prof. Raghunathan Rengaswamy"
+  className="
+    rounded-2xl
+    w-full
+    max-w-sm
+    h-[420px] md:h-[480px] lg:h-[520px]
+    object-cover
+    shadow-lg
+    glass-glow
+    mb-4
+  "
+/>
+
 
            {/* NAME UNDER IMAGE */}
            <h2 className="text-2xl font-bold glow-text mb-1">Director</h2>
@@ -74,11 +86,18 @@ const About = () => {
 
 
           {/* TEXT */}
-          <div>
-            <h2 className="text-3xl font-bold mb-2 glow-text">About</h2>
-            <h3 className="text-2xl font-semibold mb-6">
-              Prof. Raghunathan Rengaswamy
-            </h3>
+  <div>
+  <h2 className="text-3xl font-bold mb-2 glow-text">About</h2>
+
+  <h3 className="text-2xl font-semibold mb-6">
+    Prof. Raghunathan Rengaswamy
+    <span className="block text-xxl font-semibold text-white mt-1">
+      Director
+    </span>
+  </h3>
+
+
+
 
           <div className="space-y-4 text-muted-foreground leading-relaxed text-justify">
               <p>
@@ -134,7 +153,8 @@ const About = () => {
 
             <p>
               Driven by our passion for hydrogen technology, we are pioneering the development of Proton Exchange Membrane-based Tubular fuel cell stacks, 
-              delivering not only silent and clean power but also enhanced power density that surpasses current market solutions. Our collaboration with the Defence Research & Development Organisation (DRDO) on the Air-Independent Propulsion (AIP) project for the Naval Materials Research Laboratory (NMRL) exemplifies our expertise and dedication to advancing energy technologies.
+              delivering not only silent and clean power but also enhanced power density that surpasses current market solutions. 
+              Elicius specialises in physics-based and system-level modelling of electrochemical energy systems for hydrogen and clean-energy applications. Our work covers fuel cell and alkaline water electrolyser systems, including balance-of-plant modelling, performance analysis, and efficiency optimisation. We also address degradation and lifetime behaviour under real operating conditions to enable reliable, industry-relevant solutions.
             </p>
 
             <p>

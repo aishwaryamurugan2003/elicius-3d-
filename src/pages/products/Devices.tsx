@@ -96,12 +96,16 @@ const Devices = () => {
                 </div>
               </div> */}
               {/* Image */}
-<div className="relative aspect-square w-full bg-muted/20 overflow-hidden flex items-center justify-center">
+{/* Image */}
+<div className="relative aspect-square w-full bg-muted/20 overflow-hidden flex items-center justify-center p-4">
+
   <AntImage
     src={device.images[0]}
     alt={device.name}
     preview={{ mask: "View Device" }}
-    className="max-w-full max-h-full object-contain"
+    className="max-w-full max-h-full object-contain
+               transition-transform duration-500
+               group-hover:scale-105"
     placeholder={
       <AntImage
         preview={false}
@@ -111,12 +115,17 @@ const Devices = () => {
     }
   />
 
+  {/* Category Badge */}
+  <div className="absolute top-4 right-4 px-3 py-1 glass-glow rounded-full text-xs font-medium z-10">
+    {device.category}
+  </div>
+
+
+  {/* Category badge */}
   <div className="absolute top-4 right-4 px-3 py-1 glass-glow rounded-full text-xs font-medium z-10">
     {device.category}
   </div>
 </div>
-
-
 
               {/* Card Content */}
               <div className="p-6 flex flex-col h-full">

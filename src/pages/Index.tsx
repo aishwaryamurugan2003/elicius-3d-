@@ -116,47 +116,7 @@ const Index = () => {
           ))}
         </div>
       </section>
-
-      {/* Stats Section */}
-     {/* Stats Section */}
-<section className="py-20 relative">
-  <div className="container mx-auto px-4">
-    
-    {/* Heading */}
-    <motion.h2
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="text-4xl md:text-5xl font-bold glow-text text-center mb-12"
-    >
-      Air Quality Monitoring Overview
-    </motion.h2>
-
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-      {stats.map((stat, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.1 }}
-          className="glass-glow rounded-2xl p-6 text-center hover-scale"
-        >
-          <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-          <div className="text-3xl md:text-4xl font-bold glow-text mb-2">
-            {stat.value}
-          </div>
-          <div className="text-sm text-muted-foreground">
-            {stat.label}
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</section>
-
-
-      {/* Features Section */}
+            {/* Features Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <motion.div
@@ -208,6 +168,43 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Stats Section */}
+     {/* Stats Section */}
+<section className="py-20 relative">
+  <div className="container mx-auto px-4">
+    
+    {/* Heading */}
+    <motion.h2
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="text-4xl md:text-5xl font-bold glow-text text-center mb-12"
+    >
+      Air Quality Monitoring Overview
+    </motion.h2>
+
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {stats.map((stat, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          className="glass-glow rounded-2xl p-6 text-center hover-scale"
+        >
+          <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
+          <div className="text-3xl md:text-4xl font-bold glow-text mb-2">
+            {stat.value}
+          </div>
+          <div className="text-sm text-muted-foreground">
+            {stat.label}
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
       {/* CTA Section */}
        <section className="py-20">
         <div className="container mx-auto px-4">

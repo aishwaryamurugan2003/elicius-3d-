@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
+import { useRef } from "react";
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Image as AntImage } from "antd";
-
 
 // ---- Import Images ----
 import cleanestRoute from "@/assets/software/cleanest_route.jpg";
@@ -18,9 +18,17 @@ import dashboardSingleDeviceV2 from "@/assets/software/dashboard-single-device-v
 import dashboardDiagnostics from "@/assets/software/dashboard-diagnostics.png";
 import dashboardScatter from "@/assets/software/dashboard-scatter.png";
 
-
-
 const Software = () => {
+  const mobileRef = useRef<HTMLDivElement | null>(null);
+  const dashboardRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
+    ref.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   const softwares = [
     {
       title: "Cleanest Route",
@@ -52,7 +60,6 @@ const Software = () => {
   return (
     <PageLayout>
       <div className="container mx-auto px-4 py-16">
-
         {/* Breadcrumb */}
         <Breadcrumb
           items={[
@@ -65,40 +72,53 @@ const Software = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
-          <h1 className="text-5xl font-bold mb-4 glow-text">
-            Softwares
-          </h1>
+          <h1 className="text-5xl font-bold mb-4 glow-text">Softwares</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             We strive to provide advanced air & road monitoring software for efficient results.
           </p>
         </motion.div>
 
-        {/* ✅ MOBILE APPLICATION SECTION (ADD HERE) */}
-        <section className="mb-32">
+        {/* 🔹 Navigation Buttons */}
+        <div className="flex justify-center gap-6 mb-24">
+          <button
+            onClick={() => scrollTo(mobileRef)}
+            className="px-6 py-3 rounded-full glass-glow font-semibold hover:bg-primary transition-all"
+          >
+            Mobile Application
+          </button>
+
+          <button
+            onClick={() => scrollTo(dashboardRef)}
+            className="px-6 py-3 rounded-full glass-glow font-semibold hover:bg-primary transition-all"
+          >
+            Dashboard
+          </button>
+        </div>
+
+        {/* ✅ MOBILE APPLICATION SECTION */}
+        <section ref={mobileRef} className="mb-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="grid lg:grid-cols-2 gap-12 items-center"
           >
-<AntImage
-  src={kaatruMobileApp}
-  alt="Kaatru Air Quality Monitoring Mobile Application"
-  preview={{ mask: "View App Screens" }}
-  placeholder={
-    <AntImage
-      preview={false}
-      src={kaatruMobileApp}
-      className="w-full h-full object-contain blur-md"
-    />
-  }
-  className="w-full h-full object-contain"
-/>
+            <AntImage
+              src={kaatruMobileApp}
+              alt="Kaatru Air Quality Monitoring Mobile Application"
+              preview={{ mask: "View App Screens" }}
+              placeholder={
+                <AntImage
+                  preview={false}
+                  src={kaatruMobileApp}
+                  className="w-full h-full object-contain blur-md"
+                />
+              }
+              className="w-full h-full object-contain"
+            />
 
-
-            {/* Content */}
             <div className="space-y-6">
               <h2 className="text-4xl font-bold glow-text">
                 Kaatru Mobile Application
@@ -106,16 +126,13 @@ const Software = () => {
 
               <p className="text-lg text-muted-foreground leading-relaxed text-justify">
                 The Kaatru Mobile Application delivers real-time air quality intelligence
-                directly to your smartphone.the app integrates
-                seamlessly with our IoT sensor network to provide hyperlocal pollution
-                insights, interactive maps, and trend analysis.
+                directly to your smartphone and integrates seamlessly with our IoT
+                sensor network.
               </p>
 
               <p className="text-muted-foreground leading-relaxed text-justify">
-                Users can monitor PM2.5, PM10, temperature, and humidity levels, track
-                pollution hotspots, assess personal exposure, and analyze air quality
-                trends over time. The app is designed for citizens, researchers, and
-                decision-makers seeking reliable, data-driven environmental insights.
+                Users can monitor PM2.5, PM10, temperature, and humidity, track
+                pollution hotspots, assess exposure, and analyze trends over time.
               </p>
 
               <ul className="space-y-3 text-muted-foreground">
@@ -129,110 +146,70 @@ const Software = () => {
           </motion.div>
         </section>
 
-        {/* Kaatru Dashboard Section */}
-<section className="mb-32">
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    className="mb-16 text-center"
-  >
-    <h2 className="text-4xl font-bold glow-text mb-4">
-      Kaatru Analytics Dashboard
-    </h2>
-    <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-      A comprehensive web-based platform for real-time monitoring, analytics,
-      and management of large-scale air quality sensor networks.
-    </p>
-  </motion.div>
+        {/* 📊 DASHBOARD SECTION */}
+        <section ref={dashboardRef} className="mb-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center"
+          >
+            <h2 className="text-4xl font-bold glow-text mb-4">
+              Kaatru Analytics Dashboard
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              A comprehensive web-based platform for real-time monitoring,
+              analytics, and management of air quality sensor networks.
+            </p>
+          </motion.div>
 
-  {/* Dashboard Images Grid */}
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10"
->
-  {[
-    dashboardMultiDevice,
-    dashboardRealtimeMap,
-    dashboardSingleDevice,
-    dashboardSingleDeviceV2,
-    dashboardDiagnostics,
-    dashboardScatter,
-  ].map((img, index) => (
-    <div
-      key={index}
-      className="glass-glow rounded-2xl overflow-hidden hover-scale
-                 h-[300px] md:h-[340px] lg:h-[380px]"
-    >
-      <AntImage
-        src={img}
-        alt={`Kaatru Dashboard View ${index + 1}`}
-        preview={{ mask: "Click to Preview" }}
-        placeholder={
-          <AntImage
-            preview={false}
-            src={img}
-            className="w-full h-full object-cover blur-md scale-105"
-          />
-        }
-        className="w-full h-full object-cover"
-      />
-    </div>
-  ))}
-</motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10"
+          >
+            {[
+              dashboardMultiDevice,
+              dashboardRealtimeMap,
+              dashboardSingleDevice,
+              dashboardSingleDeviceV2,
+              dashboardDiagnostics,
+              dashboardScatter,
+            ].map((img, index) => (
+              <div
+                key={index}
+                className="glass-glow rounded-2xl overflow-hidden hover-scale
+                           h-[300px] md:h-[340px] lg:h-[380px]"
+              >
+                <AntImage
+                  src={img}
+                  alt={`Kaatru Dashboard View ${index + 1}`}
+                  preview={{ mask: "Click to Preview" }}
+                  placeholder={
+                    <AntImage
+                      preview={false}
+                      src={img}
+                      className="w-full h-full object-cover blur-md scale-105"
+                    />
+                  }
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </motion.div>
 
-
-  {/* Dashboard Description */}
-  <div className="max-w-4xl mx-auto mt-12 space-y-4 text-muted-foreground text-center">
-    <p>
-      The dashboard supports city-scale deployments with tools for monitoring
-      real-time pollution levels, analyzing historical trends, and ensuring
-      reliable device operation across the network.
-    </p>
-    <p>
-      Built with scalability and data integrity at its core, the Kaatru Dashboard
-      enables stakeholders to transform raw sensor data into actionable
-      environmental intelligence.
-    </p>
-  </div>
-</section>
-{/*
-==================== SOFTWARE GRID (COMMENTED OUT) ====================
-
-<div className="grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
-  {softwares.map((soft, index) => (
-    <motion.div
-      key={index}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.05 }}
-      className="rounded-2xl overflow-hidden group hover-scale flex flex-col h-full bg-card shadow-lg"
-    >
-      <div className="relative aspect-[4/3] w-full overflow-hidden">
-        <img
-          src={soft.image}
-          alt={soft.title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-      </div>
-
-      <div className="p-6 flex flex-col flex-1">
-        <h3 className="text-xl font-bold mb-2">{soft.title}</h3>
-        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-          {soft.description}
-        </p>
-        <div className="mt-auto" />
-      </div>
-    </motion.div>
-  ))}
-</div>
-
-=======================================================================
-*/}
-
+          <div className="max-w-4xl mx-auto mt-12 space-y-4 text-muted-foreground text-center">
+            <p>
+              The dashboard supports city-scale deployments with tools for real-time
+              monitoring, historical analysis, and device diagnostics.
+            </p>
+            <p>
+              Built for scalability and data integrity, it transforms raw sensor
+              data into actionable environmental intelligence.
+            </p>
+          </div>
+        </section>
       </div>
     </PageLayout>
   );
