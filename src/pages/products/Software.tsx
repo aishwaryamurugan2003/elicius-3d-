@@ -3,6 +3,7 @@ import { useRef } from "react";
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Image as AntImage } from "antd";
+import { ArrowRight } from "lucide-react";
 
 // ---- Import Images ----
 import cleanestRoute from "@/assets/software/cleanest_route.jpg";
@@ -29,31 +30,18 @@ const Software = () => {
     });
   };
 
-  const softwares = [
+  const softwareCards = [
     {
-      title: "Cleanest Route",
-      description: "Gives you the least polluted route from Point A to Point B",
-      image: cleanestRoute,
+      title: "Mobile Application",
+      description:
+        "Real-time air quality intelligence delivered directly to your smartphone with seamless IoT integration.",
+      onClick: () => scrollTo(mobileRef),
     },
     {
-      title: "Exposure Assessment",
-      description: "Provides personal PM2.5 exposure assessment for individuals",
-      image: exposureAssessment,
-    },
-    {
-      title: "Road Condition",
-      description: "Visualization of the road condition on the map",
-      image: roadCondition,
-    },
-    {
-      title: "Spatio-temporal hotspot identification",
-      description: "Get to know pollution hotspots across the country",
-      image: hotspot,
-    },
-    {
-      title: "Air Quality map",
-      description: "Visualizing air pollution using heat map",
-      image: airQuality,
+      title: "Dashboard",
+      description:
+        "A powerful web-based analytics platform for real-time monitoring, diagnostics, and insights.",
+      onClick: () => scrollTo(dashboardRef),
     },
   ];
 
@@ -72,7 +60,7 @@ const Software = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
           <h1 className="text-5xl font-bold mb-4 glow-text">Softwares</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -80,22 +68,43 @@ const Software = () => {
           </p>
         </motion.div>
 
-        {/* 🔹 Navigation Buttons */}
-        <div className="flex justify-center gap-6 mb-24">
-          <button
-            onClick={() => scrollTo(mobileRef)}
-            className="px-6 py-3 rounded-full glass-glow font-semibold hover:bg-primary transition-all"
-          >
-            Mobile Application
-          </button>
+        {/* 🔹 SOFTWARE SOLUTION CARDS */}
+        <section className="py-10">
 
-          <button
-            onClick={() => scrollTo(dashboardRef)}
-            className="px-6 py-3 rounded-full glass-glow font-semibold hover:bg-primary transition-all"
-          >
-            Dashboard
-          </button>
-        </div>
+        
+
+      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {softwareCards.map((card, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <button
+                  onClick={card.onClick}
+                  className="glass-glow rounded-2xl p-8 h-full hover:glow-border
+                             transition-all duration-300 group
+                             flex flex-col text-left w-full"
+                >
+                  <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
+                    {card.title}
+                  </h3>
+
+                  <p className="text-muted-foreground mb-6">
+                    {card.description}
+                  </p>
+
+                  <div className="mt-auto flex items-center text-primary font-medium
+                                  group-hover:translate-x-2 transition-transform">
+                    Learn More <ArrowRight className="ml-2 w-4 h-4" />
+                  </div>
+                </button>
+              </motion.div>
+            ))}
+          </div>
+        </section>
 
         {/* ✅ MOBILE APPLICATION SECTION */}
         <section ref={mobileRef} className="mb-32">
@@ -107,15 +116,8 @@ const Software = () => {
           >
             <AntImage
               src={kaatruMobileApp}
-              alt="Kaatru Air Quality Monitoring Mobile Application"
+              alt="Kaatru Mobile Application"
               preview={{ mask: "View App Screens" }}
-              placeholder={
-                <AntImage
-                  preview={false}
-                  src={kaatruMobileApp}
-                  className="w-full h-full object-contain blur-md"
-                />
-              }
               className="w-full h-full object-contain"
             />
 
@@ -124,15 +126,10 @@ const Software = () => {
                 Kaatru Mobile Application
               </h2>
 
-              <p className="text-lg text-muted-foreground leading-relaxed text-justify">
+              <p className="text-lg text-muted-foreground text-justify">
                 The Kaatru Mobile Application delivers real-time air quality intelligence
                 directly to your smartphone and integrates seamlessly with our IoT
                 sensor network.
-              </p>
-
-              <p className="text-muted-foreground leading-relaxed text-justify">
-                Users can monitor PM2.5, PM10, temperature, and humidity, track
-                pollution hotspots, assess exposure, and analyze trends over time.
               </p>
 
               <ul className="space-y-3 text-muted-foreground">
@@ -167,7 +164,7 @@ const Software = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10"
+            className="grid lg:grid-cols-2 gap-10"
           >
             {[
               dashboardMultiDevice,
@@ -184,31 +181,14 @@ const Software = () => {
               >
                 <AntImage
                   src={img}
-                  alt={`Kaatru Dashboard View ${index + 1}`}
+                  alt={`Dashboard View ${index + 1}`}
                   preview={{ mask: "Click to Preview" }}
-                  placeholder={
-                    <AntImage
-                      preview={false}
-                      src={img}
-                      className="w-full h-full object-cover blur-md scale-105"
-                    />
-                  }
                   className="w-full h-full object-cover"
                 />
               </div>
             ))}
           </motion.div>
-
-          <div className="max-w-4xl mx-auto mt-12 space-y-4 text-muted-foreground text-center">
-            <p>
-              The dashboard supports city-scale deployments with tools for real-time
-              monitoring, historical analysis, and device diagnostics.
-            </p>
-            <p>
-              Built for scalability and data integrity, it transforms raw sensor
-              data into actionable environmental intelligence.
-            </p>
-          </div>
+          <div className="max-w-4xl mx-auto mt-12 space-y-4 text-muted-foreground text-center"> <p> The dashboard supports city-scale deployments with tools for real-time monitoring, historical analysis, and device diagnostics. </p> <p> Built for scalability and data integrity, it transforms raw sensor data into actionable environmental intelligence. </p> </div>
         </section>
       </div>
     </PageLayout>
