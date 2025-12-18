@@ -141,27 +141,28 @@ const Index = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Link
+        <Link
   to={feature.link}
-  className="glass-glow rounded-2xl p-8 h-full hover:glow-border 
-             transition-all duration-300 group
-             flex flex-col"
+  className="glass-glow rounded-2xl p-8 h-full hover:glow-border
+             transition-all duration-300 group flex flex-col"
 >
+  <h3
+    className="text-2xl font-bold mb-4 min-h-[64px]
+               flex items-center
+               group-hover:text-primary transition-colors"
+  >
+    {feature.title}
+  </h3>
 
-                  <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
-  {feature.title}
-</h3>
+  <p className="text-muted-foreground mb-6">
+    {feature.description}
+  </p>
 
-<p className="text-muted-foreground mb-6">
-  {feature.description}
-</p>
-
-{/* Spacer pushes Learn More to bottom */}
-<div className="mt-auto flex items-center text-primary font-medium group-hover:translate-x-2 transition-transform">
-  Learn More <ArrowRight className="ml-2 w-4 h-4" />
-</div>
-
-                </Link>
+  <div className="mt-auto flex items-center text-primary font-medium
+                  group-hover:translate-x-2 transition-transform">
+    Learn More <ArrowRight className="ml-2 w-4 h-4" />
+  </div>
+</Link>
               </motion.div>
             ))}
           </div>
