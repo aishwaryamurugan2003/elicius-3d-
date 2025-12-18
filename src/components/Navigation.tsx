@@ -31,7 +31,7 @@ const Navigation = () => {
   dropdown: [
     { label: "Research Overview", path: "/research" },
     { label: "Fuel Cell Technology", path: "/research/fuel-cell" },
-    { label: "Air Quality Data Science", path: "/research/air-quality-data" },
+    { label: "Air Quality Data", path: "/research/air-quality-data" },
     {
       label: "Electrochemical Modelling & Simulation",
       path: "/research/simulations",

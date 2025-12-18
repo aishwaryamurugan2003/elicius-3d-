@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
-import { Image as AntImage } from "antd";
+import { Image } from "antd";
 import { ArrowRight } from "lucide-react";
 
 // ---- Import Images ----
@@ -22,12 +22,10 @@ import dashboardScatter from "@/assets/software/dashboard-scatter.png";
 const Software = () => {
   const mobileRef = useRef<HTMLDivElement | null>(null);
   const dashboardRef = useRef<HTMLDivElement | null>(null);
+  const [previewSrc, setPreviewSrc] = useState<string | null>(null);
 
   const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
-    ref.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const softwareCards = [
@@ -43,6 +41,15 @@ const Software = () => {
         "A powerful web-based analytics platform for real-time monitoring, diagnostics, and insights.",
       onClick: () => scrollTo(dashboardRef),
     },
+  ];
+
+  const dashboardImages = [
+    dashboardMultiDevice,
+    dashboardRealtimeMap,
+    dashboardSingleDevice,
+    dashboardSingleDeviceV2,
+    dashboardDiagnostics,
+    dashboardScatter,
   ];
 
   return (
@@ -68,12 +75,9 @@ const Software = () => {
           </p>
         </motion.div>
 
-        {/* 🔹 SOFTWARE SOLUTION CARDS */}
+        {/* SOFTWARE CARDS */}
         <section className="py-10">
-
-        
-
-      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {softwareCards.map((card, index) => (
               <motion.div
                 key={index}
@@ -85,10 +89,9 @@ const Software = () => {
                 <button
                   onClick={card.onClick}
                   className="glass-glow rounded-2xl p-8 h-full hover:glow-border
-                             transition-all duration-300 group
-                             flex flex-col text-left w-full"
+                             transition-all duration-300 group flex flex-col text-left w-full"
                 >
-                  <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
+                  <h3 className="text-2xl font-bold mb-4 group-hover:text-primary">
                     {card.title}
                   </h3>
 
@@ -106,7 +109,7 @@ const Software = () => {
           </div>
         </section>
 
-        {/* ✅ MOBILE APPLICATION SECTION */}
+        {/* MOBILE APPLICATION */}
         <section ref={mobileRef} className="mb-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -114,11 +117,11 @@ const Software = () => {
             viewport={{ once: true }}
             className="grid lg:grid-cols-2 gap-12 items-center"
           >
-            <AntImage
+            <img
               src={kaatruMobileApp}
               alt="Kaatru Mobile Application"
-              preview={{ mask: "View App Screens" }}
-              className="w-full h-full object-contain"
+              onClick={() => setPreviewSrc(kaatruMobileApp)}
+              className="w-full h-full object-contain cursor-zoom-in"
             />
 
             <div className="space-y-6">
@@ -143,7 +146,7 @@ const Software = () => {
           </motion.div>
         </section>
 
-        {/* 📊 DASHBOARD SECTION */}
+        {/* DASHBOARD */}
         <section ref={dashboardRef} className="mb-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -160,36 +163,35 @@ const Software = () => {
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="grid lg:grid-cols-2 gap-10"
-          >
-            {[
-              dashboardMultiDevice,
-              dashboardRealtimeMap,
-              dashboardSingleDevice,
-              dashboardSingleDeviceV2,
-              dashboardDiagnostics,
-              dashboardScatter,
-            ].map((img, index) => (
+          <div className="grid lg:grid-cols-2 gap-10">
+            {dashboardImages.map((img, index) => (
               <div
                 key={index}
                 className="glass-glow rounded-2xl overflow-hidden hover-scale
                            h-[300px] md:h-[340px] lg:h-[380px]"
               >
-                <AntImage
+                <img
                   src={img}
                   alt={`Dashboard View ${index + 1}`}
-                  preview={{ mask: "Click to Preview" }}
-                  className="w-full h-full object-cover"
+                  onClick={() => setPreviewSrc(img)}
+                  className="w-full h-full object-cover cursor-zoom-in"
                 />
               </div>
             ))}
-          </motion.div>
-          <div className="max-w-4xl mx-auto mt-12 space-y-4 text-muted-foreground text-center"> <p> The dashboard supports city-scale deployments with tools for real-time monitoring, historical analysis, and device diagnostics. </p> <p> Built for scalability and data integrity, it transforms raw sensor data into actionable environmental intelligence. </p> </div>
+          </div>
         </section>
+
+        {/* 🔍 ANT DESIGN PREVIEW */}
+        {previewSrc && (
+          <Image
+            style={{ display: "none" }}
+            src={previewSrc}
+            preview={{
+              visible: true,
+              onVisibleChange: (v) => !v && setPreviewSrc(null),
+            }}
+          />
+        )}
       </div>
     </PageLayout>
   );

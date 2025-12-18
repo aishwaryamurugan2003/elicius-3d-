@@ -5,10 +5,12 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { devices } from "@/data/devices";
 import { useNavigate } from "react-router-dom";
-import { Image as AntImage } from "antd";
+import { Image } from "antd";
+import { useState } from "react";
 
 const Devices = () => {
   const navigate = useNavigate();
+  const [previewSrc, setPreviewSrc] = useState<string | null>(null);
 
   const features = [
     { icon: Gauge, title: "Precision Sensors", description: "Laboratory-grade accuracy" },
@@ -42,10 +44,7 @@ const Devices = () => {
 
           <Button
             size="lg"
-            onClick={() => {
-              const brochureUrl = "/Kaatru brochure.pdf";
-              window.open(brochureUrl, "_blank");
-            }}
+            onClick={() => window.open("/Kaatru brochure.pdf", "_blank")}
             className="bg-gradient-to-r from-primary to-secondary text-background hover:shadow-glow transition-all duration-300"
           >
             <Download className="mr-2 w-5 h-5" />
@@ -84,52 +83,27 @@ const Devices = () => {
               transition={{ delay: index * 0.1 }}
               className="glass-glow rounded-2xl overflow-hidden group hover-scale flex flex-col h-full"
             >
-              {/* Image */}
-              {/* <div className="relative aspect-square w-fit overflow-hidden">
+              {/* IMAGE */}
+              <div className="relative w-full h-[360px] bg-muted/20 flex items-center justify-center overflow-hidden">
                 <img
                   src={device.images[0]}
                   alt={device.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                  onClick={() => setPreviewSrc(device.images[0])}
+                  className="w-full h-full object-contain
+                             transition-transform duration-500
+                             group-hover:scale-105
+                             cursor-zoom-in"
                 />
-                <div className="absolute top-4 right-4 px-3 py-1 glass-glow rounded-full text-xs font-medium">
+
+                {/* Category Badge */}
+                <div className="absolute top-4 right-4 px-3 py-1 glass-glow rounded-full text-xs font-medium z-10">
                   {device.category}
                 </div>
-              </div> */}
-              {/* Image */}
-{/* Image */}
-<div className="relative aspect-square w-full bg-muted/20 overflow-hidden flex items-center justify-center p-4">
+              </div>
 
-  <AntImage
-    src={device.images[0]}
-    alt={device.name}
-    preview={{ mask: "View Device" }}
-    className="max-w-full max-h-full object-contain
-               transition-transform duration-500
-               group-hover:scale-105"
-    placeholder={
-      <AntImage
-        preview={false}
-        src={device.images[0]}
-        className="max-w-full max-h-full object-contain blur-md scale-105"
-      />
-    }
-  />
-
-  {/* Category Badge */}
-  <div className="absolute top-4 right-4 px-3 py-1 glass-glow rounded-full text-xs font-medium z-10">
-    {device.category}
-  </div>
-
-
-  {/* Category badge */}
-  <div className="absolute top-4 right-4 px-3 py-1 glass-glow rounded-full text-xs font-medium z-10">
-    {device.category}
-  </div>
-</div>
-
-              {/* Card Content */}
+              {/* CONTENT */}
               <div className="p-6 flex flex-col h-full">
-                {/* TOP CONTENT: title, description, specs */}
                 <div>
                   <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
                     {device.name}
@@ -152,14 +126,12 @@ const Devices = () => {
                   </ul>
                 </div>
 
-                {/* PRICING SECTION (aligned across cards) */}
                 <div className="mt-auto mb-6">
                   <div className="text-2xl font-bold text-primary">
                     {device.price}
                   </div>
                 </div>
 
-                {/* BUTTON ALWAYS AT BOTTOM */}
                 <Button
                   onClick={() => navigate(`/products/devices/${device.id}`)}
                   variant="outline"
@@ -174,6 +146,20 @@ const Devices = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* 🔍 ANT DESIGN IMAGE PREVIEW (GLOBAL) */}
+        {previewSrc && (
+          <Image
+            style={{ display: "none" }}
+            src={previewSrc}
+            preview={{
+              visible: true,
+              onVisibleChange: (visible) => {
+                if (!visible) setPreviewSrc(null);
+              },
+            }}
+          />
+        )}
       </div>
     </PageLayout>
   );

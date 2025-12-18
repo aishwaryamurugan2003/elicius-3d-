@@ -5,6 +5,13 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -14,51 +21,56 @@ const Contact = () => {
     email: "",
     phone: "",
     company: "",
+    interest: "",
     message: "",
   });
+
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const formDataObj = new FormData();
-  formDataObj.append("name", formData.name);
-  formDataObj.append("email", formData.email);
-  formDataObj.append("phone", formData.phone);
-  formDataObj.append("company", formData.company);
-  formDataObj.append("message", formData.message);
+    const formDataObj = new FormData();
+    formDataObj.append("name", formData.name);
+    formDataObj.append("email", formData.email);
+    formDataObj.append("phone", formData.phone);
+    formDataObj.append("company", formData.company);
+    formDataObj.append("interest", formData.interest);
+    formDataObj.append("message", formData.message);
 
-  try {
-    const response = await fetch("http://127.0.0.1:8000/contact/", {
-      method: "POST",
-      body: formDataObj,
-    });
-
-    const data = await response.json();
-    console.log("Backend response:", data); 
-
-    if (data.status === "success") {
-      toast.success("Message sent successfully!");
-
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        message: "",
+    try {
+      const response = await fetch("http://127.0.0.1:8000/contact/", {
+        method: "POST",
+        body: formDataObj,
       });
-    } else {
-      toast.error("Failed: " + data.message);
+
+      const data = await response.json();
+
+      if (data.status === "success") {
+        toast.success("Message sent successfully!");
+
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          interest: "",
+          message: "",
+        });
+      } else {
+        toast.error("Failed: " + data.message);
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+      toast.error("Could not connect to backend.");
     }
-  } catch (err) {
-    console.error("Fetch error:", err);
-    toast.error("Could not connect to backend.");
-  }
-};
+  };
 
   const contactInfo = [
     {
       icon: MapPin,
       title: "Visit Us",
-      details: ["First Floor, E-Block IIT, Madras Research Park, Kanagam Rd, Kanagam, Tharamani, Chennai, Tamil Nadu 600113"],
+      details: [
+        "First Floor, E-Block IIT, Madras Research Park, Kanagam Rd, Kanagam, Tharamani, Chennai, Tamil Nadu 600113",
+      ],
     },
     {
       icon: Phone,
@@ -77,6 +89,7 @@ const Contact = () => {
       <div className="container mx-auto px-4 py-12">
         <Breadcrumb items={[{ label: "Contact Us" }]} />
 
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -90,6 +103,7 @@ const Contact = () => {
           </p>
         </motion.div>
 
+        {/* Contact Info Cards */}
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {contactInfo.map((info, index) => (
             <motion.div
@@ -111,6 +125,7 @@ const Contact = () => {
           ))}
         </div>
 
+        {/* Contact Form */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -120,68 +135,122 @@ const Contact = () => {
           <h2 className="text-3xl font-bold mb-6 text-center glow-text">
             Send Us a Message
           </h2>
+
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Name & Email */}
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium mb-2">Name *</label>
                 <Input
                   required
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                   placeholder="Your name"
                   className="glass-glow"
                 />
               </div>
+
               <div>
                 <label className="block text-sm font-medium mb-2">Email *</label>
                 <Input
                   required
                   type="email"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   placeholder="your@email.com"
                   className="glass-glow"
                 />
               </div>
             </div>
 
+            {/* Phone & Company */}
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium mb-2">Phone</label>
                 <Input
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
                   placeholder="+91 1234567890"
                   className="glass-glow"
                 />
               </div>
+
               <div>
                 <label className="block text-sm font-medium mb-2">Company</label>
                 <Input
                   value={formData.company}
-                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, company: e.target.value })
+                  }
                   placeholder="Company name"
                   className="glass-glow"
                 />
               </div>
             </div>
 
+            {/* ✅ Area of Interest (Shadcn Select) */}
+            <div>
+              <label className="block text-sm font-medium mb-2">
+                Area of Interest *
+              </label>
+              <Select
+                value={formData.interest}
+                onValueChange={(value) =>
+                  setFormData({ ...formData, interest: value })
+                }
+                required
+              >
+                <SelectTrigger className="glass-glow">
+                  <SelectValue placeholder="Select an option" />
+                </SelectTrigger>
+
+                <SelectContent className="bg-background text-foreground">
+                  <SelectItem value="Air Quality Monitoring">
+                    Air Quality Monitoring
+                  </SelectItem>
+                  <SelectItem value="IoT Consulting">
+                    IoT Consulting
+                  </SelectItem>
+                  <SelectItem value="IoT Training">
+                    IoT Training
+                  </SelectItem>
+                  <SelectItem value="Fuel Cell">
+                    Fuel Cell
+                  </SelectItem>
+                  <SelectItem value="Electrochemical Modelling and Simulations">
+                    Electrochemical Modelling & Simulations
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Message */}
             <div>
               <label className="block text-sm font-medium mb-2">Message *</label>
               <Textarea
                 required
                 value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
                 placeholder="Tell us about your project..."
                 rows={6}
                 className="glass-glow"
               />
             </div>
 
+            {/* Submit */}
             <Button
               type="submit"
               size="lg"
-              className="w-full bg-gradient-to-r from-primary to-secondary text-background hover:shadow-glow transition-all duration-300"
+              className="w-full bg-gradient-to-r from-primary to-secondary
+                         text-background hover:shadow-glow transition-all duration-300"
             >
               <Send className="mr-2 w-5 h-5" />
               Send Message
