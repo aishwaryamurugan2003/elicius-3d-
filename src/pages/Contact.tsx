@@ -58,12 +58,12 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Visit Us",
-      details: ["IIT Madras,Mechanical Sciences Block", "Room no :147"],
+      details: ["First Floor, E-Block IIT, Madras Research Park, Kanagam Rd, Kanagam, Tharamani, Chennai, Tamil Nadu 600113"],
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: ["3247", "9.00 A.M. to 8.00 P.M."],
+      details: ["0000", "9.00 A.M. to 8.00 P.M."],
     },
     {
       icon: Mail,
