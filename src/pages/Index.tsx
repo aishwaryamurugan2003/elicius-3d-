@@ -15,19 +15,19 @@ const Index = () => {
 
   const features = [
     {
-      title: "Advanced IoT Devices",
+      title: "ADVANCED IoT DEVICES",
       description: "Cutting-edge air quality monitoring with real-time data collection and analysis.",
       link: "/products/devices",
     },
     {
-  title: "Fuel Cell Technology",
+  title: "FUEL CELL TECHNOLOGY",
   description:
     "Research, design, and development of PEM fuel cell architectures, MEA fabrication, and performance optimisation for clean energy applications.",
   link: "/research/fuel-cell",
 },
 
     {
-  title: "Electrochemical Modelling & Simulation",
+  title: "ELECTROCHEMICAL MODELLING & SIMULATIONS",
   description:
     "Physics-based modelling and simulation of fuel cell and electrolyser systems for performance analysis, degradation studies, and system optimisation.",
   link: "/research/simulations",
@@ -147,16 +147,17 @@ const Index = () => {
              transition-all duration-300 group flex flex-col"
 >
   <h3
-    className="text-2xl font-bold mb-4 min-h-[64px]
-               flex items-center
-               group-hover:text-primary transition-colors"
-  >
-    {feature.title}
-  </h3>
-
-  <p className="text-muted-foreground mb-6">
-    {feature.description}
-  </p>
+  className="text-2xl font-bold mb-4
+             min-h-[72px]
+             line-clamp-2
+             flex items-start
+             group-hover:text-primary transition-colors"
+>
+  {feature.title}
+</h3>
+<p className="text-foreground/80 mb-6">
+  {feature.description}
+</p>
 
   <div className="mt-auto flex items-center text-primary font-medium
                   group-hover:translate-x-2 transition-transform">

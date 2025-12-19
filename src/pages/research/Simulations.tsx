@@ -3,15 +3,15 @@ import {
   Brain,
   BarChart3,
   Layers,
-  TrendingUp,
+  TrendingUp, 
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
 
-// // add your images here
-// import model1 from "@/assets/modelling/system-model.jpg";
-// import model2 from "@/assets/modelling/awe-stack.jpg";
-// import model3 from "@/assets/modelling/thermal-electrochemical.jpg";
+
+import model1 from "@/assets/simulations/alkaline-electrolyzer.jpg";
+import model2 from "@/assets/simulations/hydrogen-fuelcell.jpg";
+import model3 from "@/assets/simulations/electricity-water.jpg";
 
 const ElectrochemicalModelling = () => {
   const capabilities = [
@@ -87,26 +87,43 @@ const ElectrochemicalModelling = () => {
   </div>
 </motion.div>
 
+{/* SIMULATIONS HEADING */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  className="text-center max-w-3xl mx-auto mb-10"
+>
+  <h2 className="text-4xl md:text-5xl font-bold glow-text mb-4">
+    Working Principle of Hydrogen Electrolysis and Fuel Cell System
+  </h2>
+  {/* <p className="text-xl text-muted-foreground">
+    Representative modelling and simulation studies across electrochemical energy systems
+  </p> */}
+</motion.div>
 
-        {/* IMAGE SECTION
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
-          {[model1, model2, model3].map((img, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="glass-glow rounded-2xl overflow-hidden hover-scale"
-            >
-              <img
-                src={img}
-                alt="Electrochemical system modelling"
-                className="w-full h-64 object-cover"
-              />
-            </motion.div>
-          ))}
-        </div> */}
+
+       {/* IMAGE SECTION */}
+<div className="grid md:grid-cols-3 gap-8 mb-20">
+  {[model1, model2, model3].map((img, i) => (
+    <motion.div
+      key={i}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: i * 0.1 }}
+      className="glass-glow rounded-2xl p-4 hover-scale
+                 flex items-center justify-center"
+    >
+      <img
+        src={img}
+        alt="Electrochemical system modelling"
+        className="w-full h-auto object-contain rounded-xl"
+      />
+    </motion.div>
+  ))}
+</div>
+
 
         {/* CAPABILITIES */}
         <div className="grid md:grid-cols-2 gap-8 mb-32">
