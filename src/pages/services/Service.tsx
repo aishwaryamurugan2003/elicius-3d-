@@ -56,8 +56,8 @@ const Service = () => {
       <div className="container mx-auto px-4 py-12">
         <Breadcrumb
           items={[
-            { label: "Products", path: "/products" },
-            { label: "Services" },
+            { label: "Services", path: "/services" },
+            { label: "Consultancy Services" },
           ]}
         />
 

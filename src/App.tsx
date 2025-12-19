@@ -9,8 +9,8 @@ import Products from "./pages/products/Products";
 import Devices from "./pages/products/Devices";
 import DeviceDetail from "./pages/products/DeviceDetail";
 import Software from "./pages/products/Software";
-import Data from "./pages/products/Data";
-import Service from "./pages/products/Service";
+import Data from "./pages/services/Data";
+import Service from "./pages/services/Service";
 import Services from "./pages/services/Services";
 import Volunteering from "./pages/services/Volunteering";
 import CaseStudies from "./pages/services/CaseStudies";
@@ -51,6 +51,8 @@ const App = () => (
           
           {/* Services Routes */}
           <Route path="/services" element={<Services />} />
+          <Route path="/services/data" element={<Data />} />
+          <Route path="/service/service" element={<Service />} />
           <Route path="/services/volunteering" element={<Volunteering />} />
           <Route path="/services/case-studies" element={<CaseStudies />} />
           <Route path="/services/case-studies/:caseStudyId" element={<CaseStudyDetail />} />

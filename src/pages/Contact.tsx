@@ -75,7 +75,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Call Us",
-      details: ["0000", "9.00 A.M. to 8.00 P.M."],
+      details: ["+91 81290 62539", "9.00 A.M. to 8.00 P.M."],
     },
     {
       icon: Mail,
@@ -193,8 +193,6 @@ const Contact = () => {
                 />
               </div>
             </div>
-
-            {/* ✅ Area of Interest (Shadcn Select) */}
             <div>
               <label className="block text-sm font-medium mb-2">
                 Area of Interest *
