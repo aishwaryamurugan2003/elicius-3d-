@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { motion } from "framer-motion";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
 
@@ -9,17 +8,13 @@ interface PageLayoutProps {
 
 const PageLayout = ({ children }: PageLayoutProps) => {
   return (
-    <div className="min-h-screen bg-background particles-bg">
+    <div className="min-h-screen bg-background">
       <Navigation />
-      <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
-        className="pt-20"
-      >
+
+      <main className="pt-24">
         {children}
-      </motion.main>
+      </main>
+
       <Footer />
     </div>
   );
