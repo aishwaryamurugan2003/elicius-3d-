@@ -28,7 +28,7 @@ const Services = () => {
     // },
         {
           icon: Database,
-          title: "Data",
+          title: "Data Service",
           description: "Comprehensive data management and storage solutions for environmental data",
           features: ["Cloud storage solutions", "Real-time analytics", "Data export"],
           link: "/products/data",

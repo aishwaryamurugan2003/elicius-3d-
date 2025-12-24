@@ -11,7 +11,7 @@ import exposureAssessment from "@/assets/software/exposure_assessment.jpg";
 import roadCondition from "@/assets/software/road_condition.jpg";
 import hotspot from "@/assets/software/hotspot_identification.jpg";
 import airQuality from "@/assets/software/air_quality_map.jpg";
-import kaatruMobileApp from "@/assets/software/kaatru.jpg";
+import kaatruMobileApp from "@/assets/software/editedkaatru.jpg";
 import dashboardMultiDevice from "@/assets/software/dashboard-multidevice.png";
 import dashboardRealtimeMap from "@/assets/software/dashboard-realtime-map.png";
 import dashboardSingleDevice from "@/assets/software/dashboard-single-device.png";

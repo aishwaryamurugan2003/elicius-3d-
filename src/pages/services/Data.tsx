@@ -21,8 +21,7 @@ const Data = () => {
     {
       icon: Activity,
       title: "Real-time Analytics",
-      description:
-        "Instant processing and analysis of incoming sensor data",
+      description: "Instant processing and analysis of incoming sensor data",
       details: [
         "Live data processing",
         "Trend & anomaly detection",
@@ -33,8 +32,7 @@ const Data = () => {
     {
       icon: Download,
       title: "Data Export",
-      description:
-        "Flexible export options for reporting and integration",
+      description: "Flexible export options for reporting and integration",
       details: [
         "Multiple file formats",
         "Scheduled exports",
@@ -47,8 +45,6 @@ const Data = () => {
   return (
     <PageLayout>
       <div className="container mx-auto px-4 py-16">
-
-        {/* Breadcrumb */}
         <Breadcrumb
           items={[
             { label: "Services", path: "/services" },
@@ -56,7 +52,6 @@ const Data = () => {
           ]}
         />
 
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -69,96 +64,73 @@ const Data = () => {
             We provide air quality & road condition data.
           </p>
         </motion.div>
+        {/*
+        <div className="max-w-7xl mx-auto mb-28">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="grid md:grid-cols-2 gap-10 items-center glass-glow rounded-3xl p-8"
+          >
+            <div className="overflow-hidden rounded-2xl h-[320px]">
+              <img
+                src={realtimeDataImg}
+                alt="Realtime Air Quality Data"
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-        {/* Image Card */}
-        {/* ---- DATA SERVICE HERO CARD (PRODUCT STYLE) ---- */}
-<div className="max-w-7xl mx-auto mb-28">
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    className="grid md:grid-cols-2 gap-10 items-center glass-glow rounded-3xl p-8"
-  >
-    {/* LEFT : IMAGE */}
-    <div className="overflow-hidden rounded-2xl h-[320px]">
-      <img
-        src={realtimeDataImg}
-        alt="Realtime Air Quality Data"
-        className="w-full h-full object-cover"
-      />
-    </div>
+            <div>
+              <h2 className="text-4xl font-bold mb-4">
+                Realtime Air Quality Data
+              </h2>
 
-    {/* RIGHT : CONTENT */}
-    <div>
-      {/* Badge */}
-      {/* <span className="inline-block mb-4 px-4 py-1 text-sm rounded-full bg-primary/10 text-primary">
-        Premium
-      </span> */}
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                We provide real-time air quality and road condition data using our
+                advanced IoT sensor network and remotely sensed datasets, enabling
+                accurate monitoring, analytics, and decision-making.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+        */}
 
-      <h2 className="text-4xl font-bold mb-4">
-        Realtime Air Quality Data
-      </h2>
+        {/* Bottom cards (kept as-is for now) */}
+        {/* Add them here if needed */}
 
-      {/* <p className="text-primary text-lg font-semibold mb-4">
-        Contact for Pricing
-      </p> */}
+        <div className="grid md:grid-cols-2 gap-8">
+  {dataServices.map((service, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className="glass-glow rounded-2xl p-8 hover-scale"
+    >
+      <service.icon className="w-12 h-12 text-primary mb-4" />
 
-      <p className="text-muted-foreground leading-relaxed mb-8">
-        We provide real-time air quality and road condition data using our
-        advanced IoT sensor network and remotely sensed datasets, enabling
-        accurate monitoring, analytics, and decision-making.
+      <h3 className="text-2xl font-bold mb-3">
+        {service.title}
+      </h3>
+
+      <p className="text-muted-foreground mb-6">
+        {service.description}
       </p>
 
-      {/* CTA BUTTONS */}
-      <div className="flex flex-wrap gap-4">
-        {/* <button className="px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:opacity-90 transition">
-          Request Quote
-        </button> */}
-
-        {/* <button className="px-6 py-3 rounded-xl border border-primary text-primary hover:bg-primary/10 transition">
-          Download Sample
-        </button> */}
-      </div>
-    </div>
-  </motion.div>
+      <ul className="space-y-2">
+        {service.details.map((detail, i) => (
+          <li
+            key={i}
+            className="flex items-center text-sm text-muted-foreground"
+          >
+            <div className="w-1.5 h-1.5 rounded-full bg-primary mr-3" />
+            {detail}
+          </li>
+        ))}
+      </ul>
+    </motion.div>
+  ))}
 </div>
-
-
-        
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {dataServices.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="glass-glow rounded-2xl p-8 hover-scale"
-            >
-              <service.icon className="w-12 h-12 text-primary mb-4" />
-
-              <h3 className="text-2xl font-bold mb-3">
-                {service.title}
-              </h3>
-
-              <p className="text-muted-foreground mb-6">
-                {service.description}
-              </p>
-
-              <ul className="space-y-2">
-                {service.details.map((detail, i) => (
-                  <li
-                    key={i}
-                    className="flex items-center text-sm text-muted-foreground"
-                  >
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary mr-3" />
-                    {detail}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
-
       </div>
     </PageLayout>
   );
