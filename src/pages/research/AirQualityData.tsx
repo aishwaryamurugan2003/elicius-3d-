@@ -1,171 +1,253 @@
 import { motion } from "framer-motion";
-import { BarChart3, Brain, TrendingUp, AlertTriangle, Layers, Diamond, DiamondIcon, UserPlus, Share2 } from "lucide-react";
+import {
+  Layers,
+  DiamondIcon,
+  UserPlus,
+  Share2,
+} from "lucide-react";
+
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 
 const AirQualityData = () => {
   const capabilities = [
     {
       icon: Layers,
-      title: "Real-time air quality monitoring system.",
-      description: "We design and deliver real-time, air quality monitoring devices. These can be mounted on your vehicle or placed indoor.",
+      title: "Real-time Air Quality Monitoring",
+      description:
+        "Design and deployment of real-time air quality monitoring devices for mobile and fixed installations, enabling continuous environmental sensing.",
     },
     {
       icon: DiamondIcon,
-      title: "Big data analytics",
-      description: "We analyze huge amount of spatio-temporal data in big data frameworks to draw actionable insights.",
+      title: "Big Data Analytics",
+      description:
+        "Analysis of large-scale spatio-temporal datasets using big data frameworks to extract actionable environmental insights.",
     },
     {
       icon: UserPlus,
-      title: "Cloud based pipeline for spatio-temporal data",
-      description: "We stream large amount of data from our IoT device network and remote sensing satellites into our cloud using data pipelines.",
+      title: "Cloud-based Data Pipelines",
+      description:
+        "Robust cloud infrastructure for ingesting, processing, and storing IoT and remote sensing data streams.",
     },
     {
       icon: Share2,
-      title: "Spatiotemporal hotspot identification",
-      description: "An AI-driven, self-tuning, highly accurate distributed sensor network for spatio-temporal hotspot identification.",
+      title: "Spatio-temporal Hotspot Identification",
+      description:
+        "AI-driven distributed sensor networks for accurate identification of pollution hotspots over space and time.",
     },
   ];
 
   return (
     <PageLayout>
-      <div className="container mx-auto px-4 py-12">
-        <Breadcrumb
-          items={[
-            { label: "Research", path: "/research" },
-            { label: "Air Quality Data Science" },
-          ]}
-        />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-4xl mx-auto text-center mb-16"
-        >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 glow-text">
-            Welcome to Kaatru
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            Empowering You with Hyperlocal Air Quality Insights
-          </p>
-        </motion.div>
+      {/* ================= HEADER ================= */}
+      <section className="section">
+        <div className="container-wide">
+          <Breadcrumb
+            items={[
+              { label: "Research", path: "/research" },
+              { label: "Air Quality Data Science" },
+            ]}
+          />
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {capabilities.map((capability, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="glass-glow rounded-2xl p-8 hover-scale text-center"
-            >
-              <capability.icon className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-3">{capability.title}</h3>
-              <p className="text-muted-foreground">{capability.description}</p>
-            </motion.div>
-          ))}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-4xl mx-auto text-center mt-12"
+          >
+            <h1 className="heading heading-accent">
+              Welcome to Kaatru
+            </h1>
+            <p className="subtext mt-6">
+              Empowering communities with hyperlocal air quality insights
+              through data-driven environmental intelligence.
+            </p>
+          </motion.div>
         </div>
+      </section>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="glass-glow rounded-2xl p-8 max-w-4xl mx-auto mb-16"
-        >
-          <h2 className="text-3xl font-bold mb-6 glow-text">Motive for Air Quality Monitoring</h2>
-          <div className="space-y-4 text-muted-foreground text-justify">
-            <p>
-              We know very little about our immediate surroundings and the pollution there.
-            </p>
-            <p>
-              3 million people worldwide die from outdoor air pollution, including 1 million in India
-            </p>
-            <p>
-              Chemicals and harmful particles released into the atmosphere damage the living organisms. 
-            </p>
-            <p>
-              Existing air monitoring network is sporadic and prohibitively priced to expand
-            </p>
+      {/* ================= CAPABILITIES ================= */}
+      <section className="section section-muted">
+        <div className="container-wide">
+          <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+            {capabilities.map((capability, index) => (
+              <motion.div
+                key={capability.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card className="h-full">
+                  <CardHeader>
+                    <div className="icon-badge mb-4">
+                      <capability.icon className="w-6 h-6" />
+                    </div>
+                    <CardTitle>{capability.title}</CardTitle>
+                    <CardDescription>
+                      {capability.description}
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </motion.div>
+            ))}
           </div>
-        </motion.div>
+        </div>
+      </section>
 
-       <motion.div
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  className="glass-glow rounded-3xl p-12 text-center mb-32"
->
-  <h2 className="text-3xl font-bold mb-10 glow-text">
-    Our Technology and Resources
-  </h2>
+      {/* ================= MOTIVATION ================= */}
+      <section className="section">
+        <div className="container-wide max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Card>
+              <div className="p-10">
+                <h2 className="text-2xl font-semibold mb-6 text-center">
+                  Motive for Air Quality Monitoring
+                </h2>
 
-  <div className="grid md:grid-cols-3 gap-10">
-    {[
-      {
-        value: "Advanced network algorithms",
-        label:
-          "We have used electrochemical sensors for measuring a range of gases, and optical light scattering sensors for measuring the size and mass of particulate matter. We have excelled in fabrication of sensors to design and development of instrumentation to deployment of advanced network algorithms.",
-      },
-      {
-        value: "Machine learning approaches",
-        label:
-          "The modern machine learning approaches will be the driving factor to analyze the air quality. To predict impact on human and animal health, as well as vegetation at a cellular level.",
-      },
-      {
-        value: "Cloud-based monitoring platform",
-        label:
-          "Data is securely accessible through cloud-based monitoring platform. Our data management technologies validate information gathered by our deployed devices.",
-      },
-    ].map((stat, i) => (
-      <div key={i} className="px-4">
-        <div className="text-2xl font-bold text-primary mb-3">{stat.value}</div>
-        <div className="text-sm text-muted-foreground">{stat.label}</div>
-      </div>
-    ))}
-  </div>
-</motion.div>
+                <div className="space-y-4 text-muted-foreground text-justify">
+                  <p>
+                    We often know very little about the quality of air in our
+                    immediate surroundings and the pollutants we are exposed to.
+                  </p>
+                  <p>
+                    Over 3 million people worldwide die prematurely every year
+                    due to outdoor air pollution, including nearly 1 million in
+                    India.
+                  </p>
+                  <p>
+                    Harmful chemicals and particulate matter released into the
+                    atmosphere significantly impact human health, ecosystems,
+                    and overall quality of life.
+                  </p>
+                  <p>
+                    Existing air quality monitoring networks are sparse and
+                    prohibitively expensive to scale at a city-wide or
+                    hyperlocal level.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
 
+      {/* ================= TECHNOLOGY & RESOURCES ================= */}
+      <section className="section section-muted">
+        <div className="container-wide">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-6xl mx-auto"
+          >
+            <Card>
+              <div className="p-12">
+                <h2 className="text-2xl font-semibold mb-12 text-center">
+                  Our Technology and Resources
+                </h2>
 
-        <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="glass-glow rounded-2xl p-8 max-w-4xl mx-auto mb-16"
-        >
-          <h2 className="text-3xl font-bold mb-6 glow-text">About Kaatru</h2>
-          <div className="space-y-4 text-muted-foreground text-justify">
-            <p>
-              At Kaatru, we are dedicated to providing Hyperlocal Air Quality Insights to 
-              empower individuals and communities to make informed decisions about their 
-              environment. We understand the importance of breathing clean air and the 
-              impact it has on our health and well-being.
-            </p>
+                <div className="grid md:grid-cols-3 gap-10">
+                  {[
+                    {
+                      title: "Advanced Sensor Networks",
+                      text:
+                        "Electrochemical and optical sensors combined with advanced network algorithms enable accurate measurement of gases and particulate matter.",
+                    },
+                    {
+                      title: "Machine Learning Approaches",
+                      text:
+                        "Modern ML techniques are used to analyse pollution patterns and assess impacts on human health, ecosystems, and urban environments.",
+                    },
+                    {
+                      title: "Cloud-based Monitoring Platform",
+                      text:
+                        "Secure cloud platforms enable validated, real-time access to air quality data collected from distributed monitoring networks.",
+                    },
+                  ].map((item, i) => (
+                    <div key={i}>
+                      <h3 className="text-lg font-semibold text-primary mb-3">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {item.text}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
 
-    <p>
-      Our mission is to create a world where everyone has access to real-time and 
-      accurate air quality information. We believe that by raising awareness about air 
-      pollution and providing actionable insights, we can drive positive change and 
-      contribute to building healthier and more sustainable communities.
-    </p>
-  </div>
-</motion.div>
+      {/* ================= ABOUT KAATRU ================= */}
+      <section className="section">
+        <div className="container-wide max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Card>
+              <div className="p-10">
+                <h2 className="text-2xl font-semibold mb-6">
+                  About Kaatru
+                </h2>
+                <div className="space-y-4 text-muted-foreground text-justify">
+                  <p>
+                    Kaatru is dedicated to providing hyperlocal air quality
+                    insights that empower individuals, communities, and
+                    decision-makers to better understand their environment.
+                  </p>
+                  <p>
+                    By combining real-time sensing, data science, and cloud
+                    technologies, we aim to raise awareness about air pollution
+                    and enable informed actions toward healthier and more
+                    sustainable communities.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
 
+      {/* ================= TEAM ================= */}
+      <section className="section section-muted">
+        <div className="container-wide max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Card>
+              <div className="p-10">
+                <h2 className="text-2xl font-semibold mb-6">
+                  Our Team
+                </h2>
+                <p className="text-muted-foreground text-justify">
+                  Our multidisciplinary team brings together expertise in
+                  engineering, data science, environmental science, and system
+                  design, united by a shared commitment to sustainable and
+                  impactful innovation.
+                </p>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
 
-         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="glass-glow rounded-2xl p-8 max-w-4xl mx-auto mb-16"
-        >
-          <h2 className="text-3xl font-bold mb-6 glow-text">Our Team</h2>
-          <div className="space-y-4 text-muted-foreground text-justify">
-            <p>
-              Our team comprises individuals from diverse backgrounds, joining forces to pursue more than just financial outcomes. We are dedicated to implementing eco-design and eco-innovation strategies in our product development process.    
-            </p>
-          </div>
-        </motion.div>
-      </div>
     </PageLayout>
   );
 };

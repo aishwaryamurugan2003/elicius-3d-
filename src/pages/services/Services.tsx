@@ -1,142 +1,151 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Heart, FileText, ArrowRight, Database, Wrench } from "lucide-react";
+import { Database, Wrench, ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
-import consultancyImg from "@/assets/services/consultancy.jpg";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from "@/components/ui/card";
 
 const Services = () => {
   const services = [
-    // {
-    //   icon: Heart,
-    //   title: "Volunteering Programs",
-    //   description:
-    //     "Join our community initiatives for environmental monitoring and clean air advocacy",
-    //   link: "/services/volunteering",
-    //   features: [
-    //   ],
-    // },
-    // {
-    //   icon: FileText,
-    //   title: "Case Studies",
-    //   description:
-    //     "Explore real-world deployments and success stories from our clients",
-    //   link: "/services/case-studies",
-    //   features: [
-    //   ],
-    // },
-        {
-          icon: Database,
-          title: "Data Service",
-          description: "Comprehensive data management and storage solutions for environmental data",
-          features: ["Cloud storage solutions", "Real-time analytics", "Data export"],
-          link: "/products/data",
-          color: "from-primary to-secondary",
-        },
-        {
-          icon: Wrench,
-          title: "Consultancy Services",
-          description: "End-to-end support including installation, maintenance, and consulting",
-          features: ["24/7 support", "Installation", "Training"],
-          link: "/products/service",
-          color: "from-secondary to-primary",
-        },
+    {
+      icon: Database,
+      title: "Data Services",
+      description:
+        "Comprehensive environmental data services enabling monitoring, analytics, and decision-making.",
+      features: [
+        "Cloud-based data storage",
+        "Real-time analytics & insights",
+        "Data export & API integration",
+      ],
+      link: "/products/data",
+    },
+    {
+      icon: Wrench,
+      title: "Consultancy Services",
+      description:
+        "End-to-end consulting and support for deployment, operation, and optimisation of monitoring systems.",
+      features: [
+        "System design & deployment",
+        "Installation & commissioning",
+        "Training & technical support",
+      ],
+      link: "/products/service",
+    },
   ];
 
   return (
     <PageLayout>
-      <div className="container mx-auto px-4 py-12">
-        <Breadcrumb items={[{ label: "Services" }]} />
 
-        {/* HEADER */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-4xl mx-auto text-center mb-16"
-        >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 glow-text">
-            Our Services
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            Community engagement and real-world impact
-          </p>
-        </motion.div>
+      {/* ================= HEADER ================= */}
+      <section className="section">
+        <div className="container-wide">
+          <Breadcrumb items={[{ label: "Services" }]} />
 
-        {/* ---- EXISTING SERVICE CARDS ---- */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="glass-glow rounded-2xl p-8 hover-scale group"
-            >
-              <service.icon className="w-12 h-12 text-primary mb-4" />
-              <h3 className="text-3xl font-bold mb-4 group-hover:text-primary transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground mb-6">{service.description}</p>
-
-              <ul className="space-y-2 mb-6">
-                {service.features.map((feature, i) => (
-                  <li
-                    key={i}
-                    className="flex items-center text-sm text-muted-foreground"
-                  >
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary mr-3" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <Button
-                asChild
-                variant="outline"
-                className="w-full glass-glow hover:bg-primary group-hover:glow-border transition-all"
-              >
-                <Link
-                  to={service.link}
-                  className="flex items-center justify-center"
-                >
-                  Explore
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* ---- NEW CONSULTANCY CARD (IMAGE + DARK BOX) ---- */}
-        <div className="flex justify-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="rounded-2xl overflow-hidden shadow-lg"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-4xl mx-auto text-center mt-12"
           >
-            {/* IMAGE SECTION */}
-            <div className="h-[360px] w-[320px] overflow-hidden rounded-t-2xl">
-              {/* <img
-                src={consultancyImg}
-                alt="Consultancy Services"
-                className="w-full h-full object-cover"
-              /> */}
-            </div>
-
-            {/* DARK INFO BOX */}
-            {/* <div className="p-6 bg-card rounded-b-2xl w-[320px]">
-              <h3 className="text-2xl font-bold mb-3">Consultancy Services</h3>
-              <p className="text-muted-foreground text-sm">
-                An air quality amendment migrate for use cases.
-              </p>
-            </div> */}
+            <h1 className="heading heading-accent">Our Services</h1>
+            <p className="subtext mt-6">
+              Professional services supporting the full lifecycle of air quality
+              monitoring and clean-tech deployments.
+            </p>
           </motion.div>
         </div>
-      </div>
+      </section>
+
+      {/* ================= SERVICES GRID ================= */}
+      <section className="section section-muted">
+        <div className="container-wide">
+          <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card className="h-full flex flex-col">
+                  <CardHeader>
+                    <div className="icon-badge mb-4">
+                      <service.icon className="w-6 h-6" />
+                    </div>
+
+                    <CardTitle>{service.title}</CardTitle>
+                    <CardDescription>
+                      {service.description}
+                    </CardDescription>
+                  </CardHeader>
+
+                  <div className="px-6 pb-6">
+                    <ul className="space-y-2 mb-6">
+                      {service.features.map((feature) => (
+                        <li
+                          key={feature}
+                          className="flex items-start text-sm text-muted-foreground"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary mr-3 mt-2" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <CardFooter className="mt-auto">
+                    <Button asChild variant="outline" className="w-full">
+                      <Link
+                        to={service.link}
+                        className="flex items-center justify-center gap-2"
+                      >
+                        Explore Service
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= CTA ================= */}
+      <section className="section">
+        <div className="container-wide text-center max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+          >
+            <Card>
+              <div className="p-10">
+                <h2 className="text-2xl font-semibold mb-4">
+                  Need tailored consulting or data solutions?
+                </h2>
+                <p className="text-muted-foreground mb-6">
+                  Our team works closely with industries, governments, and
+                  research organisations to deliver customised clean-tech
+                  solutions.
+                </p>
+
+                <Button asChild size="lg">
+                  <Link to="/contact">Get in Touch</Link>
+                </Button>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+
     </PageLayout>
   );
 };

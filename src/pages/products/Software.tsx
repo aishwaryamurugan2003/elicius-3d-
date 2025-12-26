@@ -2,15 +2,11 @@ import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Image } from "antd";
 import { ArrowRight } from "lucide-react";
 
-// ---- Import Images ----
-import cleanestRoute from "@/assets/software/cleanest_route.jpg";
-import exposureAssessment from "@/assets/software/exposure_assessment.jpg";
-import roadCondition from "@/assets/software/road_condition.jpg";
-import hotspot from "@/assets/software/hotspot_identification.jpg";
-import airQuality from "@/assets/software/air_quality_map.jpg";
+// ---- Images ----
 import kaatruMobileApp from "@/assets/software/editedkaatru.jpg";
 import dashboardMultiDevice from "@/assets/software/dashboard-multidevice.png";
 import dashboardRealtimeMap from "@/assets/software/dashboard-realtime-map.png";
@@ -32,11 +28,11 @@ const Software = () => {
     {
       title: "Mobile Application",
       description:
-        "Real-time air quality intelligence delivered directly to your smartphone with seamless IoT integration.",
+        "Real-time air quality intelligence delivered directly to smartphones through seamless IoT integration.",
       onClick: () => scrollTo(mobileRef),
     },
     {
-      title: "Dashboard",
+      title: "Analytics Dashboard",
       description:
         "A powerful web-based analytics platform for real-time monitoring, diagnostics, and insights.",
       onClick: () => scrollTo(dashboardRef),
@@ -54,65 +50,69 @@ const Software = () => {
 
   return (
     <PageLayout>
-      <div className="container mx-auto px-4 py-16">
-        {/* Breadcrumb */}
-        <Breadcrumb
-          items={[
-            { label: "Products", path: "/products" },
-            { label: "Software" },
-          ]}
-        />
 
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-10"
-        >
-          <h1 className="text-5xl font-bold mb-4 glow-text">Softwares</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            We strive to provide advanced air & road monitoring software for efficient results.
-          </p>
-        </motion.div>
+      {/* ================= HEADER ================= */}
+      <section className="section">
+        <div className="container-wide">
+          <Breadcrumb
+            items={[
+              { label: "Products", path: "/products" },
+              { label: "Software" },
+            ]}
+          />
 
-        {/* SOFTWARE CARDS */}
-        <section className="py-10">
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-4xl mx-auto text-center mt-12"
+          >
+            <h1 className="heading heading-accent">Software Platforms</h1>
+            <p className="subtext mt-6">
+              Advanced software solutions powering real-time air quality
+              intelligence, analytics, and decision-making.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ================= SOFTWARE OVERVIEW ================= */}
+      <section className="section section-muted">
+        <div className="container-wide">
+          <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
             {softwareCards.map((card, index) => (
               <motion.div
-                key={index}
+                key={card.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <button
+                <Card
+                  className="cursor-pointer hover:-translate-y-1 transition-all h-full"
                   onClick={card.onClick}
-                  className="glass-glow rounded-2xl p-8 h-full hover:glow-border
-                             transition-all duration-300 group flex flex-col text-left w-full"
                 >
-                  <h3 className="text-2xl font-bold mb-4 group-hover:text-primary">
-                    {card.title}
-                  </h3>
+                  <CardHeader>
+                    <CardTitle>{card.title}</CardTitle>
+                    <CardDescription>
+                      {card.description}
+                    </CardDescription>
 
-                  <p className="text-muted-foreground mb-6">
-                    {card.description}
-                  </p>
-
-                  <div className="mt-auto flex items-center text-primary font-medium
-                                  group-hover:translate-x-2 transition-transform">
-                    Learn More <ArrowRight className="ml-2 w-4 h-4" />
-                  </div>
-                </button>
+                    <div className="mt-6 flex items-center text-primary font-medium">
+                      Learn more <ArrowRight className="ml-2 w-4 h-4" />
+                    </div>
+                  </CardHeader>
+                </Card>
               </motion.div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* MOBILE APPLICATION */}
-        <section ref={mobileRef} className="mb-32">
+      {/* ================= MOBILE APP ================= */}
+      <section ref={mobileRef} className="section">
+        <div className="container-wide max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="grid lg:grid-cols-2 gap-12 items-center"
@@ -121,78 +121,84 @@ const Software = () => {
               src={kaatruMobileApp}
               alt="Kaatru Mobile Application"
               onClick={() => setPreviewSrc(kaatruMobileApp)}
-              className="w-full h-full object-contain cursor-zoom-in"
+              className="w-full h-auto object-contain cursor-zoom-in rounded-xl border"
             />
 
-            <div className="space-y-6">
-              <h2 className="text-4xl font-bold glow-text">
+            <div>
+              <h2 className="text-3xl font-semibold mb-4">
                 Kaatru Mobile Application
               </h2>
 
-              <p className="text-lg text-muted-foreground text-justify">
-                The Kaatru Mobile Application delivers real-time air quality intelligence
-                directly to your smartphone and integrates seamlessly with our IoT
-                sensor network.
+              <p className="text-muted-foreground text-lg mb-6">
+                The Kaatru Mobile Application provides real-time air quality
+                intelligence through seamless integration with our IoT sensor
+                network.
               </p>
 
-              <ul className="space-y-3 text-muted-foreground">
-                <li>• Real-time air quality & environmental monitoring</li>
-                <li>• Interactive maps and spatial visualization</li>
-                <li>• Pollution trend and exposure analysis</li>
-                <li>• Live device and network status</li>
+              <ul className="space-y-3 text-muted-foreground text-sm">
+                <li>• Real-time air quality monitoring</li>
+                <li>• Interactive maps & spatial visualisation</li>
+                <li>• Pollution exposure analysis</li>
+                <li>• Live device & network status</li>
                 <li>• Cross-platform Flutter application</li>
               </ul>
             </div>
           </motion.div>
-        </section>
+        </div>
+      </section>
 
-        {/* DASHBOARD */}
-        <section ref={dashboardRef} className="mb-32">
+      {/* ================= DASHBOARD ================= */}
+      <section ref={dashboardRef} className="section section-muted">
+        <div className="container-wide max-w-7xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-16 text-center"
+            className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold glow-text mb-4">
+            <h2 className="text-3xl font-semibold mb-4">
               Kaatru Analytics Dashboard
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="subtext max-w-3xl mx-auto">
               A comprehensive web-based platform for real-time monitoring,
-              analytics, and management of air quality sensor networks.
+              diagnostics, and management of air quality sensor networks.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-10">
+          <div className="grid lg:grid-cols-2 gap-8">
             {dashboardImages.map((img, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="glass-glow rounded-2xl overflow-hidden hover-scale
-                           h-[300px] md:h-[340px] lg:h-[380px]"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="border rounded-xl overflow-hidden hover:shadow-md transition"
               >
                 <img
                   src={img}
                   alt={`Dashboard View ${index + 1}`}
                   onClick={() => setPreviewSrc(img)}
-                  className="w-full h-full object-cover cursor-zoom-in"
+                  className="w-full h-[300px] object-cover cursor-zoom-in"
                 />
-              </div>
+              </motion.div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 🔍 ANT DESIGN PREVIEW */}
-        {previewSrc && (
-          <Image
-            style={{ display: "none" }}
-            src={previewSrc}
-            preview={{
-              visible: true,
-              onVisibleChange: (v) => !v && setPreviewSrc(null),
-            }}
-          />
-        )}
-      </div>
+      {/* ================= IMAGE PREVIEW ================= */}
+      {previewSrc && (
+        <Image
+          style={{ display: "none" }}
+          src={previewSrc}
+          preview={{
+            visible: true,
+            onVisibleChange: (v) => !v && setPreviewSrc(null),
+          }}
+        />
+      )}
+
     </PageLayout>
   );
 };

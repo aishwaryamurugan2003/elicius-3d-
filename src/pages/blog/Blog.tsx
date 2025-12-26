@@ -1,8 +1,25 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MessageCircle, Heart, MoreVertical, Send, Link2, Facebook, Linkedin } from "lucide-react";
+import {
+  MessageCircle,
+  Heart,
+  Send,
+  Link2,
+  Facebook,
+  Linkedin,
+} from "lucide-react";
+
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 
 import blog1 from "@/assets/blogs/blog1.jpg";
 import blog2 from "@/assets/blogs/blog2.jpg";
@@ -17,12 +34,11 @@ const initialPosts = [
     description:
       "Ambient air quality is a dynamic parameter that shows a high degree of spatiotemporal variation...",
     image: blog1,
-    comments: [],
+    comments: [] as string[],
     likes: 4,
     liked: false,
     showCommentBox: false,
     newComment: "",
-    showShare: false,
   },
   {
     id: "post-2",
@@ -37,7 +53,6 @@ const initialPosts = [
     liked: false,
     showCommentBox: false,
     newComment: "",
-    showShare: false,
   },
   {
     id: "post-3",
@@ -52,7 +67,6 @@ const initialPosts = [
     liked: false,
     showCommentBox: false,
     newComment: "",
-    showShare: false,
   },
 ];
 
@@ -60,8 +74,8 @@ const Blog = () => {
   const [posts, setPosts] = useState(initialPosts);
 
   const toggleLike = (id: string) => {
-    setPosts(prev =>
-      prev.map(post =>
+    setPosts((prev) =>
+      prev.map((post) =>
         post.id === id
           ? {
               ...post,
@@ -74,8 +88,8 @@ const Blog = () => {
   };
 
   const toggleCommentBox = (id: string) => {
-    setPosts(prev =>
-      prev.map(post =>
+    setPosts((prev) =>
+      prev.map((post) =>
         post.id === id
           ? { ...post, showCommentBox: !post.showCommentBox }
           : post
@@ -84,12 +98,12 @@ const Blog = () => {
   };
 
   const addComment = (id: string) => {
-    setPosts(prev =>
-      prev.map(post =>
-        post.id === id && post.newComment.trim() !== ""
+    setPosts((prev) =>
+      prev.map((post) =>
+        post.id === id && post.newComment.trim()
           ? {
               ...post,
-              comments: [...post.comments, post.newComment], // 👈 simple text comments
+              comments: [...post.comments, post.newComment],
               newComment: "",
               showCommentBox: false,
             }
@@ -98,116 +112,93 @@ const Blog = () => {
     );
   };
 
-  const toggleShare = (id: string) => {
-    setPosts(prev =>
-      prev.map(post =>
-        post.id === id
-          ? { ...post, showShare: !post.showShare }
-          : { ...post, showShare: false }
-      )
-    );
-  };
-
   return (
     <PageLayout>
-      <div className="container mx-auto px-4 py-12">
-        <Breadcrumb items={[{ label: "Blog" }]} />
+      <section className="section">
+        <div className="container-wide">
+          <Breadcrumb items={[{ label: "Blog" }]} />
 
-        <div className="max-w-6xl mx-auto mb-6">
-          <span className="text-sm font-medium text-emerald-400">All Posts</span>
-        </div>
+          {/* HEADER */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-4xl mx-auto text-center mt-12 mb-16"
+          >
+            <h1 className="heading heading-accent">Insights & Articles</h1>
+            <p className="subtext mt-6">
+              Research-driven perspectives on air quality, IoT, and clean
+              technologies
+            </p>
+          </motion.div>
 
-        <div className="max-w-6xl mx-auto grid gap-8 md:grid-cols-3">
-          {posts.map((post, index) => (
-            <motion.article
-              key={post.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-[#111111] rounded-2xl overflow-hidden border border-white/10 shadow-lg flex flex-col relative"
-            >
-              {/* Share Popup */}
-              {post.showShare && (
-                <div className="absolute top-10 right-4 bg-black/90 p-4 rounded-xl border border-white/10 z-20 w-48 text-center">
-                  <p className="text-sm mb-3 text-muted-foreground">Share Post</p>
-
-                  <div className="flex justify-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center">
-                      <Facebook className="w-5 h-5 text-white" />
-                    </div>
-
-                    <div className="w-10 h-10 rounded-full bg-sky-500 flex items-center justify-center">
-                      <span className="text-white font-bold">X</span>
-                    </div>
-
-                    <div className="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center">
-                      <Linkedin className="w-5 h-5 text-white" />
-                    </div>
-
-                    <div className="w-10 h-10 rounded-full bg-neutral-700 flex items-center justify-center">
-                      <Link2 className="w-5 h-5 text-white" />
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              <div className="flex flex-col h-full">
-                <div className="w-full h-56 bg-zinc-900 overflow-hidden">
-                  <img src={post.image} className="w-full h-full object-cover" />
-                </div>
-
-                <div className="flex-1 px-6 py-5 flex flex-col">
-                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
-                    <span>
-                      {post.date} • {post.readTime}
-                    </span>
-
-                    <MoreVertical
-                      className="w-4 h-4 cursor-pointer hover:text-primary"
-                      onClick={() => toggleShare(post.id)}
+          {/* BLOG GRID */}
+          <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+            {posts.map((post, index) => (
+              <motion.div
+                key={post.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card className="h-full flex flex-col overflow-hidden">
+                  {/* IMAGE */}
+                  <div className="h-56 overflow-hidden bg-muted">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-cover"
                     />
                   </div>
 
-                  <h3 className="text-lg font-semibold leading-snug mb-3">
-                    {post.title}
-                  </h3>
+                  {/* CONTENT */}
+                  <CardHeader>
+                    <div className="text-xs text-muted-foreground mb-2">
+                      {post.date} • {post.readTime}
+                    </div>
 
-                  <p className="text-sm text-muted-foreground line-clamp-3">
-                    {post.description}
-                  </p>
+                    <CardTitle className="leading-snug">
+                      {post.title}
+                    </CardTitle>
 
-                  <div className="mt-6 mb-3 h-px w-full bg-white/5" />
+                    <CardDescription className="line-clamp-3">
+                      {post.description}
+                    </CardDescription>
+                  </CardHeader>
 
-                  <div className="flex items-center justify-between text-xs text-muted-foreground">
-                    <div
-                      className="flex items-center gap-1 cursor-pointer hover:text-primary"
+                  {/* INTERACTIONS */}
+                  <div className="px-6 pt-2 flex items-center justify-between text-sm text-muted-foreground">
+                    <button
                       onClick={() => toggleCommentBox(post.id)}
+                      className="flex items-center gap-1 hover:text-primary"
                     >
                       <MessageCircle className="w-4 h-4" />
-                      <span>{post.comments.length}</span>
-                    </div>
+                      {post.comments.length}
+                    </button>
 
-                    <div
-                      className="flex items-center gap-1 cursor-pointer"
+                    <button
                       onClick={() => toggleLike(post.id)}
+                      className="flex items-center gap-1"
                     >
-                      <span>{post.likes}</span>
+                      {post.likes}
                       <Heart
-                        className={`w-4 h-4 transition-colors ${
-                          post.liked ? "text-red-500 fill-red-500" : ""
+                        className={`w-4 h-4 ${
+                          post.liked
+                            ? "text-red-500 fill-red-500"
+                            : ""
                         }`}
                       />
-                    </div>
+                    </button>
                   </div>
 
-                  {/* Comment Box */}
+                  {/* COMMENT BOX */}
                   {post.showCommentBox && (
-                    <div className="mt-4 bg-black/40 p-4 rounded-xl border border-white/10">
-                      <textarea
+                    <div className="px-6 pt-4">
+                      <Textarea
                         value={post.newComment}
                         onChange={(e) =>
-                          setPosts(prev =>
-                            prev.map(p =>
+                          setPosts((prev) =>
+                            prev.map((p) =>
                               p.id === post.id
                                 ? { ...p, newComment: e.target.value }
                                 : p
@@ -215,34 +206,42 @@ const Blog = () => {
                           )
                         }
                         placeholder="Write a comment..."
-                        className="w-full bg-black/40 border border-white/10 rounded-lg p-2 text-sm outline-none"
                       />
 
-                      <button
+                      <Button
+                        size="sm"
+                        className="mt-3"
                         onClick={() => addComment(post.id)}
-                        className="mt-3 px-4 py-1.5 bg-primary rounded-lg text-sm flex items-center gap-2"
                       >
+                        <Send className="w-4 h-4 mr-2" />
                         Post Comment
-                      </button>
+                      </Button>
                     </div>
                   )}
 
-                  {/* Comments List (Option A) */}
+                  {/* COMMENTS */}
                   {post.comments.length > 0 && (
-                    <div className="mt-4 space-y-2">
+                    <div className="px-6 pt-4 space-y-2 text-sm text-muted-foreground">
                       {post.comments.map((c, i) => (
-                        <p key={i} className="text-sm text-muted-foreground">
-                          • {c}
-                        </p>
+                        <p key={i}>• {c}</p>
                       ))}
                     </div>
                   )}
-                </div>
-              </div>
-            </motion.article>
-          ))}
+
+                  {/* FOOTER */}
+                  <CardFooter className="mt-auto flex justify-between">
+                    <div className="flex gap-3">
+                      <Facebook className="w-4 h-4 cursor-pointer hover:text-primary" />
+                      <Linkedin className="w-4 h-4 cursor-pointer hover:text-primary" />
+                      <Link2 className="w-4 h-4 cursor-pointer hover:text-primary" />
+                    </div>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
     </PageLayout>
   );
 };

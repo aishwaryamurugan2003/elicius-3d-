@@ -1,177 +1,213 @@
-import { motion } from "framer-motion"; 
-import { Battery, Zap, Droplets, Target } from "lucide-react";
-import PageLayout from "@/components/PageLayout"; 
+import { motion } from "framer-motion";
+import { Battery, Zap, Droplets, Target, ArrowRight } from "lucide-react";
+import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
-import { devices } from "@/data/devices"; 
-import { Button } from "@/components/ui/button"; 
-import { ArrowRight } from "lucide-react"; 
-import { useNavigate } from "react-router-dom"; 
-import Planar from "@/assets/fuel cell/Planar.jpg"; 
-import tubular from "@/assets/fuel cell/tubular.jpg"; 
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from "@/components/ui/card";
+
+/* Images */
+import Planar from "@/assets/fuel cell/Planar.jpg";
+import tubular from "@/assets/fuel cell/tubular.jpg";
 import inhouse from "@/assets/fuel cell/inhouse.jpg";
 import modifiedcylindrical from "@/assets/fuel cell/modifiedcylindrical.jpg";
 import pemcylindrical from "@/assets/fuel cell/pemcylindrical.jpg";
 import cylindrical from "@/assets/fuel cell/cylindrical.jpg";
+
 const FuelCell = () => {
-
-  const fuelCellProducts = [
-    {
-      ...devices[0],
-      name: "PLANAR PEM FUEL CELL",
-      image: Planar,
-    },
-    {
-      ...devices[1],
-      name: "CYLINDRICAL PEMFC STACK",
-      image: cylindrical,
-    },
-    {
-      ...devices[2],
-      name: "IN-HOUSE FABRICATED MEMBRANE ELECTRODE ASSEMBLY",
-      image: inhouse,
-    },
-    {
-      ...devices[0],
-      name: "TUBULAR PEM FUEL CELL",
-      image: tubular,
-    },
-    {
-      ...devices[1],
-      name: "CYLINDRICAL PEM FUEL CELL",
-      image: pemcylindrical,
-    },
-    {
-      ...devices[2],
-      name: "MODIFIED CYLINDRICAL PEMFC",
-      image: modifiedcylindrical,
-    },
-  ];
-
-  const features = [
+  const focusAreas = [
     {
       icon: Battery,
-      title: "Indigenous MEA Fabrication & Performance Optimization",
+      title: "Indigenous MEA Fabrication",
       description:
-        "Driven by our commitment to self-reliance and innovation, we manufacture MEAs entirely in-house.",
+        "Complete in-house fabrication of membrane electrode assemblies with systematic performance optimisation.",
     },
     {
       icon: Zap,
-      title: "Pioneering Hybrid Fuel Cell Designs",
+      title: "Hybrid Fuel Cell Architectures",
       description:
-        "We are developing a hybrid architecture combining planar and tubular fuel cell advantages.",
+        "Development of advanced planar, tubular, and hybrid PEM fuel cell designs for improved power density.",
     },
     {
       icon: Droplets,
-      title: "Performance Optimization Through Experimental Testing",
+      title: "Experimental Performance Testing",
       description:
-        "Experiments on humidity, temperature, and gas flow help maximize current density.",
+        "Controlled experimental studies on humidity, temperature, and reactant flow conditions.",
     },
     {
       icon: Target,
-      title: "Advancing Catalyst Coating Techniques",
+      title: "Advanced Catalyst Coating",
       description:
-        "We compare Doctor Blade & Air-Spray coating methods to improve performance.",
+        "Comparative evaluation of doctor-blade and air-spray coating techniques for enhanced efficiency.",
     },
+  ];
+
+  const products = [
+    { name: "Planar PEM Fuel Cell", image: Planar },
+    { name: "Cylindrical PEMFC Stack", image: cylindrical },
+    { name: "In-House Fabricated MEA", image: inhouse },
+    { name: "Tubular PEM Fuel Cell", image: tubular },
+    { name: "Cylindrical PEM Fuel Cell", image: pemcylindrical },
+    { name: "Modified Cylindrical PEMFC", image: modifiedcylindrical },
   ];
 
   return (
     <PageLayout>
-      <div className="container mx-auto px-4 py-12">
-        <Breadcrumb
-          items={[
-            { label: "Research", path: "/research" },
-            { label: "Fuel Cell Technology" },
-          ]}
-        />
 
-        {/* HERO */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-4xl mx-auto text-center mb-16"
-        >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 glow-text">
-            Fuel Cell Technology
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            Fuel Cell Research at Elicius Energy
-          </p>
-        </motion.div>
+      {/* ================= HEADER ================= */}
+      <section className="section">
+        <div className="container-wide">
+          <Breadcrumb
+            items={[
+              { label: "Research", path: "/research" },
+              { label: "Fuel Cell Technology" },
+            ]}
+          />
 
-        {/* RESEARCH FOCUS */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="glass-glow rounded-2xl p-8 max-w-4xl mx-auto mb-16"
-        >
-          <h2 className="text-3xl font-bold mb-6 glow-text">Research Focus</h2>
-          <p className="text-muted-foreground text-justify">
-            At Elicius Energy, we innovate in PEM fuel cell development and MEA
-            fabrication.
-          </p>
-        </motion.div>
-
-        {/* FEATURES */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="glass-glow rounded-2xl p-8 hover-scale text-center"
-            >
-              <feature.icon className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
-            </motion.div>
-          ))}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-4xl mx-auto text-center mt-12"
+          >
+            <h1 className="heading heading-accent">
+              Fuel Cell Technology
+            </h1>
+            <p className="subtext mt-6">
+              Advanced research and development of PEM fuel cell technologies
+              focused on performance, durability, and real-world deployment.
+            </p>
+          </motion.div>
         </div>
+      </section>
 
-        {/* PRODUCTS - IMAGE + NAME ONLY */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <h2 className="text-4xl font-bold text-center mb-12 glow-text">
-            Related Products
-          </h2>
+      {/* ================= RESEARCH FOCUS ================= */}
+      <section className="section section-muted">
+        <div className="container-wide max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Card>
+              <div className="p-10">
+                <h2 className="text-2xl font-semibold mb-4 text-center">
+                  Research Focus
+                </h2>
+                <p className="text-muted-foreground leading-relaxed text-justify">
+                  Elicius Energy specialises in the development of Proton Exchange
+                  Membrane (PEM) fuel cell technologies, covering MEA fabrication,
+                  stack design, balance-of-plant considerations, and experimental
+                  validation for next-generation clean energy systems.
+                </p>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {fuelCellProducts.map((device, index) => (
+      {/* ================= FOCUS AREAS ================= */}
+      <section className="section">
+        <div className="container-wide">
+          <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+            {focusAreas.map((item, index) => (
               <motion.div
-                key={device.id + "-" + index}
-                initial={{ opacity: 0, y: 20 }}
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="glass-glow rounded-2xl overflow-hidden group hover-scale"
               >
-                {/* IMAGE */}
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={device.image}
-                    alt={device.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-
-                {/* NAME ONLY */}
-                <div className="p-6 text-center">
-                  <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">
-                    {device.name}
-                  </h3>
-                </div>
-
+                <Card className="h-full">
+                  <CardHeader>
+                    <div className="icon-badge mb-4">
+                      <item.icon className="w-6 h-6" />
+                    </div>
+                    <CardTitle>{item.title}</CardTitle>
+                    <CardDescription>
+                      {item.description}
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
               </motion.div>
             ))}
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </section>
+
+      {/* ================= RELATED PRODUCTS ================= */}
+      <section className="section section-muted">
+        <div className="container-wide">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="heading text-center mb-16"
+          >
+            Related Fuel Cell Products
+          </motion.h2>
+
+          <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+            {products.map((product, index) => (
+              <motion.div
+                key={product.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+              >
+                <Card className="overflow-hidden h-full">
+                  <div className="h-56 bg-muted">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  <CardHeader>
+                    <CardTitle className="text-lg text-center">
+                      {product.name}
+                    </CardTitle>
+                  </CardHeader>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= CTA ================= */}
+      <section className="section">
+        <div className="container-wide text-center max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+          >
+            <Card>
+              <div className="p-10">
+                <h2 className="text-2xl font-semibold mb-4">
+                  Interested in fuel cell research or collaboration?
+                </h2>
+                <p className="text-muted-foreground mb-6">
+                  We collaborate with academia, industry, and government bodies
+                  to develop scalable and impactful fuel cell technologies.
+                </p>
+
+                <Button asChild size="lg">
+                  <a href="/contact">Get in Touch</a>
+                </Button>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+
     </PageLayout>
   );
 };

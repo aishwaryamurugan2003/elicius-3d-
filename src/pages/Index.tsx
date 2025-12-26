@@ -3,253 +3,192 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Zap, Shield, TrendingUp, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageLayout from "@/components/PageLayout";
+import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import heroImage from "@/assets/hero-home.jpg";
 
 const Index = () => {
   const stats = [
     { label: "Cities Covered", value: "1", icon: Award },
     { label: "Devices Deployed", value: "79", icon: Zap },
-    { label: "Data Points/Day", value: "13M+", icon: TrendingUp },
-    { label: "Pilot Study", value: "5", icon: Shield },
+    { label: "Data Points / Day", value: "13M+", icon: TrendingUp },
+    { label: "Pilot Studies", value: "5", icon: Shield },
   ];
 
-  const features = [
+  const solutions = [
     {
-      title: "ADVANCED IoT DEVICES",
-      description: "Cutting-edge air quality monitoring with real-time data collection and analysis.",
+      title: "Advanced IoT Devices",
+      description:
+        "Cutting-edge air quality monitoring with real-time data collection and analytics.",
       link: "/products/devices",
     },
     {
-  title: "FUEL CELL TECHNOLOGY",
-  description:
-    "Research, design, and development of PEM fuel cell architectures, MEA fabrication, and performance optimisation for clean energy applications.",
-  link: "/research/fuel-cell",
-},
-
+      title: "Fuel Cell Technology",
+      description:
+        "Research, design, MEA fabrication, and optimisation of PEM fuel cell systems.",
+      link: "/research/fuel-cell",
+    },
     {
-  title: "ELECTROCHEMICAL MODELLING & SIMULATIONS",
-  description:
-    "Physics-based modelling and simulation of fuel cell and electrolyser systems for performance analysis, degradation studies, and system optimisation.",
-  link: "/research/simulations",
-},
-
+      title: "Electrochemical Modelling & Simulation",
+      description:
+        "Physics-based modelling of fuel cell and electrolyser systems for performance and degradation analysis.",
+      link: "/research/simulations",
+    },
   ];
 
   return (
     <PageLayout>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+      {/* ================= HERO ================= */}
+      <section className="relative min-h-screen flex items-center">
         <div
-          className="absolute inset-0 z-0"
+          className="absolute inset-0"
           style={{
             backgroundImage: `url(${heroImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            filter: "brightness(0.3)",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/30 to-background z-0" />
-        
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="absolute inset-0 bg-white/80 backdrop-blur-sm" />
+
+        <div className="container-wide relative">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
+            className="max-w-4xl"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-block mb-6 px-4 py-2 glass-glow rounded-full text-sm font-medium"
-            >
-              {/* <span className="text-primary">From IIT Madras R&D to Real-World Innovation</span> */}
-            </motion.div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 glow-text">
-              INNOVATIVE ENERGY SOLUTIONS FOR A GREENER TOMORROW
+            <h1 className="heading mb-6">
+              Innovative Energy & Air Quality Solutions
             </h1>
-                      
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-gradient-to-r from-primary to-secondary text-background hover:shadow-glow transition-all duration-300 group"
-              >
+
+            <p className="subtext max-w-2xl mb-10">
+              Delivering advanced air quality monitoring, clean energy research,
+              and electrochemical intelligence for a sustainable future.
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <Button asChild size="lg">
                 <Link to="/products">
                   Explore Products
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="glass-glow hover:bg-primary transition-all "
-              >
+
+              <Button asChild size="lg" variant="outline">
                 <Link to="/contact">Get in Touch</Link>
               </Button>
             </div>
           </motion.div>
         </div>
-
-        {/* Floating particles effect */}
-        <div className="absolute inset-0 z-5 pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-primary/50 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [-20, -100],
-                opacity: [0, 1, 0],
-              }}
-              transition={{
-                duration: Math.random() * 3 + 2,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
-        </div>
       </section>
-            {/* Features Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+
+      {/* ================= OUR SOLUTIONS ================= */}
+      <section className="section section-muted">
+        <div className="container-wide">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 glow-text">
-              Our Solutions
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive clean-tech solutions powered by cutting-edge technology
+            className="text-center mb-16"
+          >
+            <h2 className="heading heading-accent">Our Solutions</h2>
+            <p className="subtext max-w-2xl mx-auto mt-4">
+              Comprehensive clean-tech solutions combining hardware, software,
+              and scientific research.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 text-justify">
-            {features.map((feature, index) => (
+          <div className="grid md:grid-cols-3 gap-8">
+            {solutions.map((item, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-        <Link
-  to={feature.link}
-  className="glass-glow rounded-2xl p-8 h-full hover:glow-border
-             transition-all duration-300 group flex flex-col"
->
-  <h3
-  className="text-2xl font-bold mb-4
-             min-h-[72px]
-             line-clamp-2
-             flex items-start
-             group-hover:text-primary transition-colors"
->
-  {feature.title}
-</h3>
-<p className="text-foreground/80 mb-6">
-  {feature.description}
-</p>
+                <Card className="h-full flex flex-col">
+                  <CardHeader>
+                    <CardTitle>{item.title}</CardTitle>
+                    <CardDescription>{item.description}</CardDescription>
+                  </CardHeader>
 
-  <div className="mt-auto flex items-center text-primary font-medium
-                  group-hover:translate-x-2 transition-transform">
-    Learn More <ArrowRight className="ml-2 w-4 h-4" />
-  </div>
-</Link>
+                  <CardFooter className="mt-auto">
+                    <Link to={item.link} className="link-cta">
+                      Learn More <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </CardFooter>
+                </Card>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-     {/* Stats Section */}
-<section className="py-20 relative">
-  <div className="container mx-auto px-4">
-    
-    {/* Heading */}
-    <motion.h2
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="text-4xl md:text-5xl font-bold glow-text text-center mb-12"
-    >
-      Air Quality Monitoring Overview
-    </motion.h2>
+      {/* ================= AIR QUALITY OVERVIEW ================= */}
+      <section className="section section-light">
+        <div className="container-wide">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="heading heading-accent">
+              Air Quality Monitoring Overview
+            </h2>
+          </motion.div>
 
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-      {stats.map((stat, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.1 }}
-          className="glass-glow rounded-2xl p-6 text-center hover-scale"
-        >
-          <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-          <div className="text-3xl md:text-4xl font-bold glow-text mb-2">
-            {stat.value}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card className="text-center">
+                  <div className="icon-badge mx-auto mb-4">
+                    <stat.icon className="w-6 h-6" />
+                  </div>
+                  <div className="text-3xl font-bold mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {stat.label}
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
           </div>
-          <div className="text-sm text-muted-foreground">
-            {stat.label}
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</section>
-      {/* CTA Section */}
-       <section className="py-20">
-        <div className="container mx-auto px-4">
+        </div>
+      </section>
+
+      {/* ================= ABOUT ================= */}
+      <section className="section section-gradient">
+        <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="glass-glow rounded-3xl p-12 text-center max-w-4xl mx-auto"
+            className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 glow-text">
-              About Elicius
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8 text-justify">
-             At Elicius Energy, we envision a world where industries thrive sustainably through groundbreaking innovations in Chemical Engineering and IoT Technology.
-             Our expert team is dedicated to providing tailor-made consulting solutions that address industrial challenges with a commitment to environmental stewardship and technological excellence.
-            </p>
+            <Card>
+              <CardHeader>
+                <CardTitle>About Elicius Energy</CardTitle>
+                <CardDescription>
+                  At Elicius Energy, we envision a future where industries thrive
+                  sustainably through innovation in chemical engineering and IoT
+                  technologies. We deliver tailor-made solutions with a strong
+                  commitment to environmental stewardship.
+                </CardDescription>
+              </CardHeader>
+            </Card>
           </motion.div>
         </div>
       </section>
-      <section className="py-20">
-        {/* <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="glass-glow rounded-3xl p-12 text-center max-w-4xl mx-auto"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 glow-text">
-              Ready to Transform Your Clean Energy Strategy?
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Join industry leaders leveraging our technology for a sustainable future
-            </p>
-            <Button
-              asChild
-              size="lg"
-              className="bg-gradient-to-r from-primary to-secondary text-background hover:shadow-glow transition-all duration-300"
-            >
-              <Link to="/contact">Start Your Journey</Link>
-            </Button>
-          </motion.div>
-        </div> */}
-      </section>
+
     </PageLayout>
   );
 };

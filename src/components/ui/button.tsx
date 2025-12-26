@@ -4,24 +4,36 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 /*
-  Corporate CleanTech Button
+  Premium Cleantech Button
+  Inspired by Prana Air & Oizom
 */
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium \
+   transition-all duration-200 \
+   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 \
+   disabled:pointer-events-none disabled:opacity-50 \
+   active:scale-[0.98] active:brightness-100",
   {
     variants: {
       variant: {
         default:
           "bg-primary text-primary-foreground hover:bg-primary/90",
+
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/90",
+
         outline:
-          "border border-border bg-background text-foreground hover:bg-muted",
+          "border border-primary text-primary bg-background \
+           hover:bg-primary hover:text-primary-foreground \
+           active:bg-primary active:text-primary-foreground",
+
         ghost:
-          "bg-transparent text-foreground hover:bg-muted",
+          "bg-transparent text-primary hover:bg-primary/10",
+
         link:
           "bg-transparent text-primary underline-offset-4 hover:underline",
+
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
       },
@@ -38,6 +50,7 @@ const buttonVariants = cva(
     },
   }
 );
+
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,

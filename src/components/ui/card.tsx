@@ -2,8 +2,8 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 /*
-  Clean Corporate Card
-  Used across website sections
+  Premium Interactive Card
+  Inspired by Prana Air & Oizom
 */
 
 const Card = React.forwardRef<
@@ -13,11 +13,23 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "rounded-xl border border-border bg-card text-card-foreground shadow-sm transition-shadow duration-300 hover:shadow-md",
+      "group relative overflow-hidden rounded-2xl border border-border bg-card text-card-foreground transition-all duration-300",
+      "shadow-[0_10px_30px_rgba(0,0,0,0.04)]",
+      "hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(0,0,0,0.08)]",
       className
     )}
     {...props}
-  />
+  >
+    {/* Accent top border */}
+    <div className="absolute top-0 left-0 h-1 w-full bg-primary opacity-80" />
+
+    {/* Gradient hover overlay */}
+    <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent" />
+    </div>
+
+    {props.children}
+  </div>
 ));
 Card.displayName = "Card";
 
@@ -27,7 +39,7 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col space-y-2 p-6", className)}
+    className={cn("flex flex-col gap-3 p-6", className)}
     {...props}
   />
 ));
@@ -40,7 +52,7 @@ const CardTitle = React.forwardRef<
   <h3
     ref={ref}
     className={cn(
-      "text-xl font-semibold tracking-tight text-foreground",
+      "text-xl font-semibold tracking-tight text-foreground transition-colors duration-300 group-hover:text-primary",
       className
     )}
     {...props}

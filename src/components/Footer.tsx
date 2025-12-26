@@ -5,79 +5,106 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-card/50 border-t border-border/50 mt-20">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="relative mt-24 border-t border-border bg-gradient-to-b from-muted to-background">
+      <div className="container-wide py-16">
+        
+        {/* Top Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           
-          {/* Company Info */}
+          {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center gap-3">
               <img
                 src="/logo.png"
                 alt="Elicius Energy Logo"
-                className="w-10 h-10 object-contain rounded-lg"
+                className="h-10 object-contain"
               />
-              <span className="text-xl font-bold glow-text">
+              <span className="text-xl font-semibold">
                 Elicius Energy
               </span>
             </div>
 
-            {/* LinkedIn Icon */}
-            <div className="flex space-x-3">
-              <a
-                href="https://www.linkedin.com/company/elicius-energy/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg glass-glow flex items-center justify-center hover-scale"
-              >
-                <Linkedin className="w-5 h-5 text-primary" />
-              </a>
-            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Innovative clean-tech solutions for air quality monitoring,
+              energy systems, and environmental intelligence.
+            </p>
+
+            {/* Social */}
+            <a
+              href="https://www.linkedin.com/company/elicius-energy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+            >
+              <Linkedin className="w-5 h-5" />
+              Follow us on LinkedIn
+            </a>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-foreground">
+            <h4 className="text-sm font-semibold uppercase tracking-wide mb-4">
               Quick Links
-            </h3>
+            </h4>
             <ul className="space-y-2">
-              <li><Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link to="/products" className="text-sm text-muted-foreground hover:text-primary transition-colors">Products</Link></li>
-              <li><Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">Services</Link></li>
-              <li><Link to="/technology" className="text-sm text-muted-foreground hover:text-primary transition-colors">Technology</Link></li>
-              <li><Link to="/research" className="text-sm text-muted-foreground hover:text-primary transition-colors">Research</Link></li>
+              {[
+                { label: "About Us", to: "/about" },
+                { label: "Products", to: "/products" },
+                { label: "Services", to: "/services" },
+                { label: "Technology", to: "/technology" },
+                { label: "Research", to: "/research" },
+              ].map((item) => (
+                <li key={item.to}>
+                  <Link
+                    to={item.to}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Resources */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-foreground">
+            <h4 className="text-sm font-semibold uppercase tracking-wide mb-4">
               Resources
-            </h3>
+            </h4>
             <ul className="space-y-2">
-              <li><Link to="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors">Blog</Link></li>
-              <li><Link to="/services/case-studies" className="text-sm text-muted-foreground hover:text-primary transition-colors">Case Studies</Link></li>
-              <li><Link to="/clients" className="text-sm text-muted-foreground hover:text-primary transition-colors">Clients</Link></li>
-              <li><Link to="/team" className="text-sm text-muted-foreground hover:text-primary transition-colors">Team</Link></li>
-              <li><Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
+              {[
+                { label: "Blog", to: "/blog" },
+                { label: "Case Studies", to: "/services/case-studies" },
+                { label: "Clients", to: "/clients" },
+                { label: "Team", to: "/team" },
+                { label: "Contact", to: "/contact" },
+              ].map((item) => (
+                <li key={item.to}>
+                  <Link
+                    to={item.to}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-foreground">
+            <h4 className="text-sm font-semibold uppercase tracking-wide mb-4">
               Contact
-            </h3>
-            <ul className="space-y-3">
-              <li className="flex items-start space-x-3 text-sm text-muted-foreground">
-                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+            </h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li className="flex gap-3">
+                <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
                 <span>
-                  First Floor, E-Block IIT, Madras Research Park, Kanagam Rd,
-                  Kanagam, Tharamani, Chennai, Tamil Nadu 600113
+                  First Floor, E-Block IIT, Madras Research Park, Chennai, India
                 </span>
               </li>
 
-              <li className="flex items-center space-x-3 text-sm text-muted-foreground">
+              <li className="flex gap-3">
                 <Mail className="w-5 h-5 text-primary" />
                 <a
                   href="mailto:contact.elicius@gmail.com"
@@ -87,7 +114,7 @@ const Footer = () => {
                 </a>
               </li>
 
-              <li className="flex items-center space-x-3 text-sm text-muted-foreground">
+              <li className="flex gap-3">
                 <Phone className="w-5 h-5 text-primary" />
                 <a
                   href="tel:+918129062539"
@@ -101,19 +128,24 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-border/50">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-muted-foreground">
-              © {currentYear} Elicius Energy. All rights reserved.
-            </p>
-            <div className="flex space-x-6">
-              <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Privacy Policy
-              </Link>
-              <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Terms of Service
-              </Link>
-            </div>
+        <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground">
+            © {currentYear} Elicius Energy. All rights reserved.
+          </p>
+
+          <div className="flex gap-6">
+            <Link
+              to="/privacy"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              to="/terms"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>

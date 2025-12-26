@@ -12,6 +12,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from "@/components/ui/card";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -29,12 +36,9 @@ const Contact = () => {
     e.preventDefault();
 
     const formDataObj = new FormData();
-    formDataObj.append("name", formData.name);
-    formDataObj.append("email", formData.email);
-    formDataObj.append("phone", formData.phone);
-    formDataObj.append("company", formData.company);
-    formDataObj.append("interest", formData.interest);
-    formDataObj.append("message", formData.message);
+    Object.entries(formData).forEach(([key, value]) =>
+      formDataObj.append(key, value)
+    );
 
     try {
       const response = await fetch("http://127.0.0.1:8000/contact/", {
@@ -46,7 +50,6 @@ const Contact = () => {
 
       if (data.status === "success") {
         toast.success("Message sent successfully!");
-
         setFormData({
           name: "",
           email: "",
@@ -56,11 +59,10 @@ const Contact = () => {
           message: "",
         });
       } else {
-        toast.error("Failed: " + data.message);
+        toast.error(data.message || "Submission failed");
       }
-    } catch (err) {
-      console.error("Fetch error:", err);
-      toast.error("Could not connect to backend.");
+    } catch (error) {
+      toast.error("Could not connect to backend");
     }
   };
 
@@ -68,194 +70,177 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Visit Us",
-      details: [
-        "First Floor, E-Block IIT, Madras Research Park, Kanagam Rd, Kanagam, Tharamani, Chennai, Tamil Nadu 600113",
-      ],
+      description:
+        "First Floor, E-Block, IIT Madras Research Park, Tharamani, Chennai – 600113",
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+91 81290 62539", "9.00 A.M. to 8.00 P.M."],
+      description: "+91 81290 62539 (9:00 AM – 8:00 PM)",
     },
     {
       icon: Mail,
       title: "Email Us",
-      details: ["contact.elicius@gmail.com"],
+      description: "contact.elicius@gmail.com",
     },
   ];
 
   return (
     <PageLayout>
-      <div className="container mx-auto px-4 py-12">
-        <Breadcrumb items={[{ label: "Contact Us" }]} />
 
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-4xl mx-auto text-center mb-16"
-        >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 glow-text">
-            Get in Touch
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            Let's discuss how we can help transform your clean energy strategy
-          </p>
-        </motion.div>
+      {/* ================= HEADER ================= */}
+      <section className="section">
+        <div className="container-wide">
+          <Breadcrumb items={[{ label: "Contact" }]} />
 
-        {/* Contact Info Cards */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {contactInfo.map((info, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="glass-glow rounded-2xl p-6 text-center hover-scale"
-            >
-              <info.icon className="w-10 h-10 text-primary mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-3">{info.title}</h3>
-              {info.details.map((detail, i) => (
-                <p key={i} className="text-sm text-muted-foreground">
-                  {detail}
-                </p>
-              ))}
-            </motion.div>
-          ))}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-4xl mx-auto text-center mt-12"
+          >
+            <h1 className="heading heading-accent">Contact Us</h1>
+            <p className="subtext mt-6">
+              Reach out to discuss clean-energy innovation, air-quality
+              monitoring, or collaborative research opportunities.
+            </p>
+          </motion.div>
         </div>
+      </section>
 
-        {/* Contact Form */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mx-auto glass-glow rounded-3xl p-8"
-        >
-          <h2 className="text-3xl font-bold mb-6 text-center glow-text">
-            Send Us a Message
-          </h2>
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name & Email */}
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium mb-2">Name *</label>
-                <Input
-                  required
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  placeholder="Your name"
-                  className="glass-glow"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-2">Email *</label>
-                <Input
-                  required
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  placeholder="your@email.com"
-                  className="glass-glow"
-                />
-              </div>
-            </div>
-
-            {/* Phone & Company */}
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium mb-2">Phone</label>
-                <Input
-                  value={formData.phone}
-                  onChange={(e) =>
-                    setFormData({ ...formData, phone: e.target.value })
-                  }
-                  placeholder="+91 1234567890"
-                  className="glass-glow"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-2">Company</label>
-                <Input
-                  value={formData.company}
-                  onChange={(e) =>
-                    setFormData({ ...formData, company: e.target.value })
-                  }
-                  placeholder="Company name"
-                  className="glass-glow"
-                />
-              </div>
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-2">
-                Area of Interest *
-              </label>
-              <Select
-                value={formData.interest}
-                onValueChange={(value) =>
-                  setFormData({ ...formData, interest: value })
-                }
-                required
+      {/* ================= CONTACT INFO ================= */}
+      <section className="section section-muted">
+        <div className="container-wide">
+          <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+            {contactInfo.map((info, index) => (
+              <motion.div
+                key={info.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
               >
-                <SelectTrigger className="glass-glow">
-                  <SelectValue placeholder="Select an option" />
-                </SelectTrigger>
+                <Card className="text-center h-full">
+                  <CardHeader>
+                    <div className="icon-badge mx-auto mb-4">
+                      <info.icon className="w-6 h-6" />
+                    </div>
+                    <CardTitle>{info.title}</CardTitle>
+                    <CardDescription>{info.description}</CardDescription>
+                  </CardHeader>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                <SelectContent className="bg-background text-foreground">
-                  <SelectItem value="Air Quality Monitoring">
-                    Air Quality Monitoring
-                  </SelectItem>
-                  <SelectItem value="IoT Consulting">
-                    IoT Consulting
-                  </SelectItem>
-                  <SelectItem value="IoT Training">
-                    IoT Training
-                  </SelectItem>
-                  <SelectItem value="Fuel Cell">
-                    Fuel Cell
-                  </SelectItem>
-                  <SelectItem value="Electrochemical Modelling and Simulations">
-                    Electrochemical Modelling & Simulations
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+      {/* ================= CONTACT FORM ================= */}
+      <section className="section">
+        <div className="container-wide max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Card>
+              <CardHeader className="text-center">
+                <CardTitle>Send Us a Message</CardTitle>
+                <CardDescription>
+                  Tell us about your project or inquiry
+                </CardDescription>
+              </CardHeader>
 
-            {/* Message */}
-            <div>
-              <label className="block text-sm font-medium mb-2">Message *</label>
-              <Textarea
-                required
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                placeholder="Tell us about your project..."
-                rows={6}
-                className="glass-glow"
-              />
-            </div>
+              <form onSubmit={handleSubmit}>
+                <div className="px-6 space-y-6">
 
-            {/* Submit */}
-            <Button
-              type="submit"
-              size="lg"
-              className="w-full bg-gradient-to-r from-primary to-secondary
-                         text-background hover:shadow-glow transition-all duration-300"
-            >
-              <Send className="mr-2 w-5 h-5" />
-              Send Message
-            </Button>
-          </form>
-        </motion.div>
-      </div>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <Input
+                      required
+                      placeholder="Name *"
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
+                    />
+                    <Input
+                      required
+                      type="email"
+                      placeholder="Email *"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                    />
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <Input
+                      placeholder="Phone"
+                      value={formData.phone}
+                      onChange={(e) =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
+                    />
+                    <Input
+                      placeholder="Company / Organisation"
+                      value={formData.company}
+                      onChange={(e) =>
+                        setFormData({ ...formData, company: e.target.value })
+                      }
+                    />
+                  </div>
+
+                  <Select
+                    value={formData.interest}
+                    onValueChange={(value) =>
+                      setFormData({ ...formData, interest: value })
+                    }
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Area of Interest *" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Air Quality Monitoring">
+                        Air Quality Monitoring
+                      </SelectItem>
+                      <SelectItem value="Fuel Cell Technology">
+                        Fuel Cell Technology
+                      </SelectItem>
+                      <SelectItem value="Electrochemical Modelling">
+                        Electrochemical Modelling & Simulation
+                      </SelectItem>
+                      <SelectItem value="IoT Consulting">
+                        IoT & Data Consulting
+                      </SelectItem>
+                      <SelectItem value="Research Collaboration">
+                        Research Collaboration
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+
+                  <Textarea
+                    required
+                    rows={5}
+                    placeholder="Your message *"
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                  />
+                </div>
+
+                <CardFooter className="pt-8">
+                  <Button type="submit" size="lg" className="w-full">
+                    <Send className="w-4 h-4 mr-2" />
+                    Send Message
+                  </Button>
+                </CardFooter>
+              </form>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+
     </PageLayout>
   );
 };

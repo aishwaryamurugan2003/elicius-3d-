@@ -1,14 +1,26 @@
 import { motion } from "framer-motion";
-import { Settings, Users, GraduationCap, HeadphonesIcon } from "lucide-react";
+import {
+  Settings,
+  Users,
+  GraduationCap,
+  HeadphonesIcon,
+} from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 
 const Service = () => {
   const services = [
     {
       icon: Settings,
       title: "Installation & Setup",
-      description: "Professional installation and configuration of all devices and software",
+      description:
+        "Professional installation and configuration of devices and software systems.",
       details: [
         "On-site installation",
         "Network configuration",
@@ -18,87 +30,113 @@ const Service = () => {
     },
     {
       icon: HeadphonesIcon,
-      title: "24/7 Support",
-      description: "Round-the-clock technical support and maintenance services",
+      title: "24/7 Technical Support",
+      description:
+        "Reliable round-the-clock support to ensure uninterrupted operations.",
       details: [
         "Phone & email support",
         "Remote diagnostics",
         "Emergency response",
-        "Regular maintenance",
+        "Preventive maintenance",
       ],
     },
     {
       icon: GraduationCap,
-      title: "Training",
-      description: "Comprehensive training programs for your team",
+      title: "Training Programs",
+      description:
+        "Structured training programs to empower your technical and operational teams.",
       details: [
-        "User training sessions",
-        "Admin workshops",
-        "Video tutorials",
-        "Documentation",
+        "User onboarding sessions",
+        "Administrator workshops",
+        "Hands-on demonstrations",
+        "Detailed documentation",
       ],
     },
     {
       icon: Users,
-      title: "Consulting",
-      description: "Expert consulting for environmental monitoring strategies",
+      title: "Consulting Services",
+      description:
+        "Expert guidance for designing, deploying, and scaling monitoring systems.",
       details: [
-        "System design",
+        "System architecture design",
         "Deployment planning",
-        "Data strategy",
-        "Compliance guidance",
+        "Data strategy & analytics",
+        "Regulatory & compliance support",
       ],
     },
   ];
 
   return (
     <PageLayout>
-      <div className="container mx-auto px-4 py-12">
-        <Breadcrumb
-          items={[
-            { label: "Services", path: "/services" },
-            { label: "Consultancy Services" },
-          ]}
-        />
+      {/* ================= HEADER ================= */}
+      <section className="section">
+        <div className="container-wide">
+          <Breadcrumb
+            items={[
+              { label: "Services", path: "/services" },
+              { label: "Consultancy Services" },
+            ]}
+          />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-4xl mx-auto text-center mb-16"
-        >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 glow-text">
-            Services & Support
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            End-to-end support to ensure your success
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="glass-glow rounded-2xl p-8 hover-scale"
-            >
-              <service.icon className="w-12 h-12 text-primary mb-4" />
-              <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-              <p className="text-muted-foreground mb-6">{service.description}</p>
-              <ul className="space-y-2">
-                {service.details.map((detail, i) => (
-                  <li key={i} className="flex items-center text-sm text-muted-foreground">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary mr-3" />
-                    {detail}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-4xl mx-auto text-center mt-12"
+          >
+            <h1 className="heading heading-accent">
+              Services & Support
+            </h1>
+            <p className="subtext mt-6">
+              End-to-end services and expert support to ensure reliable,
+              scalable, and long-term success.
+            </p>
+          </motion.div>
         </div>
-      </div>
+      </section>
+
+      {/* ================= SERVICES GRID ================= */}
+      <section className="section section-muted">
+        <div className="container-wide">
+          <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card className="h-full">
+                  <CardHeader>
+                    <div className="icon-badge mb-4">
+                      <service.icon className="w-6 h-6" />
+                    </div>
+
+                    <CardTitle>{service.title}</CardTitle>
+                    <CardDescription>
+                      {service.description}
+                    </CardDescription>
+                  </CardHeader>
+
+                  <div className="px-6 pb-6">
+                    <ul className="space-y-2">
+                      {service.details.map((detail) => (
+                        <li
+                          key={detail}
+                          className="flex items-start text-sm text-muted-foreground"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary mr-3 mt-2" />
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </PageLayout>
   );
 };
