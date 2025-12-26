@@ -1,13 +1,6 @@
   @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/*
-  ELICIUS ENERGY – PREMIUM CLEANTECH UI SYSTEM
-  Inspired by Prana Air & Oizom
-  Light • Layered • Interactive • Professional
-*/
-
 @layer base {
   :root {
     /* Core */
@@ -64,10 +57,6 @@
 }
 
 @layer utilities {
-  /* ========================= */
-  /* SECTION SYSTEM */
-  /* ========================= */
-
   .section {
     @apply relative py-20;
   }
@@ -84,18 +73,9 @@
     background: var(--gradient-soft);
   }
 
-  /* ========================= */
-  /* CONTAINER */
-  /* ========================= */
-
   .container-wide {
     @apply max-w-7xl mx-auto px-4;
   }
-
-  /* ========================= */
-  /* HEADINGS */
-  /* ========================= */
-
   .heading {
     @apply text-4xl md:text-5xl font-semibold tracking-tight;
   }
@@ -113,11 +93,6 @@
   .subtext {
     @apply text-muted-foreground text-lg;
   }
-
-  /* ========================= */
-  /* PREMIUM CARD */
-  /* ========================= */
-
   .card-premium {
     @apply relative bg-card border border-border rounded-2xl p-6 transition-all duration-300;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
@@ -143,18 +118,9 @@
     opacity: 1;
   }
 
-  /* ========================= */
-  /* ICON WRAPPER */
-  /* ========================= */
-
   .icon-badge {
     @apply flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary;
   }
-
-  /* ========================= */
-  /* LINK CTA */
-  /* ========================= */
-
   .link-cta {
     @apply inline-flex items-center gap-1 text-primary font-semibold;
   }
@@ -162,10 +128,6 @@
   .link-cta:hover {
     text-decoration: underline;
   }
-
-  /* ========================= */
-  /* MOTION HELPERS */
-  /* ========================= */
 
   .animate-fade-up {
     animation: fadeUp 0.6s ease-out both;

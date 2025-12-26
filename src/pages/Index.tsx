@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Zap, Shield, TrendingUp, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageLayout from "@/components/PageLayout";
-import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from "@/components/ui/card";
 import heroImage from "@/assets/hero-home.jpg";
 
 const Index = () => {
@@ -37,7 +43,6 @@ const Index = () => {
 
   return (
     <PageLayout>
-
       {/* ================= HERO ================= */}
       <section className="relative min-h-screen flex items-center">
         <div
@@ -83,13 +88,13 @@ const Index = () => {
       </section>
 
       {/* ================= OUR SOLUTIONS ================= */}
-      <section className="section section-muted">
+      <section className="section section-muted py-28">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
             <h2 className="heading heading-accent">Our Solutions</h2>
             <p className="subtext max-w-2xl mx-auto mt-4">
@@ -98,7 +103,7 @@ const Index = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-12">
             {solutions.map((item, index) => (
               <motion.div
                 key={item.title}
@@ -126,20 +131,20 @@ const Index = () => {
       </section>
 
       {/* ================= AIR QUALITY OVERVIEW ================= */}
-      <section className="section section-light">
+      <section className="section section-light py-28">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
             <h2 className="heading heading-accent">
               Air Quality Monitoring Overview
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -166,7 +171,7 @@ const Index = () => {
       </section>
 
       {/* ================= ABOUT ================= */}
-      <section className="section section-gradient">
+      <section className="section section-gradient py-32">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -188,7 +193,6 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
-
     </PageLayout>
   );
 };
