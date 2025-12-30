@@ -185,7 +185,7 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="text-center h-full">
+                <Card className="text-center h-full py-10">
                   <div className="icon-badge mx-auto mb-4">
                     <value.icon className="w-6 h-6" />
                   </div>

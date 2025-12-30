@@ -153,17 +153,20 @@ const Index = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="text-center">
-                  <div className="icon-badge mx-auto mb-4">
-                    <stat.icon className="w-6 h-6" />
-                  </div>
-                  <div className="text-3xl font-bold mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    {stat.label}
-                  </div>
-                </Card>
+               <Card className="text-center py-10">
+  <div className="icon-badge mx-auto mb-6">
+    <stat.icon className="w-6 h-6" />
+  </div>
+
+  <div className="text-3xl font-bold mb-2">
+    {stat.value}
+  </div>
+
+  <div className="text-sm text-muted-foreground">
+    {stat.label}
+  </div>
+</Card>
+
               </motion.div>
             ))}
           </div>
