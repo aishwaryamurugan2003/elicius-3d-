@@ -15,7 +15,6 @@ import { caseStudies } from "@/data/caseStudies";
 const CaseStudies = () => {
   return (
     <PageLayout>
-      {/* ================= HEADER ================= */}
       <section className="section">
         <div className="container-wide">
           <Breadcrumb

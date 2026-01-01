@@ -73,6 +73,66 @@ const initialPosts = [
 const Blog = () => {
   const [posts, setPosts] = useState(initialPosts);
 
+  /* ---------------- SHARE HELPERS ---------------- */
+
+  const getPostUrl = (postId: string) => {
+    return `${window.location.origin}/blog/${postId}`;
+  };
+
+  const shareOnFacebook = (postId: string) => {
+    const url = getPostUrl(postId);
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+      "_blank"
+    );
+  };
+
+  const shareOnLinkedIn = (postId: string) => {
+    const url = getPostUrl(postId);
+    window.open(
+      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+        url
+      )}`,
+      "_blank"
+    );
+  };
+
+  /* ---------- COPY LINK (FIXED & RELIABLE) ---------- */
+
+  const copyLink = (postId: string) => {
+    const url = getPostUrl(postId);
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(url).then(() => {
+        alert("Link copied!");
+      });
+    } else {
+      fallbackCopyText(url);
+    }
+  };
+
+  const fallbackCopyText = (text: string) => {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    textArea.style.opacity = "0";
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+      document.execCommand("copy");
+      alert("Link copied!");
+    } catch (err) {
+      alert("Copy failed");
+    }
+
+    document.body.removeChild(textArea);
+  };
+
+  /* ---------------- INTERACTIONS ---------------- */
+
   const toggleLike = (id: string) => {
     setPosts((prev) =>
       prev.map((post) =>
@@ -228,12 +288,20 @@ const Blog = () => {
                     </div>
                   )}
 
-                  {/* FOOTER */}
-                  <CardFooter className="mt-auto flex justify-between">
+                  {/* FOOTER (SHARE ICONS) */}
+                  <CardFooter className="mt-auto">
                     <div className="flex gap-3">
-                      <Facebook className="w-4 h-4 cursor-pointer hover:text-primary" />
-                      <Linkedin className="w-4 h-4 cursor-pointer hover:text-primary" />
-                      <Link2 className="w-4 h-4 cursor-pointer hover:text-primary" />
+                      <button onClick={() => shareOnFacebook(post.id)}>
+                        <Facebook className="w-4 h-4 hover:text-primary" />
+                      </button>
+
+                      <button onClick={() => shareOnLinkedIn(post.id)}>
+                        <Linkedin className="w-4 h-4 hover:text-primary" />
+                      </button>
+
+                      <button onClick={() => copyLink(post.id)}>
+                        <Link2 className="w-4 h-4 hover:text-primary" />
+                      </button>
                     </div>
                   </CardFooter>
                 </Card>

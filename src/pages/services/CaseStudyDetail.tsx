@@ -138,19 +138,27 @@ const CaseStudyDetail = () => {
             <h2 className="text-3xl font-semibold text-center mb-10">Components of Proposed Solution</h2>
 
             <div className="relative max-w-4xl mx-auto pt-16 pb-10">
-              <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-10 w-[2px] bg-emerald-400" />
+              {/* TOP vertical line (Big Data → horizontal) */}
+<div className="absolute left-1/2 -translate-x-1/2 top-0 h-40 w-[2px] bg-emerald-400" />
+
               <div className="absolute left-1/2 -translate-x-1/2 top-0 -mt-6 bg-background px-4">
                 <p className="font-semibold text-center">Big Data and Data Science</p>
               </div>
+              <div className="mt-16 border-t-2 border-emerald-400 flex pt-10">
+  {components.map((label, idx) => (
+    <div key={idx} className="relative flex-1 flex flex-col items-center">
 
-              <div className="mt-16 border-t-2 border-emerald-400 flex justify-between pt-10">
-                {components.map((label, idx) => (
-                  <div key={idx} className="relative flex-1 flex flex-col items-center">
-                    <div className="absolute -top-10 w-[2px] h-10 bg-emerald-400" />
-                    <p className="text-center">{label}</p>
-                  </div>
-                ))}
-              </div>
+      {/* Only left & right connectors */}
+      {idx !== 1 && (
+        <div className="absolute -top-10 w-[2px] h-10 bg-emerald-400" />
+      )}
+
+      <p className="text-center">{label}</p>
+    </div>
+  ))}
+</div>
+
+
             </div>
           </section>
 
