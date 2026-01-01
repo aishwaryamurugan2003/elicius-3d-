@@ -63,7 +63,7 @@ const Index = () => {
             className="max-w-4xl"
           >
             <h1 className="heading mb-6">
-              Innovative Energy & Air Quality Solutions
+              Clean Air, Powered by Intelligence
             </h1>
 
             <p className="subtext max-w-2xl mb-10">

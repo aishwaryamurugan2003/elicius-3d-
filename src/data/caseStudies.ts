@@ -1,6 +1,6 @@
 
-import caseA from "@/assets/case-studies/caseA.jpg";
-import caseB from "@/assets/case-studies/Pollution-3.jpg";
+import caseA from "@/assets/case-studies/smoking.jpg";
+import caseB from "@/assets/case-studies/happy-new-year.jpg";
 
 import caseStudyMap from "@/assets/case-studies/casestudy1.jpg";
 import caseStudyMapB from "@/assets/case-studies/casestudy2.jpg";
