@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Zap, Shield, TrendingUp, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ChatBot from "@/components/ui/chatbot/chatbot ";
 import PageLayout from "@/components/PageLayout";
 import {
   Card,
@@ -196,6 +197,7 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+      <ChatBot />
     </PageLayout>
   );
 };
