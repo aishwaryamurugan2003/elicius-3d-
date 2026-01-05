@@ -87,8 +87,6 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* ================= OUR SOLUTIONS ================= */}
       <section className="section section-muted py-28">
         <div className="container-wide">
           <motion.div
@@ -130,8 +128,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* ================= AIR QUALITY OVERVIEW ================= */}
       <section className="section section-light py-28">
         <div className="container-wide">
           <motion.div
@@ -174,7 +170,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ================= ABOUT ================= */}
+     
       <section className="section section-gradient py-32">
         <div className="container-wide">
           <motion.div

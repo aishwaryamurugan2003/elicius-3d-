@@ -189,7 +189,7 @@ export default function ChatBot() {
 </div>
 
 
-          {/* Input */}
+       
           <div className="border-t border-emerald-200 p-2 flex gap-2">
             <input
               value={input}

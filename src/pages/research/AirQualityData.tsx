@@ -112,7 +112,7 @@ const AirQualityData = () => {
             <Card>
               <div className="p-10">
                 <h2 className="text-2xl font-semibold mb-6 text-center">
-                  Motive for Air Quality Monitoring
+                  Motive for Air Quality Monitoring Welcome
                 </h2>
 
                 <div className="space-y-4 text-muted-foreground text-justify">
