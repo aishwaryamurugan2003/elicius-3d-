@@ -15,7 +15,70 @@ import {
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
 import { caseStudies } from "@/data/caseStudies";
+const IconCircle = ({ children }: { children: React.ReactNode }) => (
+  <div className="w-20 h-20 rounded-full bg-muted flex items-center justify-center">
+    {children}
+  </div>
+);
+type CurvedArrowProps = {
+  direction?: "up" | "down";
+};
 
+const CurvedArrow = ({ direction = "up" }: CurvedArrowProps) => (
+  <svg
+    width="120"
+    height="70"
+    viewBox="0 0 120 70"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={`text-foreground ${
+      direction === "up"
+        ? "-translate-y-8"
+        : "translate-y-8 scale-y-[-1]"
+    }`}
+  >
+    <defs>
+      <linearGradient id="flow-gradient" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.2" />
+        <stop offset="50%" stopColor="currentColor" stopOpacity="1" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.2" />
+
+        <animate
+          attributeName="x1"
+          from="-120"
+          to="120"
+          dur="1.4s"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="x2"
+          from="0"
+          to="240"
+          dur="1.4s"
+          repeatCount="indefinite"
+        />
+      </linearGradient>
+    </defs>
+
+    {/* Curve */}
+    <path
+      d="M10 55 C50 5, 70 5, 110 55"
+      stroke="url(#flow-gradient)"
+      strokeWidth="2.5"
+      fill="none"
+      strokeLinecap="round"
+    />
+
+    {/* Arrow head */}
+    <path
+      d="M102 48 L110 55 L100 58"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      fill="none"
+      strokeLinecap="round"
+    />
+  </svg>
+);
 const CaseStudyDetail = () => {
   const { caseStudyId } = useParams();
   const caseStudy = caseStudies.find((cs) => cs.id === caseStudyId);
@@ -132,53 +195,165 @@ const CaseStudyDetail = () => {
 
             </div>
           </section>
+{/* COMPONENTS */}
+<section className="mb-20">
+  <h2 className="text-3xl font-semibold text-center mb-10">
+    Components of Proposed Solution
+  </h2>
 
-          {/* COMPONENTS */}
-          <section className="mb-20">
-            <h2 className="text-3xl font-semibold text-center mb-10">Components of Proposed Solution</h2>
+  <div className="relative max-w-4xl mx-auto h-[260px]">
 
-            <div className="relative max-w-4xl mx-auto pt-16 pb-10">
-              {/* TOP vertical line (Big Data → horizontal) */}
-<div className="absolute left-1/2 -translate-x-1/2 top-0 h-40 w-[2px] bg-emerald-400" />
-
-              <div className="absolute left-1/2 -translate-x-1/2 top-0 -mt-6 bg-background px-4">
-                <p className="font-semibold text-center">Big Data and Data Science</p>
-              </div>
-              <div className="mt-16 border-t-2 border-emerald-400 flex pt-10">
-  {components.map((label, idx) => (
-    <div key={idx} className="relative flex-1 flex flex-col items-center">
-
-      {/* Only left & right connectors */}
-      {idx !== 1 && (
-        <div className="absolute -top-10 w-[2px] h-10 bg-emerald-400" />
-      )}
-
-      <p className="text-center">{label}</p>
+    {/* Big Data label */}
+    <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-background px-4 z-10">
+      <p className="font-semibold text-center">
+        Big Data and Data Science
+      </p>
     </div>
-  ))}
+
+    {/* Top vertical line */}
+    <div className="absolute top-[32px] left-1/2 -translate-x-1/2 h-[90px] w-[2px] bg-emerald-400" />
+
+    {/* Horizontal line */}
+    <div className="absolute top-[122px] left-0 right-0 h-[2px] bg-emerald-400" />
+
+    {/* LEFT vertical */}
+    <div className="absolute top-[122px] left-0 h-[32px] w-[2px] bg-emerald-400" />
+
+    {/* CENTER vertical */}
+    <div className="absolute top-[122px] left-1/2 -translate-x-1/2 h-[32px] w-[2px] bg-emerald-400" />
+
+    {/* RIGHT vertical */}
+    <div className="absolute top-[122px] right-0 h-[32px] w-[2px] bg-emerald-400" />
+
+   {/* Labels */}
+<div className="absolute top-[160px] left-0 right-0">
+
+  {/* LEFT label */}
+  <div className="absolute left-0 -translate-x-1/2 w-[220px] text-center">
+    Satellite Remote Sensing
+  </div>
+
+  {/* CENTER label */}
+  <div className="absolute left-1/2 -translate-x-1/2 w-[220px] text-center">
+    Agent based models
+  </div>
+
+  {/* RIGHT label */}
+  <div className="absolute right-0 translate-x-1/2 w-[220px] text-center">
+    IoT | Sensor Network
+  </div>
+
 </div>
 
 
-            </div>
-          </section>
+  </div>
+</section>
+{/* SCHEMATIC OF SOLUTION */}
+<section className="mb-28">
+  <h2 className="text-3xl font-semibold mb-12">
+    Schematic of Solution
+  </h2>
 
-          {/* CASE STUDY – LOCALITY */}
-          <section className="mb-20">
-            <h2 className="text-3xl font-semibold mb-8">Case Study – A Locality in Chennai</h2>
+  <div className="relative overflow-x-auto">
+  <div className="flex items-center gap-10 min-w-[900px] mx-auto">
 
-            <div className="grid md:grid-cols-2 gap-12 glass-glow rounded-2xl p-10">
-              <div className="space-y-5">
-                {localityBullets.map((text, idx) =>
-                  text ? <p key={idx} className="text-muted-foreground text-base">• {text}</p> : null
-                )}
-              </div>
 
-              <div className="text-muted-foreground">
-                <p className="mb-4">Data collected over 30 days...</p>
-                <p>Heat maps depicting spatio-temporal variation...</p>
-              </div>
-            </div>
-          </section>
+    {/* STEP 1 */}
+    <div className="relative">
+      <IconCircle><DollarSign /></IconCircle>
+    </div>
+
+    <div className="relative w-[90px]">
+      <CurvedArrow direction="up" />
+    </div>
+
+    {/* STEP 2 */}
+    <div className="relative">
+      <IconCircle><Car /></IconCircle>
+    </div>
+
+    <div className="relative w-[90px]">
+      <CurvedArrow direction="down" />
+    </div>
+
+    {/* STEP 3 */}
+    <div className="relative">
+      <IconCircle><BarChart3 /></IconCircle>
+    </div>
+
+    <div className="relative w-[90px]">
+      <CurvedArrow direction="up" />
+    </div>
+
+    {/* STEP 4 */}
+    <div className="relative">
+      <IconCircle><Search /></IconCircle>
+    </div>
+
+    <div className="relative w-[90px]">
+      <CurvedArrow direction="down" />
+    </div>
+
+    {/* STEP 5 */}
+    <div className="relative">
+      <IconCircle><Globe2 /></IconCircle>
+    </div>
+</div>
+  </div>
+</section>
+
+
+{/* CASE STUDY – LOCALITY */}
+<section className="mb-24">
+
+  <h2 className="text-3xl font-semibold mb-12">
+    Case Study – A Locality in Chennai
+  </h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-[1fr,80px,1fr] items-center gap-10">
+
+    {/* LEFT CONTENT */}
+    <div className="space-y-6 text-muted-foreground text-base leading-relaxed">
+      <p>
+        • A pilot study was run in a specific locality in Chennai with one mobile
+        device fitted on a van.
+      </p>
+
+      <p>
+        • The route was chosen such that the vehicle would travel roughly 30
+        kilometers in each trip covering an effective area of roughly 15 sq. km
+        (5 x 3 km).
+      </p>
+
+      <p>
+        • Multiple land use profiles were covered.
+      </p>
+
+      <p>
+        • Data collected over 30 days of study was condensed into a 24-hour
+        frame for analysis.
+      </p>
+    </div>
+
+    {/* ARROW */}
+    <div className="flex justify-center">
+      <span className="text-emerald-400 text-4xl font-bold">→</span>
+    </div>
+
+    {/* RIGHT CONTENT */}
+    <div className="text-muted-foreground text-base leading-relaxed">
+      <p>
+        Heat maps depicting spatio-temporal variation across a single day are
+        available with the presenter. On account of the content being under
+        review, it is not shared in this presentation. Please reach out for
+        further discussion.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
 
           {/* CASE STUDY 1 MAP */}
           <section className="mb-20">
@@ -227,6 +402,27 @@ const CaseStudyDetail = () => {
   )}
 
 </section>
+{/* FURTHER CASE STUDY REFERENCE */}
+<section className="mb-24 mt-10">
+  <div className="max-w-4xl mx-auto text-center space-y-6">
+
+    <p className="text-lg font-medium">
+      For Further Case Study Reference, click the link below
+    </p>
+
+    <a
+      href="https://www.sciencedirect.com/science/article/pii/S0360132322008277"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block text-primary underline underline-offset-4 hover:opacity-80 transition"
+    >
+      Data science and IoT based mobile monitoring framework for hyper-local PM2.5
+      assessment in urban setting – ScienceDirect
+    </a>
+
+  </div>
+</section>
+
 
         </motion.div>
       </div>
