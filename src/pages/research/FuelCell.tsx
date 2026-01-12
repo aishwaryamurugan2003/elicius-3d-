@@ -127,7 +127,9 @@ const FuelCell = () => {
                     <div className="icon-badge mb-4">
                       <item.icon className="w-6 h-6" />
                     </div>
-                    <CardTitle>{item.title}</CardTitle>
+                    <CardTitle className="text-3xl font-semibold">
+    {item.title}
+  </CardTitle>
                     <CardDescription>
                       {item.description}
                     </CardDescription>

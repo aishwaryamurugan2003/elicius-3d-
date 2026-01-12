@@ -79,8 +79,10 @@ const Services = () => {
                     <div className="icon-badge mb-4">
                       <service.icon className="w-6 h-6" />
                     </div>
+                    <CardTitle className="text-3xl font-semibold">
+    {service.title}
+  </CardTitle>
 
-                    <CardTitle>{service.title}</CardTitle>
                     <CardDescription>
                       {service.description}
                     </CardDescription>

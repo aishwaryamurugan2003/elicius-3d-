@@ -63,7 +63,7 @@ const Index = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <h1 className="heading mb-6">
+            <h1 className="text-3xl heading mb-6">
               Clean Air, Powered by Intelligence
             </h1>
 
@@ -155,7 +155,7 @@ const Index = () => {
     <stat.icon className="w-6 h-6" />
   </div>
 
-  <div className="text-3xl font-bold mb-2">
+  <div className="text-4xl font-bold mb-2">
     {stat.value}
   </div>
 
@@ -171,28 +171,31 @@ const Index = () => {
       </section>
 
      
-      <section className="section section-gradient py-32">
-        <div className="container-wide">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <Card>
-              <CardHeader>
-                <CardTitle>About Elicius Energy</CardTitle>
-                <CardDescription>
-                  At Elicius Energy, we envision a future where industries thrive
-                  sustainably through innovation in chemical engineering and IoT
-                  technologies. We deliver tailor-made solutions with a strong
-                  commitment to environmental stewardship.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
+     <section className="section section-gradient py-32">
+  <div className="container-wide">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      className="max-w-4xl mx-auto text-center"
+    >
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-4xl font-bold">
+            About Elicius Energy
+          </CardTitle>
+          <CardDescription className="text-1xl leading-relaxed">
+            At Elicius Energy, we envision a future where industries thrive
+            sustainably through innovation in chemical engineering and IoT
+            technologies. We deliver tailor-made solutions with a strong
+            commitment to environmental stewardship.
+          </CardDescription>
+        </CardHeader>
+      </Card>
+    </motion.div>
+  </div>
+</section>
+
       <ChatBot />
     </PageLayout>
   );

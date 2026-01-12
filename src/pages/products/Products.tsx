@@ -69,16 +69,20 @@ const Products = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <Card className="h-full flex flex-col">
-                  <CardHeader>
-                    <div className="icon-badge mb-4">
-                      <product.icon className="w-6 h-6" />
-                    </div>
+                 <CardHeader>
+  <div className="icon-badge mb-4">
+    <product.icon className="w-6 h-6" />
+  </div>
 
-                    <CardTitle>{product.title}</CardTitle>
-                    <CardDescription>
-                      {product.description}
-                    </CardDescription>
-                  </CardHeader>
+  <CardTitle className="text-3xl font-semibold">
+    {product.title}
+  </CardTitle>
+
+  <CardDescription className="leading-relaxed">
+    {product.description}
+  </CardDescription>
+</CardHeader>
+
 
                   <div className="px-6 pb-6">
                     <ul className="space-y-2 mb-6">

@@ -99,7 +99,7 @@ const Technology = () => {
                 <Card className="h-full hover-soft">
                   <CardHeader>
                     <tech.icon className="w-10 h-10 text-primary mb-4" />
-                    <CardTitle className="text-2xl">
+                    <CardTitle className="text-3xl">
                       {tech.title}
                     </CardTitle>
                   </CardHeader>

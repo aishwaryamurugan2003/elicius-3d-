@@ -99,7 +99,7 @@ const Research = () => {
                 <Card className="h-full hover-soft">
                   <CardHeader>
                     <area.icon className="w-10 h-10 text-primary mb-4" />
-                    <CardTitle className="text-2xl">
+                    <CardTitle className="text-3xl">
                       {area.title}
                     </CardTitle>
                   </CardHeader>

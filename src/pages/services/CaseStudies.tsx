@@ -65,7 +65,7 @@ const CaseStudies = () => {
                     {/* CONTENT */}
                     <div className="p-8">
                       <CardHeader className="p-0 mb-4">
-                        <CardTitle className="text-2xl">
+                        <CardTitle className="text-3xl">
                           {study.title}
                         </CardTitle>
                         <CardDescription>
