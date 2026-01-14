@@ -104,16 +104,18 @@ const Technology = () => {
                     </CardTitle>
                   </CardHeader>
 
-                  <CardContent>
+                  <CardContent className="text-[15px] md:text-[16px] leading-relaxed">
+                    {/* Increased description size */}
                     <p className="text-muted-foreground mb-6">
                       {tech.description}
                     </p>
 
+                    {/* Increased bullet list size */}
                     <ul className="space-y-2">
                       {tech.points.map((point, i) => (
                         <li
                           key={i}
-                          className="flex items-start text-sm text-muted-foreground"
+                          className="flex items-start text-muted-foreground"
                         >
                           <span className="mt-2 mr-3 w-1.5 h-1.5 rounded-full bg-primary" />
                           {point}
@@ -121,6 +123,7 @@ const Technology = () => {
                       ))}
                     </ul>
                   </CardContent>
+
                 </Card>
               </motion.div>
             ))}

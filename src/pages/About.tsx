@@ -128,16 +128,16 @@ const About = () => {
             className="max-w-4xl mx-auto"
           >
             <Card>
-              <CardHeader>
-                <CardTitle>Our Mission</CardTitle>
-                <CardDescription>
-                  To empower industries with sustainable, science-driven solutions
-                  through innovation in chemical engineering, clean energy systems,
-                  and environmental intelligence.
-                </CardDescription>
-              </CardHeader>
+  <CardHeader>
+    <CardTitle className="text-base">Our Mission</CardTitle>
+    <CardDescription className="text-base">
+      To empower industries with sustainable, science-driven solutions
+      through innovation in chemical engineering, clean energy systems,
+      and environmental intelligence.
+    </CardDescription>
+  </CardHeader>
 
-              <div className="px-6 pb-6 space-y-4 text-muted-foreground text-justify">
+  <div className="px-6 pb-6 space-y-4 text-muted-foreground text-justify text-base">
                 <p>
                   At Elicius Energy, we envision a future where industries thrive
                   sustainably through innovations in chemical engineering and data

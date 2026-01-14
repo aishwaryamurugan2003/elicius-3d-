@@ -104,16 +104,18 @@ const Research = () => {
                     </CardTitle>
                   </CardHeader>
 
-                  <CardContent>
+                  <CardContent className="text-[15px] md:text-[16px] leading-relaxed">
+                    {/* Increased description size */}
                     <p className="text-muted-foreground mb-6">
                       {area.description}
                     </p>
 
+                    {/* Increased bullet text */}
                     <ul className="space-y-2 mb-8">
                       {area.highlights.map((item, i) => (
                         <li
                           key={i}
-                          className="flex items-start text-sm text-muted-foreground"
+                          className="flex items-start text-muted-foreground"
                         >
                           <span className="mt-2 mr-3 w-1.5 h-1.5 rounded-full bg-primary" />
                           {item}
@@ -131,7 +133,7 @@ const Research = () => {
                         className="flex items-center justify-center"
                       >
                         Learn More
-                        <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                        <ArrowRight className="ml-2 w-4 h-4" />
                       </Link>
                     </Button>
                   </CardContent>

@@ -88,19 +88,20 @@ const Services = () => {
                     </CardDescription>
                   </CardHeader>
 
-                  <div className="px-6 pb-6">
-                    <ul className="space-y-2 mb-6">
-                      {service.features.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-start text-sm text-muted-foreground"
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary mr-3 mt-2" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div className="px-6 pb-6 text-[15px] md:text-[16px] leading-relaxed">
+  <ul className="space-y-2 mb-6">
+    {service.features.map((feature) => (
+      <li
+        key={feature}
+        className="flex items-start text-muted-foreground"
+      >
+        <span className="w-1.5 h-1.5 rounded-full bg-primary mr-3 mt-2" />
+        {feature}
+      </li>
+    ))}
+  </ul>
+</div>
+
 
                   <CardFooter className="mt-auto">
                     <Button asChild variant="outline" className="w-full">

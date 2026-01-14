@@ -69,27 +69,29 @@ const Products = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <Card className="h-full flex flex-col">
-                 <CardHeader>
-  <div className="icon-badge mb-4">
-    <product.icon className="w-6 h-6" />
-  </div>
 
-  <CardTitle className="text-3xl font-semibold">
-    {product.title}
-  </CardTitle>
+                  <CardHeader>
+                    <div className="icon-badge mb-4">
+                      <product.icon className="w-6 h-6" />
+                    </div>
 
-  <CardDescription className="leading-relaxed">
-    {product.description}
-  </CardDescription>
-</CardHeader>
+                    <CardTitle className="text-3xl font-semibold">
+                      {product.title}
+                    </CardTitle>
 
+                    {/* Updated Description Font */}
+                    <CardDescription className="leading-relaxed text-[15px] md:text-[16px]">
+                      {product.description}
+                    </CardDescription>
+                  </CardHeader>
 
-                  <div className="px-6 pb-6">
+                  {/* Updated Card Body Text */}
+                  <div className="px-6 pb-6 text-[15px] md:text-[16px] leading-relaxed">
                     <ul className="space-y-2 mb-6">
                       {product.features.map((feature) => (
                         <li
                           key={feature}
-                          className="flex items-center text-sm text-muted-foreground"
+                          className="flex items-center text-muted-foreground"
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-primary mr-3" />
                           {feature}
@@ -109,6 +111,7 @@ const Products = () => {
                       </Link>
                     </Button>
                   </CardFooter>
+
                 </Card>
               </motion.div>
             ))}
