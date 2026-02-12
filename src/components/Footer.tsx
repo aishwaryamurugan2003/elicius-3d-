@@ -110,7 +110,7 @@ const Footer = () => {
                   href="mailto:contact.elicius@gmail.com"
                   className="hover:text-primary transition-colors"
                 >
-                  contact.elicius@gmail.com
+                  admin@eliciusenergy.in
                 </a>
               </li>
 
@@ -120,7 +120,7 @@ const Footer = () => {
                   href="tel:+918129062539"
                   className="hover:text-primary transition-colors"
                 >
-                  +91 81290 62539
+                  +91 8939890310
                 </a>
               </li>
             </ul>

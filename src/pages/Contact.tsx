@@ -76,12 +76,12 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Call Us",
-      description: "+91 81290 62539 (9:00 AM – 8:00 PM)",
+      description: "+91 8939890310 (9:00 AM – 8:00 PM)",
     },
     {
       icon: Mail,
       title: "Email Us",
-      description: "contact.elicius@gmail.com",
+      description: "admin@eliciusenergy.in",
     },
   ];
 
