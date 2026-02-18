@@ -20,7 +20,6 @@ const navItems = [
       { label: "Software", path: "/products/software" },
     ],
   },
-
   {
     label: "All Services",
     path: "/services",
@@ -30,7 +29,6 @@ const navItems = [
       { label: "Consultancy Services", path: "/products/service" },
     ],
   },
-
   { label: "Case Studies", path: "/services/case-studies" },
   { label: "Technology", path: "/technology" },
 
