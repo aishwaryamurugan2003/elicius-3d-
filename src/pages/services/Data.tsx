@@ -11,47 +11,46 @@ import {
 
 const Data = () => {
   const dataServices = [
-    {
-      icon: Database,
-      title: "Cloud Storage Solutions",
-      description:
-        "Secure and scalable cloud infrastructure for environmental and sensor data.",
-      details: [
-        "Secure cloud architecture",
-        "High availability & redundancy",
-        "Scalable storage solutions",
-        "Compliance-ready systems",
-      ],
-    },
-    {
-      icon: Activity,
-      title: "Real-time Analytics",
-      description:
-        "Instant processing and intelligent analysis of incoming sensor data.",
-      details: [
-        "Live data processing",
-        "Trend & anomaly detection",
-        "Actionable insights",
-        "Decision-support dashboards",
-      ],
-    },
-    {
-      icon: Download,
-      title: "Data Export & Integration",
-      description:
-        "Flexible access and export options for reporting and system integration.",
-      details: [
-        "Multiple export formats",
-        "Scheduled data exports",
-        "API-based access",
-        "Third-party system integration",
-      ],
-    },
-  ];
+  {
+    icon: Database,
+    title: "IoT Training MSME",
+    description:
+      "Industry-oriented IoT training designed to help MSMEs adopt smart technologies, automation, and connected systems for business growth.",
+    details: [
+      "Introduction to IoT architecture & components",
+      "Hands-on sensor & microcontroller training",
+      "Smart automation for small industries",
+      "Deployment & maintenance best practices",
+    ],
+  },
+  {
+    icon: Activity,
+    title: "Agricultural IoT Training",
+    description:
+      "Specialized IoT training focused on smart agriculture solutions to improve crop monitoring, irrigation efficiency, and farm productivity(this content done by me).",
+    details: [
+      "Smart irrigation & soil monitoring systems",
+      "Weather & environmental sensing solutions",
+      "Remote monitoring using IoT dashboards",
+      "Data-driven decision making for farmers",
+    ],
+  },
+  {
+    icon: Download,
+    title: "IoT Training for Leaders (Optional)",
+    description:
+      "Strategic IoT awareness program for business leaders and decision-makers to understand digital transformation and smart technology adoption.",
+    details: [
+      "IoT strategy & digital transformation roadmap",
+      "Cost-benefit & ROI analysis",
+      "Use-case identification for industries",
+      "Technology adoption & scaling strategy",
+    ],
+  },
+];
 
   return (
     <PageLayout>
-      {/* ================= HEADER ================= */}
       <section className="section">
         <div className="container-wide">
           <Breadcrumb
@@ -67,17 +66,17 @@ const Data = () => {
             className="max-w-4xl mx-auto text-center mt-12"
           >
             <h1 className="heading heading-accent">
-              Data Services
+              IoT TRAINING
             </h1>
             <p className="subtext mt-6">
-              Reliable data infrastructure and analytics for air quality and
-              environmental intelligence.
-            </p>
+  Practical IoT training covering real-world applications,
+  smart agriculture solutions, and industry-ready implementation
+  for MSMEs and emerging tech professionals.
+</p>
           </motion.div>
         </div>
       </section>
 
-      {/* ================= DATA SERVICES GRID ================= */}
       <section className="section section-muted">
         <div className="container-wide">
           <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">

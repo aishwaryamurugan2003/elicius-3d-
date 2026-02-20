@@ -14,32 +14,31 @@ import {
 
 const Services = () => {
   const services = [
-    {
-      icon: Database,
-      title: "Data Services",
-      description:
-        "Comprehensive environmental data services enabling monitoring, analytics, and decision-making.",
-      features: [
-        "Cloud-based data storage",
-        "Real-time analytics & insights",
-        "Data export & API integration",
-      ],
-      link: "/products/data",
-    },
-    {
-      icon: Wrench,
-      title: "Consultancy Services",
-      description:
-        "End-to-end consulting and support for deployment, operation, and optimisation of monitoring systems.",
-      features: [
-        "System design & deployment",
-        "Installation & commissioning",
-        "Training & technical support",
-      ],
-      link: "/products/service",
-    },
-  ];
-
+  {
+    icon: Database,
+    title: "IoT Training",
+    description:
+      "Professional IoT training programs designed to empower industries, startups, and agricultural sectors with practical implementation skills.",
+    features: [
+      "IoT Training for MSME",
+      "Agricultural IoT Training",
+      "Hands-on IoT Implementation & Deployment",
+    ],
+     link: "/products/data",
+  },
+  {
+    icon: Wrench,
+    title: "Consultancy Services",
+    description:
+      "End-to-end consulting and support for deployment, operation, and optimisation of monitoring systems.",
+    features: [
+      "System design & deployment",
+      "Installation & commissioning",
+      "Training & technical support",
+    ],
+    link: "/products/service",
+  },
+];
   return (
     <PageLayout>
 

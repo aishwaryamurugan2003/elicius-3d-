@@ -23,7 +23,7 @@ import Clients from "./pages/Clients";
 import Team from "./pages/Team";
 import Blog from "./pages/blog/Blog";
 import Media from "./pages/blog/Media";
-import Articles from "./pages/blog/Articles";
+// import Articles from "./pages/blog/Articles";
 import ArticleDetail from "./pages/blog/ArticleDetail";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -72,7 +72,7 @@ const App = () => (
           {/* Blog Routes */}
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/media" element={<Media />} />
-          <Route path="/blog/articles" element={<Articles />} />
+          {/* <Route path="/blog/articles" element={<Articles />} /> */}
           <Route path="/blog/articles/:slug" element={<ArticleDetail />} />
           
           <Route path="/contact" element={<Contact />} />

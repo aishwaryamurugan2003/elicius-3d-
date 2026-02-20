@@ -55,7 +55,7 @@ const navItems = [
     dropdown: [
       { label: "All Posts", path: "/blog" },
       { label: "Media", path: "/blog/media" },
-      { label: "Articles", path: "/blog/articles" },
+      // { label: "Articles", path: "/blog/articles" },
     ],
   },
 
@@ -77,10 +77,10 @@ const navItems = [
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img
-              src="/logo.png"
-              alt="Elicius Energy Logo"
-              className="h-12 object-contain"
-            />
+  src="/logo.png"
+  alt="Elicius Energy Logo"
+  className="h-16 md:h-20 object-contain"
+/>
             <span className="text-lg font-semibold hidden md:block">
               Elicius Energy
             </span>
