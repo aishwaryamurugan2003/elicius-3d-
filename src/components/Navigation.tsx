@@ -25,7 +25,7 @@ const navItems = [
     path: "/services",
     dropdown: [
       { label: "All Services", path: "/services" },
-      { label: "Data Services", path: "/services/data" },
+      { label: "IoT Training", path: "/services/data" },
       { label: "Consultancy Services", path: "/products/service" },
     ],
   },

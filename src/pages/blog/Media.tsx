@@ -113,8 +113,21 @@ const mediaArticles = [
   { id: 20, image: mblog20, title: "Twitter", description: "Kaatru - Official Twitter Update", link: "https://x.com/iitmadras/status/1669230067912966144?s=20" },
   { id: 21, image: mblog21, title: "Facebook", description: "Kaatru - Official Facebook Page", link: "https://www.facebook.com/100064368442385/posts/641799307975678/?mibextid=rS40aB7S9Ucbxw6v" },
   { id: 22, image: mblog22, title: "Instagram", description: "Kaatru - Official Instagram Post", link: "https://www.instagram.com/p/CtgPDR2p186/" },
-  { id: 23, image: mblog23, title: "Citizenmatters", description: "Kaatru - Official citizenmatters Post", link: "https://citizenmatters.in/low-cost-air-pollution-monitoring-sensors-iit-madras-chennai-research/" },
-];
+{ 
+  id: 23, 
+  image: mblog23, 
+  title: "Citizenmatters", 
+  description: "Kaatru - Official citizenmatters Post", 
+  link: "https://citizenmatters.in/low-cost-air-pollution-monitoring-sensors-iit-madras-chennai-research/" 
+},
+{
+  id: 24,
+  image: mblog23,
+  title: "Citizen Matters",
+  description:
+    "Winter woes: Air pollution puts Koyambedu market workers’ health at risk.",
+  link: "https://citizenmatters.in/winter-woes-air-pollution-puts-koyambedu-market-workers-health-at-risk/",
+},];
 
 const Media = () => {
   return (
