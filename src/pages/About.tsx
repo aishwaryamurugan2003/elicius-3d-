@@ -85,9 +85,7 @@ const About = () => {
 
               <div className="space-y-4 text-muted-foreground leading-relaxed text-justify">
                 <p>
-                  Prof. Raghunathan Rengaswamy is the Marti Mannarriah Gurunath Institute
-                  Chair Professor in the Department of Chemical Engineering and Dean of
-                  Global Engagement at IIT Madras. He is a founding member of the Robert
+                  Prof. Raghunathan Rengaswamy - Professor in the Department of Data Science & Artificial Intelligence at IIT Madras. He is a founding member of the Robert
                   Bosch Centre for Data Science and AI (RBC-DSAI) and leads the Walmart
                   Centre for Tech Excellence at IIT Madras.
                 </p>
