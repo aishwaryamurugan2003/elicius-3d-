@@ -24,12 +24,12 @@ const Team = () => {
       linkedin: "#",
       email: "priya@eliciusenergy.com",
     },
-    {
-      name: "Shijoy Thomas",
-      role: "Core Team Member",
-      linkedin: "#",
-      email: "rajesh@eliciusenergy.com",
-    },
+    // {
+    //   name: "Shijoy Thomas",
+    //   role: "Core Team Member",
+    //   linkedin: "#",
+    //   email: "rajesh@eliciusenergy.com",
+    // },
   ];
 
   return (
