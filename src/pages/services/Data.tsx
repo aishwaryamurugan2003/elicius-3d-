@@ -37,7 +37,7 @@ const Data = () => {
   },
   {
     icon: Download,
-    title: "IoT Training for Leaders (Optional)",
+    title: "IoT Training for Leaders",
     description:
       "Strategic IoT awareness program for business leaders and decision-makers to understand digital transformation and smart technology adoption.",
     details: [
