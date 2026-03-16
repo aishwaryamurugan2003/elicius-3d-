@@ -27,7 +27,7 @@ const Data = () => {
     icon: Activity,
     title: "Agricultural IoT Training",
     description:
-      "Specialized IoT training focused on smart agriculture solutions to improve crop monitoring, irrigation efficiency, and farm productivity(this content done by me).",
+      "Specialized IoT training focused on smart agriculture solutions to improve crop monitoring, irrigation efficiency, and farm productivity",
     details: [
       "Smart irrigation & soil monitoring systems",
       "Weather & environmental sensing solutions",

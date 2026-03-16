@@ -1,13 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  MessageCircle,
-  Heart,
-  Send,
-  Link2,
-  Facebook,
-  Linkedin,
-} from "lucide-react";
+import { Send } from "lucide-react";
 
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -75,41 +68,41 @@ const Blog = () => {
 
   /* ---------------- SHARE HELPERS ---------------- */
 
-  const getPostUrl = (postId: string) => {
-    return `${window.location.origin}/blog/${postId}`;
-  };
+  // const getPostUrl = (postId: string) => {
+  //   return `${window.location.origin}/blog/${postId}`;
+  // };
 
-  const shareOnFacebook = (postId: string) => {
-    const url = getPostUrl(postId);
-    window.open(
-      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-      "_blank"
-    );
-  };
+  // const shareOnFacebook = (postId: string) => {
+  //   const url = getPostUrl(postId);
+  //   window.open(
+  //     `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+  //     "_blank"
+  //   );
+  // };
 
-  const shareOnLinkedIn = (postId: string) => {
-    const url = getPostUrl(postId);
-    window.open(
-      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-        url
-      )}`,
-      "_blank"
-    );
-  };
+  // const shareOnLinkedIn = (postId: string) => {
+  //   const url = getPostUrl(postId);
+  //   window.open(
+  //     `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+  //       url
+  //     )}`,
+  //     "_blank"
+  //   );
+  // };
 
   /* ---------- COPY LINK (FIXED & RELIABLE) ---------- */
 
-  const copyLink = (postId: string) => {
-    const url = getPostUrl(postId);
+  // const copyLink = (postId: string) => {
+  //   const url = getPostUrl(postId);
 
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(url).then(() => {
-        alert("Link copied!");
-      });
-    } else {
-      fallbackCopyText(url);
-    }
-  };
+  //   if (navigator.clipboard && window.isSecureContext) {
+  //     navigator.clipboard.writeText(url).then(() => {
+  //       alert("Link copied!");
+  //     });
+  //   } else {
+  //     fallbackCopyText(url);
+  //   }
+  // };
 
   const fallbackCopyText = (text: string) => {
     const textArea = document.createElement("textarea");
@@ -227,7 +220,7 @@ const Blog = () => {
                   </CardHeader>
 
                   {/* INTERACTIONS */}
-                  <div className="px-6 pt-2 flex items-center justify-between text-sm text-muted-foreground">
+                  {/* <div className="px-6 pt-2 flex items-center justify-between text-sm text-muted-foreground">
                     <button
                       onClick={() => toggleCommentBox(post.id)}
                       className="flex items-center gap-1 hover:text-primary"
@@ -249,10 +242,10 @@ const Blog = () => {
                         }`}
                       />
                     </button>
-                  </div>
+                  </div> */}
 
                   {/* COMMENT BOX */}
-                  {post.showCommentBox && (
+                  {/* {post.showCommentBox && (
                     <div className="px-6 pt-4">
                       <Textarea
                         value={post.newComment}
@@ -277,19 +270,19 @@ const Blog = () => {
                         Post Comment
                       </Button>
                     </div>
-                  )}
+                  )} */}
 
                   {/* COMMENTS */}
-                  {post.comments.length > 0 && (
+                  {/* {post.comments.length > 0 && (
                     <div className="px-6 pt-4 space-y-2 text-sm text-muted-foreground">
                       {post.comments.map((c, i) => (
                         <p key={i}>• {c}</p>
                       ))}
                     </div>
-                  )}
+                  )} */}
 
                   {/* FOOTER (SHARE ICONS) */}
-                  <CardFooter className="mt-auto">
+                  {/* <CardFooter className="mt-auto">
                     <div className="flex gap-3">
                       <button onClick={() => shareOnFacebook(post.id)}>
                         <Facebook className="w-4 h-4 hover:text-primary" />
@@ -303,7 +296,7 @@ const Blog = () => {
                         <Link2 className="w-4 h-4 hover:text-primary" />
                       </button>
                     </div>
-                  </CardFooter>
+                  </CardFooter> */}
                 </Card>
               </motion.div>
             ))}
