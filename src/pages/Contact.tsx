@@ -71,7 +71,7 @@ const Contact = () => {
       icon: MapPin,
       title: "Visit Us",
       description:
-        "First Floor, E-Block, IIT Madras Research Park, Tharamani, Chennai – 600113",
+        "No.3, Fourth Floor, Gokul Arcade, Sardar Patel Road, Adyar, Chennai - 600020",
     },
     {
       icon: Phone,
@@ -81,7 +81,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      description: "admin@eliciusenergy.in",
+      description: "contact@eliciusenergy.in",
     },
   ];
 
