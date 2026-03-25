@@ -45,48 +45,51 @@ const Index = () => {
   return (
     <PageLayout>
       {/* ================= HERO ================= */}
-      <section className="relative min-h-screen flex items-center">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url(${heroImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-        <div className="absolute inset-0 bg-white/80 backdrop-blur-sm" />
+<section className="relative min-h-[calc(100vh-80px)] flex items-center">
+  {/* Background Image */}
+  <div
+    className="absolute inset-0"
+    style={{
+      backgroundImage: `url(${heroImage})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  />
 
-        <div className="container-wide relative">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl"
-          >
-            <h1 className="text-3xl heading mb-6">
-              Clean Air, Powered by Intelligence
-            </h1>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-white/80 backdrop-blur-sm" />
 
-            <p className="subtext max-w-2xl mb-10">
-              Delivering advanced air quality monitoring, clean energy research,
-              and electrochemical intelligence for a sustainable future.
-            </p>
+  <div className="container-wide relative">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="max-w-4xl"
+    >
+      <h1 className="text-3xl heading mb-6">
+        Clean Air, Powered by Intelligence
+      </h1>
 
-            <div className="flex flex-wrap gap-4">
-              <Button asChild size="lg">
-                <Link to="/products">
-                  Explore Products
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
+      <p className="subtext max-w-2xl mb-10">
+        Delivering advanced air quality monitoring, clean energy research,
+        and electrochemical intelligence for a sustainable future.
+      </p>
 
-              <Button asChild size="lg" variant="outline">
-                <Link to="/contact">Get in Touch</Link>
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <div className="flex flex-wrap gap-4">
+        <Button asChild size="lg">
+          <Link to="/products">
+            Explore Products
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Link>
+        </Button>
+
+        <Button asChild size="lg" variant="outline">
+          <Link to="/contact">Get in Touch</Link>
+        </Button>
+      </div>
+    </motion.div>
+  </div>
+</section>
       <section className="section section-muted py-28">
         <div className="container-wide">
           <motion.div
