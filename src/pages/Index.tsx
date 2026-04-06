@@ -16,7 +16,7 @@ import heroImage from "@/assets/hero-home.jpg";
 const Index = () => {
   const stats = [
     { label: "Cities Covered", value: "1", icon: Award },
-    { label: "Devices Deployed", value: "79", icon: Zap },
+    { label: "Devices Deployed", value: "100+", icon: Zap },
     { label: "Data Points / Day", value: "13M+", icon: TrendingUp },
     { label: "Pilot Studies", value: "5", icon: Shield },
   ];
