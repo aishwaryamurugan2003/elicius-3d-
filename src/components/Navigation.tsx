@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 
@@ -6,6 +6,17 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   const navItems = [
     { label: "Home", path: "/" },
@@ -156,8 +167,14 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden py-4 border-t border-border">
-            <div className="space-y-1">
+          <div 
+            className="lg:hidden absolute top-20 left-0 w-full bg-background border-t border-border overflow-y-auto"
+            style={{ 
+              height: "calc(100dvh - 80px)",
+              WebkitOverflowScrolling: "touch"
+            }}
+          >
+            <div className="space-y-1 py-4">
 
               {navItems.map((item) => (
                 <div key={item.label}>
