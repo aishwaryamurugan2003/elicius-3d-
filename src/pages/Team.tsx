@@ -16,20 +16,32 @@ const Team = () => {
       name: "Prof. Raghunathan Rengaswamy",
       role: "Founder",
       linkedin: "#",
-      email: "arun@eliciusenergy.com",
+      email: "",
     },
     {
       name: "Sreejith C",
-      role: "Core Team Member",
+      role: "Senior Manager(Technical)",
       linkedin: "#",
-      email: "priya@eliciusenergy.com",
+      email: "sreejithchakrapani@gmail.com",
     },
-    // {
-    //   name: "Shijoy Thomas",
-    //   role: "Core Team Member",
-    //   linkedin: "#",
-    //   email: "rajesh@eliciusenergy.com",
-    // },
+    {
+      name: "Shijoy Thomas",
+      role: "Manager(Operations)",
+      linkedin: "#",
+      email: "shijoy.thomas14@gmail.com",
+    },
+    {
+      name: "Hemnath",
+      role: "Junior Engineer(Software Division)",
+      linkedin: "https://www.linkedin.com/in/hemnath-b-311547219/",
+      email: "hemnath@kaatru.org",
+    },
+    {
+      name: "Navaneethakrishnan",
+      role: "Junior Engineer(Data Science & AI Division)",
+      linkedin: "https://www.linkedin.com/in/navaneethkv/",
+      email: "Navaneethakrishnan@kaatru.org",
+    },
   ];
 
   return (
