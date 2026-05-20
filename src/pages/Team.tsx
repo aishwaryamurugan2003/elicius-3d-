@@ -33,13 +33,13 @@ const Team = () => {
     {
       name: "Hemnath",
       role: "Junior Engineer(Software Division)",
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/hemnath-b-311547219/",
       email: "hemnath@kaatru.org",
     },
     {
       name: "Navaneethakrishnan",
       role: "Junior Engineer(Data Science & AI Division)",
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/navaneethkv/",
       email: "Navaneethakrishnan@kaatru.org",
     },
   ];
