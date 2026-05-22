@@ -100,7 +100,7 @@ const Footer = () => {
               <li className="flex gap-3">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
                 <span>
-                  First Floor, E-Block IIT, Madras Research Park, Chennai, India
+                  Gokul Arcade Complex 4th Floor Sardar Patel Rd, Gandhi Nagar, Adyar, Chennai, Tamil Nadu 600020
                 </span>
               </li>
 
