@@ -11,6 +11,7 @@ import {
   CardDescription,
   CardFooter,
 } from "@/components/ui/card";
+import AnimatedHeroBackground from "@/components/AnimatedHeroBackground";
 import heroImage from "@/assets/hero-home.jpg";
 
 const Index = () => {
@@ -47,17 +48,7 @@ const Index = () => {
       {/* ================= HERO ================= */}
 <section className="relative min-h-[calc(100vh-80px)] flex items-center">
   {/* Background Image */}
-  <div
-    className="absolute inset-0"
-    style={{
-      backgroundImage: `url(${heroImage})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    }}
-  />
-
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-white/80 backdrop-blur-sm" />
+  <AnimatedHeroBackground image={heroImage} />
 
   <div className="container-wide relative">
     <motion.div

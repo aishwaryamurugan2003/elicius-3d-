@@ -107,7 +107,7 @@ const trainingLocations: TrainingLocation[] = [
     participants: "40+",
     highlight: "Industrial IoT for MSMEs",
     description:
-      "Our upcoming Pune session will bring the same hands-on IoT training experience to Maharashtra's thriving MSME and manufacturing ecosystem.",
+      "Our Pune session brought the same hands-on IoT training experience to Maharashtra’s thriving MSME and manufacturing ecosystem.",
     images: [
       { src: puneImg1, caption: "" },
       { src: puneImg2, caption: "" },
