@@ -14,7 +14,7 @@ const Team = () => {
   const team = [
     {
       name: "Prof. Raghunathan Rengaswamy",
-      role: "Founder",
+      role: "Director & Co-Founder",
       linkedin: "#",
       email: "",
     },
