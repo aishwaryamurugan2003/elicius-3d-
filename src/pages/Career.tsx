@@ -207,7 +207,7 @@ const ApplicationModal = ({
     fd.append("resume",        selectedFile);
 
     try {
-      const res  = await fetch("http://localhost:8000/apply/", { method: "POST", body: fd });
+      const res  = await fetch("/apply/", { method: "POST", body: fd });
       const data = await res.json();
       if (data.status === "success") {
         setSubmitted(true);
