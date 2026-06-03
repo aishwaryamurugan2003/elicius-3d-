@@ -30,7 +30,7 @@ const Footer = () => {
             </p>
 
             {/* Social */}
-            <a
+            {/* <a
               href="https://www.linkedin.com/company/elicius-energy/"
               target="_blank"
               rel="noopener noreferrer"
@@ -38,7 +38,7 @@ const Footer = () => {
             >
               <Linkedin className="w-5 h-5" />
               Follow us on LinkedIn
-            </a>
+            </a> */}
           </div>
 
           {/* Quick Links */}
@@ -107,10 +107,10 @@ const Footer = () => {
               <li className="flex gap-3">
                 <Mail className="w-5 h-5 text-primary" />
                 <a
-                  href="mailto:contact.elicius@gmail.com"
+                  href="mailto:contact@eliciusenergy.in"
                   className="hover:text-primary transition-colors"
                 >
-                  contact.elicius@gmail.com
+                  contact@eliciusenergy.in
                 </a>
               </li>
 

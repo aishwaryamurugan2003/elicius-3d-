@@ -16,18 +16,19 @@ interface VideoEntry {
 const CHANNEL_URL = "https://www.youtube.com/@eliciusenergy";
 
 const VIDEOS: VideoEntry[] = [
-  { id: "tAenCvCPuvw", title: "Elicius Energy – Video 1",  url: "https://youtu.be/tAenCvCPuvw", thumbnail: "https://img.youtube.com/vi/tAenCvCPuvw/mqdefault.jpg" },
-  { id: "mFtsvjtZn20", title: "Elicius Energy – Video 2",  url: "https://youtu.be/mFtsvjtZn20", thumbnail: "https://img.youtube.com/vi/mFtsvjtZn20/mqdefault.jpg" },
-  { id: "WKpswh2FjAo", title: "Elicius Energy – Video 3",  url: "https://youtu.be/WKpswh2FjAo", thumbnail: "https://img.youtube.com/vi/WKpswh2FjAo/mqdefault.jpg" },
-  { id: "AlZw6OS_qfQ", title: "Elicius Energy – Video 4",  url: "https://youtu.be/AlZw6OS_qfQ", thumbnail: "https://img.youtube.com/vi/AlZw6OS_qfQ/mqdefault.jpg" },
-  { id: "AgEijsKxxzU", title: "Elicius Energy – Video 5",  url: "https://youtu.be/AgEijsKxxzU", thumbnail: "https://img.youtube.com/vi/AgEijsKxxzU/mqdefault.jpg" },
-  { id: "Nmr97k6ohD8", title: "Elicius Energy – Video 6",  url: "https://youtu.be/Nmr97k6ohD8", thumbnail: "https://img.youtube.com/vi/Nmr97k6ohD8/mqdefault.jpg" },
-  { id: "v1Tp5mhqODg", title: "Elicius Energy – Video 7",  url: "https://youtu.be/v1Tp5mhqODg", thumbnail: "https://img.youtube.com/vi/v1Tp5mhqODg/mqdefault.jpg" },
-  { id: "WYhnuMzwHnQ", title: "Elicius Energy – Video 8",  url: "https://youtu.be/WYhnuMzwHnQ", thumbnail: "https://img.youtube.com/vi/WYhnuMzwHnQ/mqdefault.jpg" },
-  { id: "imssbkajk68", title: "Elicius Energy – Video 9",  url: "https://youtu.be/imssbkajk68", thumbnail: "https://img.youtube.com/vi/imssbkajk68/mqdefault.jpg" },
-  { id: "rwddtRYrv-g", title: "Elicius Energy – Video 10", url: "https://youtu.be/rwddtRYrv-g", thumbnail: "https://img.youtube.com/vi/rwddtRYrv-g/mqdefault.jpg" },
-  { id: "XmO5phPTOjE", title: "Elicius Energy – Video 11", url: "https://youtu.be/XmO5phPTOjE", thumbnail: "https://img.youtube.com/vi/XmO5phPTOjE/mqdefault.jpg" },
-  { id: "kOCA9wIRcDw", title: "Elicius Energy – Video 12", url: "https://youtu.be/kOCA9wIRcDw", thumbnail: "https://img.youtube.com/vi/kOCA9wIRcDw/mqdefault.jpg" },
+  { id: "WYhnuMzwHnQ", title: "Elicius Energy – Testimonials 1",  url: "https://youtu.be/WYhnuMzwHnQ", thumbnail: "https://img.youtube.com/vi/WYhnuMzwHnQ/mqdefault.jpg" },
+  { id: "tAenCvCPuvw", title: "Elicius Energy – Testimonials 2",  url: "https://youtu.be/tAenCvCPuvw", thumbnail: "https://img.youtube.com/vi/tAenCvCPuvw/mqdefault.jpg" },
+  { id: "mFtsvjtZn20", title: "Elicius Energy – Testimonials 3",  url: "https://youtu.be/mFtsvjtZn20", thumbnail: "https://img.youtube.com/vi/mFtsvjtZn20/mqdefault.jpg" },
+  { id: "imssbkajk68", title: "Elicius Energy – Testimonials 4",  url: "https://youtu.be/imssbkajk68", thumbnail: "https://img.youtube.com/vi/imssbkajk68/mqdefault.jpg" },
+  { id: "WKpswh2FjAo", title: "Elicius Energy – Testimonials 5",  url: "https://youtu.be/WKpswh2FjAo", thumbnail: "https://img.youtube.com/vi/WKpswh2FjAo/mqdefault.jpg" },
+  { id: "XmO5phPTOjE", title: "Elicius Energy – Testimonials 6", url: "https://youtu.be/XmO5phPTOjE", thumbnail: "https://img.youtube.com/vi/XmO5phPTOjE/mqdefault.jpg" },
+  { id: "AlZw6OS_qfQ", title: "Elicius Energy – Testimonials 7",  url: "https://youtu.be/AlZw6OS_qfQ", thumbnail: "https://img.youtube.com/vi/AlZw6OS_qfQ/mqdefault.jpg" },
+  { id: "AgEijsKxxzU", title: "Elicius Energy – Testimonials 8",  url: "https://youtu.be/AgEijsKxxzU", thumbnail: "https://img.youtube.com/vi/AgEijsKxxzU/mqdefault.jpg" },
+  { id: "kOCA9wIRcDw", title: "Elicius Energy – Testimonials 9", url: "https://youtu.be/kOCA9wIRcDw", thumbnail: "https://img.youtube.com/vi/kOCA9wIRcDw/mqdefault.jpg" },
+  { id: "Nmr97k6ohD8", title: "Elicius Energy – Testimonials 10",  url: "https://youtu.be/Nmr97k6ohD8", thumbnail: "https://img.youtube.com/vi/Nmr97k6ohD8/mqdefault.jpg" },
+  { id: "v1Tp5mhqODg", title: "Elicius Energy – Testimonials 11",  url: "https://youtu.be/v1Tp5mhqODg", thumbnail: "https://img.youtube.com/vi/v1Tp5mhqODg/mqdefault.jpg" },
+  { id: "rwddtRYrv-g", title: "Elicius Energy – Testimonials 12", url: "https://youtu.be/rwddtRYrv-g", thumbnail: "https://img.youtube.com/vi/rwddtRYrv-g/mqdefault.jpg" },
+  { id: "FFiaREMnQvQ", title: "Elicius Energy – Testimonials 13", url: "https://youtu.be/FFiaREMnQvQ", thumbnail: "https://img.youtube.com/vi/FFiaREMnQvQ/mqdefault.jpg" },
 ];
 
 /* ─── Modal ─── */
@@ -214,8 +215,7 @@ const Testimonials = () => {
               transition={{ delay: 0.2 }}
               className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto"
             >
-              Watch our latest videos on hydrogen fuel cells, air quality IoT, and clean-tech
-              research — straight from the Elicius Energy YouTube channel.
+              "See what our participants had to say about the latest IoT, AI/ML workshop. Watch the videos now!"
             </motion.p>
 
             <motion.a

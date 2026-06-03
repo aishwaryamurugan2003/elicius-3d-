@@ -76,12 +76,12 @@ const solutions = [
 ];
 
 const clients = [
-  { name: "IIT Madras", logo: logoIITM },
-  { name: "THSTI", logo: logoTHSTI },
-  { name: "WSAI", logo: logoWSAI },
-  { name: "Cancer Institute (WIA)", logo: logoCIT },
-  { name: "NMRL", logo: logoNMRL },
-  { name: "Pfizer", logo: logopfizer },
+  { name: "IIT Madras",            logo: logoIITM,   scale: "h-12" },
+  { name: "THSTI",                 logo: logoTHSTI,  scale: "h-12" },
+  { name: "WSAI",                  logo: logoWSAI,   scale: "h-12" },
+  { name: "Cancer Institute (WIA)", logo: logoCIT,   scale: "h-16" },  // boosted
+  { name: "NMRL",                  logo: logoNMRL,   scale: "h-12" },
+  { name: "Pfizer",                logo: logopfizer, scale: "h-10" },
 ];
 
 const Index = () => {
@@ -166,7 +166,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ================= STATS ================= */}
+      {/* ================= STATS ================= */} 
       <section className="section section-light py-28">
         <div className="container-wide">
           <motion.div
@@ -258,12 +258,12 @@ const Index = () => {
           <div key={`${client.name}-${index}`} className="flex-shrink-0">
             <Card className="w-44 flex flex-col items-center justify-center p-6 hover:shadow-lg transition-shadow">
               <div className="h-16 w-28 flex items-center justify-center mb-4">
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="max-h-full max-w-full object-contain"
-                />
-              </div>
+<img
+  src={client.logo}
+  alt={client.name}
+  className={`${client.scale} w-full object-contain`}
+/>
+</div>
               <p className="text-sm font-medium text-center text-muted-foreground">
                 {client.name}
               </p>

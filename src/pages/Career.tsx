@@ -76,8 +76,8 @@ const internships: Job[] = [
     experience: "B.E/B.Tech (ECE / EEE / CSE)",
     location: "Chennai, Tamil Nadu",
     type: "Internship",
-    stipend: "₹12,500 / month",
-    duration: "3–6 months",
+    // stipend: "₹12,500 / month",
+    // duration: "3–6 months",
     description:
       "Work on sensor hardware, embedded firmware, and PCB prototyping for our air quality monitoring IoT systems deployed across smart city projects. Gain hands-on experience with real field deployments at IIT Madras Research Park.",
     tags: ["Embedded C", "PCB Design", "MQTT", "Sensors"],
@@ -88,8 +88,8 @@ const internships: Job[] = [
     experience: "B.E/B.Tech / M.Tech / MCA",
     location: "Chennai, Tamil Nadu",
     type: "Internship",
-    stipend: "₹10,000 – ₹12,500 / month",
-    duration: "3–6 months",
+    // stipend: "₹12,500 / month",
+    // duration: "3–6 months",
     description:
       "Contribute to data-centric solutions for industrial efficiency and environmental monitoring. Work on time-series forecasting, anomaly detection, and ML pipelines using real sensor data from our IoT deployments.",
     tags: ["Python", "Machine Learning", "Time-Series", "Data Analytics"],
@@ -100,8 +100,8 @@ const internships: Job[] = [
     experience: "Any branch",
     location: "Chennai, Tamil Nadu",
     type: "Internship",
-    stipend: "₹10,000 – ₹12,500 / month",
-    duration: "3 months",
+    // stipend: "₹12,500 / month",
+    // duration: "3 months",
     description:
       "Help build and improve user-facing dashboards and marketing pages for Elicius Energy's products. Work with React, Tailwind CSS, and modern frontend tooling in a fast-moving startup environment.",
     tags: ["React", "Tailwind CSS", "TypeScript", "UI/UX"],
@@ -112,8 +112,8 @@ const internships: Job[] = [
     experience: "B.E/B.Tech / MCA (CSE / IT)",
     location: "Chennai, Tamil Nadu",
     type: "Internship",
-    stipend: "₹10,000 – ₹12,500 / month",
-    duration: "3–6 months",
+    // stipend: "₹12,500 / month",
+    // duration: "3–6 months",
     description:
       "Contribute to the backend services and data pipelines that power Elicius Energy's IoT monitoring platform. Build REST APIs, handle time-series sensor data, and integrate cloud services while working closely with the hardware and data science teams.",
     tags: ["Python", "FastAPI", "Node.js", "PostgreSQL", "MQTT"],
@@ -124,8 +124,8 @@ const internships: Job[] = [
     experience: "B.E/B.Tech (ECE / EEE)",
     location: "Chennai, Tamil Nadu",
     type: "Internship",
-    stipend: "₹10,000 – ₹12,500 / month",
-    duration: "3–6 months",
+    // stipend: "₹12,500 / month",
+    // duration: "3–6 months",
     description:
       "Assist in designing and testing embedded hardware for air quality monitoring nodes and fuel cell diagnostic units. Work on schematic review, PCB assembly, firmware debugging, and lab characterisation of sensor circuits.",
     tags: ["Embedded C", "STM32", "KiCad", "I2C / SPI", "Logic Analyser"],
@@ -136,8 +136,8 @@ const internships: Job[] = [
     experience: "B.E/B.Tech / M.Tech (Chemical Engg.)",
     location: "Chennai, Tamil Nadu",
     type: "Internship",
-    stipend: "₹8,000 – ₹10,000 / month",
-    duration: "3–6 months",
+    // stipend: "₹12,500 / month",
+    // duration: "3–6 months",
     description:
       "Support research in electrochemical systems modelling, battery diagnostics, and fuel cell performance simulation under Prof. Raghunathan Rengaswamy's group. Ideal for students with strong fundamentals in chemical engineering.",
     tags: ["MATLAB", "Python", "Electrochemistry", "Process Simulation"],
@@ -448,10 +448,6 @@ const JobCard = ({
               <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-muted border border-border/40">
                 <MapPin className="w-3 h-3" />{job.location}
               </span>
-              <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20">
-                <Clock className="w-3 h-3" />
-                {isInternship ? job.duration : job.type}
-              </span>
               {isInternship && job.stipend && (
                 <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-green-500/10 text-green-600 border border-green-500/20">
                   {job.stipend}
@@ -551,16 +547,6 @@ const Careers = () => {
         <div className="container-wide relative z-10">
           <Breadcrumb items={[{ label: "Careers" }]} />
           <div className="max-w-4xl mx-auto text-center mt-14">
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-8"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              We're Hiring
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -653,26 +639,7 @@ const Careers = () => {
           </div>
 
           {/* Internship info banner */}
-          <AnimatePresence mode="wait">
-            {isInternship && (
-              <motion.div
-                key="intern-banner"
-                initial={{ opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                className="max-w-5xl mx-auto mb-8 flex items-start gap-3 px-5 py-4 rounded-2xl bg-primary/5 border border-primary/20"
-              >
-                <GraduationCap className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <p className="text-sm text-foreground/80">
-                  All internships are based at{" "}
-                  <strong>IIT Madras Research Park, Taramani, Chennai</strong>.
-                  Interns receive a certificate of completion, flexible hours,
-                  and a recommendation letter upon successful completion.
-                  Perks include a 5-day work week and an informal work culture.
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          
 
           {/* Cards Grid */}
           <AnimatePresence mode="wait">
