@@ -11,6 +11,7 @@ import {
 import { AnimatePresence } from "framer-motion";
 
 import Index from "./pages/Index";
+import Careers from "@/pages/Career";
 import About from "./pages/About";
 import Products from "./pages/products/Products";
 import Devices from "./pages/products/Devices";
@@ -23,6 +24,7 @@ import Volunteering from "./pages/services/Volunteering";
 import CaseStudies from "./pages/services/CaseStudies";
 import CaseStudyDetail from "./pages/services/CaseStudyDetail";
 import Technology from "./pages/Technology";
+import Testimonials from "@/pages/Testimonials";
 import Research from "./pages/research/Research";
 import FuelCell from "./pages/research/FuelCell";
 import AirQualityData from "./pages/research/AirQualityData";
@@ -100,6 +102,10 @@ const AnimatedRoutes = () => {
           path="/blog/articles/:slug"
           element={<ArticleDetail />}
         />
+
+        <Route path="/testimonials" element={<Testimonials />} />
+        <Route path="/career" element={<Careers />} />
+
 
         <Route path="/contact" element={<Contact />} />
 

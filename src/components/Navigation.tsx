@@ -30,7 +30,18 @@ const Navigation = () => {
 
   const navItems = [
     { label: "Home", path: "/" },
-    { label: "About", path: "/about" },
+
+    {
+      label: "About",
+      path: "/about",
+      dropdown: [
+        { label: "About Us", path: "/about" },
+        { label: "Case Studies", path: "/services/case-studies" },
+        { label: "Technology", path: "/technology" },
+        { label: "Team", path: "/team" },
+        { label: "Blog", path: "/blog" },
+      ],
+    },
 
     {
       label: "Products",
@@ -41,6 +52,7 @@ const Navigation = () => {
         { label: "Software", path: "/products/software" },
       ],
     },
+
     {
       label: "All Services",
       path: "/services",
@@ -51,52 +63,41 @@ const Navigation = () => {
       ],
     },
 
-    { label: "Case Studies", path: "/services/case-studies" },
-    { label: "Technology", path: "/technology" },
-
     {
       label: "Research",
       path: "/research",
       isMega: true,
       dropdown: [
-        { 
-          label: "Fuel Cell Technology", 
+        {
+          label: "Fuel Cell Technology",
           path: "/research/fuel-cell",
           description: "Indigenous MEA fabrication and hybrid architectures.",
-          icon: FlaskConical 
+          icon: FlaskConical,
         },
-        { 
-          label: "Electrochemical Modelling", 
+        {
+          label: "Electrochemical Modelling",
           path: "/research/simulations",
           description: "System-level physics-based simulations and BoP modelling.",
-          icon: Cpu 
+          icon: Cpu,
         },
-        { 
-          label: "Air Quality Data", 
+        {
+          label: "Air Quality Data",
           path: "/research/air-quality-data",
           description: "Real-time monitoring and environmental insights.",
-          icon: BarChart2 
+          icon: BarChart2,
         },
-        { 
-          label: "Research Overview", 
+        {
+          label: "Research Overview",
           path: "/research",
           description: "Our core research areas and focus.",
-          icon: Globe 
+          icon: Globe,
         },
       ],
     },
 
-    { label: "Clients", path: "/clients" },
-    { label: "Team", path: "/team" },
+    { label: "Testimonials", path: "/testimonials" },
 
-    {
-      label: "Blog",
-      path: "/blog",
-      dropdown: [
-        { label: "All Posts", path: "/blog" },
-        { label: "Media", path: "/blog/media" },
-      ],
-    },
+    { label: "Career", path: "/career" },
 
     { label: "Contact", path: "/contact" },
   ];
@@ -108,10 +109,10 @@ const Navigation = () => {
   };
 
   return (
-    <nav 
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-20 ${
-        isScrolled 
-          ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm" 
+        isScrolled
+          ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
           : "bg-transparent border-b border-transparent"
       }`}
     >
@@ -123,9 +124,11 @@ const Navigation = () => {
               alt="Elicius Energy Logo"
               className="h-14 md:h-16 object-contain"
             />
-            <span className={`text-lg font-semibold hidden md:block transition-colors ${
-              isScrolled ? "text-[#243F73]" : "text-[#243F73]"
-            }`}>
+            <span
+              className={`text-lg font-semibold hidden md:block transition-colors ${
+                isScrolled ? "text-[#243F73]" : "text-[#243F73]"
+              }`}
+            >
               Elicius Energy
             </span>
           </Link>
@@ -133,8 +136,8 @@ const Navigation = () => {
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
-              <div 
-                key={item.label} 
+              <div
+                key={item.label}
                 className="relative"
                 onMouseEnter={() => item.dropdown && setActiveDropdown(item.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
@@ -154,8 +157,6 @@ const Navigation = () => {
                           activeDropdown === item.label ? "rotate-180" : ""
                         }`}
                       />
-
-                      {/* Active Indicator Underline */}
                       {isActive(item.path) && (
                         <motion.div
                           layoutId="nav-underline"
@@ -231,7 +232,6 @@ const Navigation = () => {
                     }`}
                   >
                     {item.label}
-                    {/* Active Indicator Underline */}
                     {isActive(item.path) && (
                       <motion.div
                         layoutId="nav-underline"
@@ -257,7 +257,7 @@ const Navigation = () => {
         {/* Mobile Menu */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div 
+            <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -266,7 +266,7 @@ const Navigation = () => {
             >
               <div className="p-4 flex flex-col h-full">
                 <div className="flex items-center justify-between mb-8 h-12">
-                   <Link to="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
+                  <Link to="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
                     <img
                       src="/logo.png"
                       alt="Elicius Energy Logo"
@@ -285,29 +285,31 @@ const Navigation = () => {
                   {navItems.map((item) => (
                     <div key={item.label} className="border-b border-border last:border-0">
                       <div className="flex items-center justify-between">
-                         <Link
+                        <Link
                           to={item.path}
                           onClick={() => setIsOpen(false)}
                           className={`flex-1 block px-4 py-4 text-lg font-medium transition-colors ${
-                            isActive(item.path)
-                              ? "text-primary"
-                              : "hover:text-primary"
+                            isActive(item.path) ? "text-primary" : "hover:text-primary"
                           }`}
                         >
                           {item.label}
                         </Link>
                         {item.dropdown && (
-                          <button 
+                          <button
                             onClick={() => toggleDropdown(item.label)}
                             className="p-4"
                           >
-                            <ChevronDown className={`w-5 h-5 transition-transform ${activeDropdown === item.label ? "rotate-180" : ""}`} />
+                            <ChevronDown
+                              className={`w-5 h-5 transition-transform ${
+                                activeDropdown === item.label ? "rotate-180" : ""
+                              }`}
+                            />
                           </button>
                         )}
                       </div>
 
                       {item.dropdown && activeDropdown === item.label && (
-                        <motion.div 
+                        <motion.div
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           className="bg-muted/30 ml-4 mb-4 rounded-xl overflow-hidden"

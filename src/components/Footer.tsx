@@ -110,7 +110,7 @@ const Footer = () => {
                   href="mailto:contact.elicius@gmail.com"
                   className="hover:text-primary transition-colors"
                 >
-                  admin@eliciusenergy.in
+                  contact.elicius@gmail.com
                 </a>
               </li>
 

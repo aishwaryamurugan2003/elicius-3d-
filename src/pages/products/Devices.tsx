@@ -55,12 +55,15 @@ const Devices = () => {
         </div>
 
         <div className="container-wide relative z-10">
-          <Breadcrumb
-            items={[
-              { label: "Products", path: "/products" },
-              { label: "Devices" },
-            ]}
-          />
+          {/* FIX 1: Wrapper forces white color on all breadcrumb children including the home icon SVG */}
+          <div className="[&_*]:!text-white [&_svg]:!stroke-white [&_a]:!text-white/70 [&_a:hover]:!text-white [&_span]:!text-white">
+            <Breadcrumb
+              items={[
+                { label: "Products", path: "/products" },
+                { label: "Devices" },
+              ]}
+            />
+          </div>
 
           <div className="mt-12 flex flex-col md:flex-row items-center gap-12">
             <motion.div
@@ -89,7 +92,7 @@ const Devices = () => {
                   <Download className="mr-2 w-5 h-5" />
                   Product Brochure
                 </Button>
-                <Button size="lg" variant="outline" className="text-white border-white/20 hover:bg-white/10">
+                <Button size="lg" variant="outline" className="text-black border-black/20 hover:bg-white/10">
                   Explore Technology
                 </Button>
               </div>
@@ -151,9 +154,10 @@ const Devices = () => {
                     <p className="text-xs text-white/70 mb-4">
                       Our engineering team can build bespoke hardware for your specific requirements.
                     </p>
-                    <Button size="sm" variant="outline" className="w-full text-white border-white/20 hover:bg-white/10" onClick={() => navigate('/contact')}>
+                    <Button size="sm" variant="outline" className="w-full text-black border-white/20 hover:bg-white/10" onClick={() => navigate('/contact')}>
                       Contact Us
                     </Button>
+                    
                   </div>
                 </Card>
               </div>
@@ -183,23 +187,27 @@ const Devices = () => {
                             className="w-full h-full object-contain cursor-zoom-in transition-transform duration-700 group-hover:scale-110"
                           />
 
-                          {/* Quick Specs Overlay */}
-                          <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-8 flex flex-col justify-center translate-y-full group-hover:translate-y-0 transform transition-transform duration-500">
-                             <h4 className="text-white font-bold text-lg mb-4">Key Performance</h4>
-                             <div className="space-y-4">
-                               {Object.entries(device.specs).slice(0, 4).map(([key, value]) => (
-                                 <div key={key} className="flex justify-between items-center text-white/90 text-sm border-b border-white/10 pb-2">
-                                   <span className="font-medium">{key}</span>
-                                   <span>{value}</span>
-                                 </div>
-                               ))}
-                             </div>
-                             <Button 
-                              className="mt-8 bg-white text-primary hover:bg-white/90 font-bold"
+                          {/* FIX 2: Quick Specs Overlay — removed conflicting translate-y-full,
+                              uses grid-cols layout so keys never wrap and values align cleanly */}
+                          <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-all duration-500 p-6 flex flex-col justify-center">
+                            <h4 className="text-white font-bold text-base mb-4">Key Performance</h4>
+                            <div className="space-y-3">
+                              {Object.entries(device.specs).slice(0, 4).map(([key, value]) => (
+                                <div
+                                  key={key}
+                                  className="grid grid-cols-[auto_1fr] gap-x-3 items-start text-white/90 text-xs border-b border-white/10 pb-2"
+                                >
+                                  <span className="font-semibold whitespace-nowrap">{key}</span>
+                                  <span className="text-right leading-snug">{value}</span>
+                                </div>
+                              ))}
+                            </div>
+                            <Button
+                              className="mt-6 bg-white text-primary hover:bg-white/90 font-bold text-sm"
                               onClick={() => navigate(`/products/devices/${device.id}`)}
-                             >
+                            >
                               View Detailed Specs
-                             </Button>
+                            </Button>
                           </div>
 
                           <span className="absolute top-4 right-4 text-xs px-4 py-1.5 rounded-full bg-white text-primary shadow-sm font-bold tracking-wide">

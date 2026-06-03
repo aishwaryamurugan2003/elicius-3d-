@@ -62,13 +62,13 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "contact.elicius@gmail.com",
-      link: "mailto:contact.elicius@gmail.com",
+      details: "contact@eliciusenergy.in",
+      link: "mailto:contact@eliciusenergy.in",
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: "+91 81290 62539",
+      details: "+91 89398 90310",
       link: "tel:+918248834909",
     },
     {

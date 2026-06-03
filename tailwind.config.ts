@@ -18,7 +18,6 @@ export default {
       },
     },
     extend: {
-      /* ✅ Added Poppins here */
       fontFamily: {
         sans: ["Poppins", "sans-serif"],
       },
@@ -86,29 +85,33 @@ export default {
         },
         "fade-in": {
           "0%": { opacity: "0", transform: "translateY(10px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" }
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "fade-in-up": {
           "0%": { opacity: "0", transform: "translateY(20px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" }
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "scale-in": {
           "0%": { transform: "scale(0.95)", opacity: "0" },
-          "100%": { transform: "scale(1)", opacity: "1" }
+          "100%": { transform: "scale(1)", opacity: "1" },
         },
         "glow-pulse": {
           "0%, 100%": { boxShadow: "0 0 20px hsl(195 100% 45% / 0.3)" },
-          "50%": { boxShadow: "0 0 40px hsl(195 100% 45% / 0.6)" }
+          "50%": { boxShadow: "0 0 40px hsl(195 100% 45% / 0.6)" },
         },
-        "float": {
+        float: {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-20px)" }
+          "50%": { transform: "translateY(-20px)" },
         },
-        "particle": {
+        particle: {
           "0%": { transform: "translate(0, 0) scale(0)", opacity: "0" },
           "50%": { opacity: "1" },
-          "100%": { transform: "translate(100px, -100px) scale(1)", opacity: "0" }
-        }
+          "100%": { transform: "translate(100px, -100px) scale(1)", opacity: "0" },
+        },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
 
       animation: {
@@ -118,8 +121,9 @@ export default {
         "fade-in-up": "fade-in-up 0.6s ease-out",
         "scale-in": "scale-in 0.3s ease-out",
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
-        "float": "float 6s ease-in-out infinite",
-        "particle": "particle 3s ease-out infinite",
+        float: "float 6s ease-in-out infinite",
+        particle: "particle 3s ease-out infinite",
+        marquee: "marquee 12s linear infinite",
       },
     },
   },
