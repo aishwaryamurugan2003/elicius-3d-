@@ -191,13 +191,13 @@ const Testimonials = () => {
         <div className="container-wide relative z-10">
           <Breadcrumb items={[{ label: "Testimonials & Videos" }]} />
           <div className="max-w-3xl mx-auto text-center mt-14">
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF0000]/10 border border-[#FF0000]/20 text-[#FF0000] text-xs font-bold uppercase tracking-widest mb-8"
             >
               <Youtube className="w-3.5 h-3.5" /> Elicius Energy on YouTube
-            </motion.div>
+            </motion.div> */}
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
