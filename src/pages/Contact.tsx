@@ -28,7 +28,7 @@ const FloatingInput = ({ label, id, ...props }: any) => {
           setHasValue(!!e.target.value);
         }}
         onChange={(e) => setHasValue(!!e.target.value)}
-        className="h-14 px-4 pt-4 bg-white border-muted-foreground/20 focus:border-primary focus:ring-0 transition-all rounded-xl"
+        className="h-14 px-4 pt-4 bg-background border-muted-foreground/20 focus:border-primary focus:ring-0 transition-all rounded-xl"
         {...props}
       />
       <label
@@ -111,11 +111,11 @@ const Contact = () => {
                     href={info.link}
                     className="flex items-center gap-6 group"
                   >
-                    <div className="w-14 h-14 rounded-2xl bg-white shadow-xl shadow-black/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                    <div className="w-14 h-14 rounded-2xl bg-card shadow-xl shadow-black/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
                       <info.icon className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-sm uppercase tracking-widest text-[#243F73]">
+                      <h4 className="font-bold text-sm uppercase tracking-widest text-foreground">
                         {info.title}
                       </h4>
                       <p className="text-lg text-muted-foreground font-medium group-hover:text-primary transition-colors">
@@ -146,7 +146,7 @@ const Contact = () => {
               animate={{ opacity: 1, x: 0 }}
               className="xl:w-[60%]"
             >
-              <Card className="border-0 shadow-2xl shadow-black/5 rounded-[40px] overflow-hidden bg-white/50 backdrop-blur-xl">
+              <Card className="border-0 shadow-2xl shadow-black/5 rounded-[40px] overflow-hidden bg-card/80 backdrop-blur-xl">
                 <div className="p-10 md:p-16">
                   <AnimatePresence mode="wait">
                     {!isSuccess ? (
@@ -167,7 +167,7 @@ const Contact = () => {
                           <Textarea
                             id="message"
                             placeholder="How can we help?"
-                            className="min-h-[160px] p-6 bg-white border-muted-foreground/20 focus:border-primary focus:ring-0 transition-all rounded-2xl resize-none"
+                            className="min-h-[160px] p-6 bg-background border-muted-foreground/20 focus:border-primary focus:ring-0 transition-all rounded-2xl resize-none"
                             required
                           />
                         </div>
@@ -213,7 +213,7 @@ const Contact = () => {
                             <CheckCircle2 className="w-16 h-16" />
                           </motion.div>
                         </div>
-                        <h2 className="text-3xl font-bold mb-4 text-[#243F73]">Message Received!</h2>
+                        <h2 className="text-3xl font-bold mb-4 text-foreground">Message Received!</h2>
                         <p className="text-muted-foreground max-w-sm mb-10 leading-relaxed">
                           Thank you for reaching out. A specialist from our engineering team will get back to you within 24 hours.
                         </p>
