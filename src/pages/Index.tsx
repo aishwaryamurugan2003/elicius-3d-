@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Zap, Shield, TrendingUp, Award } from "lucide-react";
+import { ArrowRight, Zap, Shield, TrendingUp, Award, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ChatBot from "@/components/ui/chatbot/chatbot ";
 import { useState, useRef, useEffect } from "react";
@@ -85,6 +85,24 @@ const clients = [
 ];
 
 const Index = () => {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return document.documentElement.classList.contains("dark");
+  });
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
     <PageLayout>
       {/* ================= HERO ================= */}
@@ -276,6 +294,19 @@ const Index = () => {
 </section>
 
       <ChatBot />
+
+      {/* Floating Theme Toggle */}
+      <button
+        onClick={toggleDarkMode}
+        className="fixed bottom-24 right-6 z-50 p-4 rounded-full bg-primary text-primary-foreground shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center"
+        aria-label="Toggle Dark Mode"
+      >
+        {isDarkMode ? (
+          <Sun className="w-6 h-6 animate-fade-in" />
+        ) : (
+          <Moon className="w-6 h-6 animate-fade-in" />
+        )}
+      </button>
     </PageLayout>
   );
 };
