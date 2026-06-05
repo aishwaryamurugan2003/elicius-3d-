@@ -126,7 +126,7 @@ const Navigation = () => {
             />
             <span
               className={`text-lg font-semibold hidden md:block transition-colors ${
-                isScrolled ? "text-[#243F73]" : "text-[#243F73]"
+                isScrolled ? "text-[#243F73] dark:text-white" : "text-[#243F73] dark:text-white"
               }`}
             >
               Elicius Energy

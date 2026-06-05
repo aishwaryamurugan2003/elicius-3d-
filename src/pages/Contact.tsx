@@ -1,34 +1,42 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, MapPin, Send, CheckCircle2, Linkedin, Twitter, Github } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle2, MessageSquare, Linkedin, Twitter, Github } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
-import { Card } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
-const FloatingInput = ({ label, id, value, onChange, ...props }: any) => {
+const FloatingInput = ({ label, id, ...props }: any) => {
   const [focused, setFocused] = useState(false);
+  const [hasValue, setHasValue] = useState(false);
 
   return (
     <div className="relative mb-8 group">
       <Input
         id={id}
-        value={value}
         onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
-        onChange={onChange}
+        onBlur={(e) => {
+          setFocused(false);
+          setHasValue(!!e.target.value);
+        }}
+        onChange={(e) => setHasValue(!!e.target.value)}
         className="h-14 px-4 pt-4 bg-white border-muted-foreground/20 focus:border-primary focus:ring-0 transition-all rounded-xl"
         {...props}
       />
       <label
         htmlFor={id}
-        className={`absolute left-4 transition-all pointer-events-none ${
-          focused || value
-            ? "top-1 text-[10px] font-bold text-primary"
-            : "top-4 text-sm text-muted-foreground"
-        }`}
+        className={`absolute left-4 transition-all pointer-events-none ${focused || hasValue
+          ? "top-1 text-[10px] font-bold text-primary"
+          : "top-4 text-sm text-muted-foreground"
+          }`}
       >
         {label}
       </label>
@@ -39,54 +47,15 @@ const FloatingInput = ({ label, id, value, onChange, ...props }: any) => {
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState("");
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    interest: "",
-    message: "",
-  });
-
-  const handleChange = (field: string) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prev) => ({ ...prev, [field]: e.target.value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setError("");
-
-    try {
-      // Backend expects multipart/form-data (Form(...)), not JSON
-      const body = new FormData();
-      body.append("name",     formData.name);
-      body.append("email",    formData.email);
-      body.append("phone",    formData.phone);
-      body.append("company",  formData.company);
-      body.append("interest", formData.interest);
-      body.append("message",  formData.message);
-
-      const res = await fetch("http://localhost:8000/contact/", {
-        method: "POST",
-        body,  // DO NOT set Content-Type header — browser sets it automatically with boundary
-      });
-
-      const data = await res.json();
-
-      if (data.status === "error") throw new Error(data.message);
-
-      setIsSuccess(true);
-      setFormData({ name: "", email: "", phone: "", company: "", interest: "", message: "" });
-    } catch (err: any) {
-      setError(err.message || "Failed to send message. Please try again.");
-    } finally {
+    // Simulate API call
+    setTimeout(() => {
       setIsSubmitting(false);
-    }
+      setIsSuccess(true);
+    }, 1500);
   };
 
   const contactInfo = [
@@ -105,14 +74,15 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Visit Us",
-      details: "Gokul Arcade, 4th Floor No: 2, Sardar Patel Road, Adyar, Chennai, Tamil Nadu 600020",
-      link: "https://www.google.com/maps/place/Gokul+Arcade+Complex/@13.0068951,80.248309,17z",
+      details: "Gokul Arcade, 4th Floor No: 2, Sardar Patel Road, Adyar,Chennai, Tamil Nadu 600020",
+      link: "https://www.google.com/maps/place/Gokul+Arcade+Complex/@13.0068951,80.248309,17z/data=!4m6!3m5!1s0x3a5267ec8c7b3c13:0x90c763c42e7001f2!8m2!3d13.0068899!4d80.2508839!16s%2Fg%2F11g01sc0tn?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D",
     },
   ];
 
   return (
     <PageLayout>
       <section className="relative pt-32 pb-20 bg-background overflow-hidden min-h-screen">
+        {/* Background blobs */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
 
@@ -121,15 +91,14 @@ const Contact = () => {
 
           <div className="mt-16 flex flex-col xl:flex-row gap-20">
 
-            {/* LEFT — Contact Info */}
+            {/* CONTACT INFO (2 Columns equivalent) */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               className="xl:w-[40%] flex flex-col"
             >
               <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-8">
-                Let's Build Real-World{" "}
-                <span className="text-primary italic">IoT Solutions</span>
+                Let’s Build Real-World <span className="text-primary italic">IoT Solutions </span>
               </h1>
               <p className="text-xl text-muted-foreground mb-12 max-w-lg leading-relaxed text-balance">
                 Have a question about our fuel cells or air quality monitors? Our technical team is ready to assist.
@@ -137,7 +106,11 @@ const Contact = () => {
 
               <div className="space-y-10 mb-12">
                 {contactInfo.map((info) => (
-                  <a key={info.title} href={info.link} className="flex items-center gap-6 group">
+                  <a
+                    key={info.title}
+                    href={info.link}
+                    className="flex items-center gap-6 group"
+                  >
                     <div className="w-14 h-14 rounded-2xl bg-white shadow-xl shadow-black/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
                       <info.icon className="w-6 h-6" />
                     </div>
@@ -159,10 +132,7 @@ const Contact = () => {
                 </h4>
                 <div className="flex gap-4">
                   {[Linkedin, Twitter, Github].map((Icon, i) => (
-                    <button
-                      key={i}
-                      className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all"
-                    >
+                    <button key={i} className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
                       <Icon className="w-5 h-5" />
                     </button>
                   ))}
@@ -170,7 +140,7 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            {/* RIGHT — Contact Form */}
+            {/* CONTACT FORM (3 Columns equivalent) */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
@@ -187,59 +157,20 @@ const Contact = () => {
                         onSubmit={handleSubmit}
                       >
                         <div className="grid md:grid-cols-2 gap-x-8">
-                          <FloatingInput
-                            label="Full Name"
-                            id="name"
-                            required
-                            value={formData.name}
-                            onChange={handleChange("name")}
-                          />
-                          <FloatingInput
-                            label="Email Address"
-                            id="email"
-                            type="email"
-                            required
-                            value={formData.email}
-                            onChange={handleChange("email")}
-                          />
-                          <FloatingInput
-                            label="Phone Number"
-                            id="phone"
-                            type="tel"
-                            required
-                            value={formData.phone}
-                            onChange={handleChange("phone")}
-                          />
-                          <FloatingInput
-                            label="Company"
-                            id="company"
-                            value={formData.company}
-                            onChange={handleChange("company")}
-                          />
+                          <FloatingInput label="Full Name" id="name" required />
+                          <FloatingInput label="Email Address" id="email" type="email" required />
+                          <FloatingInput label="Company" id="company" required />
+                          <FloatingInput label="Subject" id="subject" required />
                         </div>
-
-                        <FloatingInput
-                          label="Area of Interest"
-                          id="interest"
-                          required
-                          value={formData.interest}
-                          onChange={handleChange("interest")}
-                        />
 
                         <div className="relative mb-10 group">
                           <Textarea
                             id="message"
                             placeholder="How can we help?"
-                            value={formData.message}
-                            onChange={handleChange("message")}
                             className="min-h-[160px] p-6 bg-white border-muted-foreground/20 focus:border-primary focus:ring-0 transition-all rounded-2xl resize-none"
                             required
                           />
                         </div>
-
-                        {error && (
-                          <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
-                        )}
 
                         <Button
                           type="submit"
@@ -249,11 +180,7 @@ const Contact = () => {
                         >
                           {isSubmitting ? (
                             <div className="flex items-center gap-2">
-                              <motion.div
-                                animate={{ rotate: 360 }}
-                                transition={{ repeat: Infinity, duration: 1 }}
-                                className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
-                              />
+                              <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1 }} className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full" />
                               Sending Message...
                             </div>
                           ) : (

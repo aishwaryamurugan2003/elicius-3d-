@@ -9,7 +9,7 @@ interface AnimatedHeroBackgroundProps {
 
 const AnimatedHeroBackground: React.FC<AnimatedHeroBackgroundProps> = ({
   image,
-  overlayOpacity = "bg-white/80",
+  overlayOpacity = "bg-white/80 dark:bg-black/60",
   accentColor = "hsl(var(--primary))",
 }) => {
   // Generate random particles for "Clean Air" representation

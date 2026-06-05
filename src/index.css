@@ -57,6 +57,48 @@
       transparent 60%
     );
   }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 13%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 158 70% 45%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 200 80% 55%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 222 47% 18%;
+    --muted-foreground: 215 20% 75%;
+
+    --accent: 158 70% 45%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 47% 20%;
+    --input: 222 47% 20%;
+    --ring: 158 70% 45%;
+
+    --gradient-soft: linear-gradient(
+      180deg,
+      hsl(var(--primary) / 0.12),
+      hsl(var(--secondary) / 0.08)
+    );
+
+    --gradient-radial: radial-gradient(
+      circle at top,
+      hsl(var(--primary) / 0.2),
+      transparent 70%
+    );
+  }
 }
 
 @layer utilities {
