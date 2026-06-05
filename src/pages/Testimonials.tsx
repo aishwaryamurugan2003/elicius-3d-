@@ -26,9 +26,7 @@ async function resolveChannelId(apiKey: string, channelId: string): Promise<stri
   throw new Error("Could not resolve channel ID. Check your YT_CHANNEL_ID value.");
 }
 
-/** Fetch ALL videos from a channel using the uploads playlist */
 async function fetchAllVideos(apiKey: string, rawChannelId: string): Promise<VideoEntry[]> {
-  // 1. Resolve channel → uploads playlist ID
   const channelId = await resolveChannelId(apiKey, rawChannelId);
 
   const chRes = await fetch(
