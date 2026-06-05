@@ -40,6 +40,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState("");
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [formData, setFormData] = useState({
     name: "",
@@ -70,9 +71,9 @@ const Contact = () => {
       body.append("company",  formData.company);
       body.append("interest", formData.interest);
       body.append("message",  formData.message);
-
-      const res = await fetch("http://localhost:8000/contact/", {
-        method: "POST",
+      
+      const res = await fetch(`${API_URL}/contact/`, {
+          method: "POST",
         body,  // DO NOT set Content-Type header — browser sets it automatically with boundary
       });
 
