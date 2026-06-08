@@ -296,17 +296,22 @@ const Index = () => {
       <ChatBot />
 
       {/* Floating Theme Toggle */}
-      <button
-        onClick={toggleDarkMode}
-        className="fixed bottom-24 right-6 z-50 p-4 rounded-full bg-primary text-primary-foreground shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center"
-        aria-label="Toggle Dark Mode"
-      >
-        {isDarkMode ? (
-          <Sun className="w-6 h-6 animate-fade-in" />
-        ) : (
-          <Moon className="w-6 h-6 animate-fade-in" />
-        )}
-      </button>
+  <button
+  onClick={toggleDarkMode}
+  className="fixed bottom-24 right-6 z-50 p-4 rounded-full bg-primary text-primary-foreground shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group"
+  aria-label="Toggle Dark Mode"
+>
+  {isDarkMode ? (
+    <Sun className="w-6 h-6 animate-fade-in" />
+  ) : (
+    <Moon className="w-6 h-6 animate-fade-in" />
+  )}
+
+  {/* Tooltip */}
+  <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-popover text-popover-foreground text-xs px-2 py-1 shadow opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+    {isDarkMode ? "Light mode" : "Dark mode"}
+  </span>
+</button>
     </PageLayout>
   );
 };
