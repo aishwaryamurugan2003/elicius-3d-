@@ -61,12 +61,12 @@ const FuelCell = () => {
     { label: "Optimization", icon: Rocket, description: "System-level efficiency refinements." },
   ];
 
-  const metrics = [
-    { label: "Power Density", value: 1200, unit: "mW/cm²" },
-    { label: "Durability", value: 5000, unit: "Hours" },
-    { label: "Efficiency", value: 65, unit: "%" },
-    { label: "CO2 Reduction", value: 98, unit: "%" },
-  ];
+  // const metrics = [
+  //   { label: "Power Density", value: 1200, unit: "mW/cm²" },
+  //   { label: "Durability", value: 5000, unit: "Hours" },
+  //   { label: "Efficiency", value: 65, unit: "%" },
+  //   { label: "CO2 Reduction", value: 98, unit: "%" },
+  // ];
 
   const sections = [
     { id: "overview", label: "Overview" },
@@ -146,30 +146,12 @@ const FuelCell = () => {
               transition={{ delay: 0.1 }}
               className="text-xl text-muted-foreground mt-8 leading-relaxed"
             >
-              Indigenous development of PEM fuel cell stacks, optimized for performance, durability, and scalable clean energy deployment.
+              Indigenous development of PEM fuel cell, optimized for performance, durability, and scalable clean energy deployment.
             </motion.p>
           </div>
 
           {/* METRICS GRID */}
-          <div className="grid md:grid-cols-4 gap-8 mt-20 max-w-6xl mx-auto">
-            {metrics.map((m, i) => (
-              <motion.div
-                key={m.label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-muted/30 p-8 rounded-3xl border border-border/50 text-center"
-              >
-                <div className="text-4xl font-black text-primary mb-2">
-                  <CountUp value={m.value} />{m.unit}
-                </div>
-                <div className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
-                  {m.label}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+         
         </div>
       </section>
 
