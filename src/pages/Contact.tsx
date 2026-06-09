@@ -19,16 +19,15 @@ const FloatingInput = ({ label, id, value, onChange, ...props }: any) => {
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         onChange={onChange}
-        className="h-14 px-4 pt-4 bg-white border-muted-foreground/20 focus:border-primary focus:ring-0 transition-all rounded-xl"
+        className="h-14 px-4 pt-4 bg-white text-gray-900 border-muted-foreground/20 focus:border-primary focus:ring-0 transition-all rounded-xl"
         {...props}
       />
       <label
         htmlFor={id}
-        className={`absolute left-4 transition-all pointer-events-none ${
-          focused || value
+        className={`absolute left-4 transition-all pointer-events-none ${focused || value
             ? "top-1 text-[10px] font-bold text-primary"
             : "top-4 text-sm text-muted-foreground"
-        }`}
+          }`}
       >
         {label}
       </label>
@@ -63,18 +62,17 @@ const Contact = () => {
     setError("");
 
     try {
-      // Backend expects multipart/form-data (Form(...)), not JSON
       const body = new FormData();
-      body.append("name",     formData.name);
-      body.append("email",    formData.email);
-      body.append("phone",    formData.phone);
-      body.append("company",  formData.company);
+      body.append("name", formData.name);
+      body.append("email", formData.email);
+      body.append("phone", formData.phone);
+      body.append("company", formData.company);
       body.append("interest", formData.interest);
-      body.append("message",  formData.message);
-      
+      body.append("message", formData.message);
+
       const res = await fetch(`${API_URL}/contact/`, {
-          method: "POST",
-        body,  // DO NOT set Content-Type header — browser sets it automatically with boundary
+        method: "POST",
+        body,
       });
 
       const data = await res.json();
@@ -233,7 +231,7 @@ const Contact = () => {
                             placeholder="How can we help?"
                             value={formData.message}
                             onChange={handleChange("message")}
-                            className="min-h-[160px] p-6 bg-white border-muted-foreground/20 focus:border-primary focus:ring-0 transition-all rounded-2xl resize-none"
+                            className="min-h-[160px] p-6 bg-white text-gray-900 border-muted-foreground/20 focus:border-primary focus:ring-0 transition-all rounded-2xl resize-none"
                             required
                           />
                         </div>
