@@ -97,7 +97,7 @@ const Navigation = () => {
 
     { label: "Testimonials", path: "/testimonials" },
 
-    { label: "Career", path: "/career" },
+    // { label: "Career", path: "/career" },
 
     { label: "Contact", path: "/contact" },
   ];

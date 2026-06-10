@@ -11,7 +11,7 @@ import {
 import { AnimatePresence } from "framer-motion";
 
 import Index from "./pages/Index";
-import Careers from "@/pages/Career";
+// import Careers from "@/pages/Career";
 import About from "./pages/About";
 import Products from "./pages/products/Products";
 import Devices from "./pages/products/Devices";
@@ -104,8 +104,7 @@ const AnimatedRoutes = () => {
         />
 
         <Route path="/testimonials" element={<Testimonials />} />
-        <Route path="/career" element={<Careers />} />
-
+       
 
         <Route path="/contact" element={<Contact />} />
 
