@@ -25,8 +25,8 @@ const FloatingInput = ({ label, id, value, onChange, ...props }: any) => {
       <label
         htmlFor={id}
         className={`absolute left-4 transition-all pointer-events-none ${focused || value
-            ? "top-1 text-[10px] font-bold text-primary"
-            : "top-4 text-sm text-muted-foreground"
+          ? "top-1 text-[10px] font-bold text-primary"
+          : "top-4 text-sm text-muted-foreground"
           }`}
       >
         {label}
@@ -131,8 +131,7 @@ const Contact = () => {
                 <span className="text-primary italic">IoT Solutions</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-12 max-w-lg leading-relaxed text-balance">
-                Have a question about our fuel cells or air quality monitors? Our technical team is ready to assist.
-              </p>
+                Do you have any questions? Our technical team is ready to assist.              </p>
 
               <div className="space-y-10 mb-12">
                 {contactInfo.map((info) => (
