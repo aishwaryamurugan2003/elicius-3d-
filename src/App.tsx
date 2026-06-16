@@ -36,6 +36,7 @@ import ArticleDetail from "./pages/blog/ArticleDetail";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import ElectrochemicalModelling from "./pages/research/Simulations";
+import IndustrialIoT from "./pages/services/IndustrialIoT";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +64,7 @@ const AnimatedRoutes = () => {
         {/* Services Routes */}
         <Route path="/services" element={<Services />} />
         <Route path="/services/data" element={<Data />} />
+        <Route path="/services/industrial-iot" element={<IndustrialIoT />} />
         <Route path="/service/service" element={<Service />} />
         <Route
           path="/services/volunteering"

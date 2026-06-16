@@ -59,6 +59,7 @@ const Navigation = () => {
       dropdown: [
         { label: "All Services", path: "/services" },
         { label: "IoT Training", path: "/services/data" },
+        { label: "Industrial IoT", path: "/services/industrial-iot" },
         { label: "Consultancy Services", path: "/products/service" },
       ],
     },

@@ -72,7 +72,7 @@ const Devices = () => {
               transition={{ duration: 0.6 }}
               className="flex-1 text-left text-white"
             >
-               <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-white text-xs font-semibold mb-6">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-white text-xs font-semibold mb-6">
                 PRO-GRADE IOT SOLUTIONS
               </span>
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
@@ -92,7 +92,7 @@ const Devices = () => {
                   <Download className="mr-2 w-5 h-5" />
                   Product Brochure
                 </Button>
-                <Button size="lg" variant="outline" className="text-black border-black/20 hover:bg-white/10">
+                <Button size="lg" variant="outline" className="text-white border-black/20 hover:bg-white/10">
                   Explore Technology
                 </Button>
               </div>
@@ -106,9 +106,9 @@ const Devices = () => {
             >
               <div className="relative group">
                 <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full scale-110 group-hover:bg-primary/30 transition-all duration-500" />
-                <img 
-                  src={devices[0]?.images[0]} 
-                  alt="Elite AIQ Device" 
+                <img
+                  src={devices[0]?.images[0]}
+                  alt="Elite AIQ Device"
                   className="relative z-10 w-full h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.3)] group-hover:translate-y-[-10px] transition-transform duration-500"
                 />
               </div>
@@ -121,7 +121,7 @@ const Devices = () => {
       <section className="section bg-background">
         <div className="container-wide">
           <div className="flex flex-col lg:flex-row gap-12">
-            
+
             {/* STICKY SIDEBAR */}
             <aside className="lg:w-72 flex-shrink-0">
               <div className="sticky top-32 space-y-8">
@@ -135,11 +135,10 @@ const Devices = () => {
                       <button
                         key={cat}
                         onClick={() => setActiveCategory(cat)}
-                        className={`px-5 py-3 rounded-xl text-sm font-medium transition-all text-left ${
-                          activeCategory === cat
-                            ? "bg-primary text-white shadow-lg shadow-primary/20"
-                            : "bg-muted/50 text-muted-foreground hover:bg-muted"
-                        }`}
+                        className={`px-5 py-3 rounded-xl text-sm font-medium transition-all text-left ${activeCategory === cat
+                          ? "bg-primary text-white shadow-lg shadow-primary/20"
+                          : "bg-muted/50 text-muted-foreground hover:bg-muted"
+                          }`}
                       >
                         {cat}
                       </button>
@@ -154,10 +153,10 @@ const Devices = () => {
                     <p className="text-xs text-white/70 mb-4">
                       Our engineering team can build bespoke hardware for your specific requirements.
                     </p>
-                    <Button size="sm" variant="outline" className="w-full text-black border-white/20 hover:bg-white/10" onClick={() => navigate('/contact')}>
+                    <Button size="sm" variant="outline" className="w-full text-white border-white/20 hover:bg-white/10" onClick={() => navigate('/contact')}>
                       Contact Us
                     </Button>
-                    
+
                   </div>
                 </Card>
               </div>

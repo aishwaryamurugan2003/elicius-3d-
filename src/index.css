@@ -6,87 +6,45 @@
 
 @layer base {
   :root {
-    /* Core */
-    --background: 0 0% 100%;
-    --foreground: 222 22% 20%;
-
-    /* Surfaces */
-    --card: 0 0% 100%;
-    --card-foreground: 222 22% 20%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 22% 20%;
-
-    /* Brand */
-    --primary: 158 70% 38%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 200 80% 45%;
-    --secondary-foreground: 0 0% 100%;
-
-    /* Muted */
-    --muted: 210 35% 96%;
-    --muted-foreground: 222 12% 45%;
-
-    /* Accent */
-    --accent: 158 70% 38%;
-    --accent-foreground: 0 0% 100%;
-
-    /* Status */
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    /* Borders & Inputs */
-    --border: 220 20% 88%;
-    --input: 220 20% 92%;
-    --ring: 158 70% 38%;
-
-    /* Radius */
-    --radius: 1rem;
-
-    /* Gradients */
-    --gradient-soft: linear-gradient(
-      180deg,
-      hsl(var(--primary) / 0.06),
-      hsl(var(--secondary) / 0.04)
-    );
-
-    --gradient-radial: radial-gradient(
-      circle at top,
-      hsl(var(--primary) / 0.12),
-      transparent 60%
-    );
-  }
-
-  .dark {
+    /* Core - Dark theme forced */
     --background: 222 47% 11%;
     --foreground: 210 40% 98%;
 
+    /* Surfaces */
     --card: 222 47% 13%;
     --card-foreground: 210 40% 98%;
 
     --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
 
+    /* Brand */
     --primary: 158 70% 45%;
     --primary-foreground: 222 47% 11%;
 
     --secondary: 200 80% 55%;
     --secondary-foreground: 222 47% 11%;
 
+    /* Muted */
     --muted: 222 47% 18%;
     --muted-foreground: 215 20% 75%;
 
+    /* Accent */
     --accent: 158 70% 45%;
     --accent-foreground: 210 40% 98%;
 
+    /* Status */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
+    /* Borders & Inputs */
     --border: 222 47% 20%;
     --input: 222 47% 20%;
     --ring: 158 70% 45%;
 
+    /* Radius */
+    --radius: 1rem;
+
+    /* Gradients */
     --gradient-soft: linear-gradient(
       180deg,
       hsl(var(--primary) / 0.12),
@@ -98,6 +56,11 @@
       hsl(var(--primary) / 0.2),
       transparent 70%
     );
+
+    /* Carousel Specific Utilities */
+    --color-primary: #6E24FF;
+    --color-secondary: #3B82F6;
+    --color-accent: #10B981;
   }
 }
 
@@ -181,6 +144,14 @@
 
   .link-cta:hover {
     text-decoration: underline;
+  }
+
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-black/30 backdrop-blur-2xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)];
   }
 
   .animate-fade-up {
